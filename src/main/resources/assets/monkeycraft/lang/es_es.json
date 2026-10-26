@@ -1,4 +1,6 @@
 {
   "item.monkeycraft.monkey_skull": "Calavera de mono",
-  "item.monkeycraft.monkey_summon": "Invocador de monos"
+  "item.monkeycraft.monkey_summon": "Invocador de monos",
+
+  "creativetab.monkeycraft.monkeycraft_items": "Monkeycraft"
 }

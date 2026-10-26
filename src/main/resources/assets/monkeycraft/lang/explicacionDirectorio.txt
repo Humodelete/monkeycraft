@@ -7,9 +7,9 @@ Lista de otros posibles idiomas: https://github.com/PandaDevOfficial/Minecraft-A
 
 Estructura de los nomres:
 
-"[item].[id_mod].[nombre_interno]":"[nombre_legible]"
+"[elemento].[id_mod].[nombre_interno]":"[nombre_legible]"
 
-+ item -> Posiblemente una variable que cambie entre items, entidades u otras cosas, pero como estoy escribiendo esto antes de avanzar mucho, quiza me toca callarme la boca
++ elemento -> Tipo de elemento que se va a traducir
 + id_mod -> El id del mod (en este caso monkeycraft)
 + nombre_interno -> El nombre que se le ha dado al item al registrarlo en MonkeyItems.java (Ejemplo: Línea 14 a la hora de
     escribir esta nota, el nombre interno es el string que se encuentra al inicio del parentesis en

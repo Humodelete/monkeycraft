@@ -1,6 +1,7 @@
 package com.clase.monkeycraft;
 
-import com.clase.monkeycraft.item.MonkeyItems;
+import com.clase.monkeycraft.item.CreativeModeModTab;
+import com.clase.monkeycraft.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -30,14 +31,14 @@ public class MonkeyCraft
     public MonkeyCraft()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        MonkeyItems.register(modEventBus);
+        CreativeModeModTab.register(modEventBus);
+
+        ModItems.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -56,8 +57,8 @@ public class MonkeyCraft
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(MonkeyItems.MONKEY_SKULL);
-            event.accept(MonkeyItems.MONKEY_SUMMON);
+            event.accept(ModItems.MONKEY_SKULL);
+            event.accept(ModItems.MONKEY_SUMMON);
         }
     }
 
