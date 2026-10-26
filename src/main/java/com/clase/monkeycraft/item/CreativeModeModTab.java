@@ -21,11 +21,20 @@ public class CreativeModeModTab {
      */
     public static final RegistryObject<CreativeModeTab> MONKEYCRAFT_TAB = CREATIVE_MODE_TAB.register("monkeycraft_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModItems.MONKEY_SKULL.get()))
+                    .icon(() -> new ItemStack(ModItems.MONKEY_SKULL_T0.get()))
+                    .icon(() -> new ItemStack(ModItems.MONKEY_SKULL_T1.get()))
+                    .icon(() -> new ItemStack(ModItems.MONKEY_SKULL_T2.get()))
+                    .icon(() -> new ItemStack(ModItems.MONKEY_SKULL_T3.get()))
                     .title(Component.translatable("creativetab.monkeycraft.monkeycraft_items"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.MONKEY_SKULL.get());
-                        output.accept(ModItems.MONKEY_SUMMON.get());
+                        output.accept(ModItems.MONKEY_SKULL_T0.get());
+                        output.accept(ModItems.MONKEY_SKULL_T1.get());
+                        output.accept(ModItems.MONKEY_SKULL_T2.get());
+                        output.accept(ModItems.MONKEY_SKULL_T3.get());
+                        output.accept(ModItems.MONKEY_SUMMON_T0.get());
+                        output.accept(ModItems.MONKEY_SUMMON_T1.get());
+                        output.accept(ModItems.MONKEY_SUMMON_T2.get());
+                        output.accept(ModItems.MONKEY_SUMMON_T3.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

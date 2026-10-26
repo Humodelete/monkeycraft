@@ -3,7 +3,7 @@ package com.clase.monkeycraft.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -11,8 +11,8 @@ import net.minecraft.world.level.Level;
 /**
  * Class to handle the monkey summoner
  */
-public class MonkeySummon extends Item {
-    public MonkeySummon(Properties properties) {
+public class MonkeySummon1 extends Item {
+    public MonkeySummon1(Properties properties) {
         super(properties);
     }
 
@@ -29,16 +29,16 @@ public class MonkeySummon extends Item {
             Level dimension = context.getLevel();
             BlockPos pos = context.getClickedPos();
 
-            Wolf wolf = EntityType.WOLF.create(dimension); //Replace Wolf with Monkey once it's done
+            Slime slime = EntityType.SLIME.create(dimension); //Replace Wolf with Monkey once it's done
 
-            if (wolf != null) {
-                wolf.moveTo(
+            if (slime != null) {
+                slime.moveTo(
                         pos.getX() + 0.5,
                         pos.getY() + 1,
                         pos.getZ() + 0.5
                 );
 
-                dimension.addFreshEntity(wolf);
+                dimension.addFreshEntity(slime);
             }
         }
 

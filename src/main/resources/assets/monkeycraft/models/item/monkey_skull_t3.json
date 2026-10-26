@@ -1,6 +1,6 @@
 {
   "parent" : "minecraft:item/generated",
   "textures": {
-    "layer0": "monkeycraft:item/monkey_summon"
+    "layer0": "monkeycraft:item/monkey_skull_t3"
   }
 }
