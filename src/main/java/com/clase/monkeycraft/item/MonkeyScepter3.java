@@ -3,7 +3,6 @@ package com.clase.monkeycraft.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
