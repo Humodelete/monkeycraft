@@ -9,10 +9,16 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * Class to add a tab to the creative menu
+ */
 public class CreativeModeModTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MonkeyCraft.MOD_ID);
 
+    /**
+     * Method to add the creative mod tab
+     */
     public static final RegistryObject<CreativeModeTab> MONKEYCRAFT_TAB = CREATIVE_MODE_TAB.register("monkeycraft_tab",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.MONKEY_SKULL.get()))

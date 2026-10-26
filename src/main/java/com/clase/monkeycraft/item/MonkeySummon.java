@@ -1,12 +1,11 @@
 package com.clase.monkeycraft.item;
 
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Wolf;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 /**
@@ -18,37 +17,31 @@ public class MonkeySummon extends Item {
     }
 
     /**
-     * Method to summon an entity on right click with item
-     * @param dimension Current dimension the player is in (Overworld, Nether, End)
-     * @param player Player entity
-     * @param hand The hand of the player (main hand or off-hand)
-     * @return The action of spawning a monkey
+     * Method to spawn monkeys with the monkey spawner
+     * @param context Context of the click (Dimension, player, block...)
+     * @return Returns the spawn
      */
     @Override
-    public InteractionResultHolder<ItemStack> use(
-            Level dimension,
-            Player player,
-            InteractionHand hand
+    public InteractionResult useOn(
+            UseOnContext context
     ) {
-        ItemStack stack = player.getItemInHand(hand);
+        if (!context.getLevel().isClientSide()) {
+            Level dimension = context.getLevel();
+            BlockPos pos = context.getClickedPos();
 
-        if (!dimension.isClientSide) {
-            Wolf monkey = new Wolf(EntityType.WOLF, dimension); //Replace this with a monkey when the mob is ready
+            Wolf wolf = EntityType.WOLF.create(dimension); //Replace Wolf with Monkey once it's done
 
-            monkey.moveTo(      //Figure out how to spawn it where you are looking at instead of on you
-                    player.getX(),
-                    player.getY(),
-                    player.getZ(),
-                    player.getYRot(),
-                    0
-            );
+            if (wolf != null) {
+                wolf.moveTo(
+                        pos.getX() + 0.5,
+                        pos.getY() + 1,
+                        pos.getZ() + 0.5
+                );
 
-            dimension.addFreshEntity(monkey);
+                dimension.addFreshEntity(wolf);
+            }
         }
 
-        return InteractionResultHolder.sidedSuccess(
-                stack,
-                dimension.isClientSide()
-        );
+        return InteractionResult.SUCCESS;
     }
 }

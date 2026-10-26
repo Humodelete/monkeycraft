@@ -35,7 +35,7 @@ public class MonkeyCraft
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
+        //Adds the creative mode tab
         CreativeModeModTab.register(modEventBus);
 
         ModItems.register(modEventBus);
