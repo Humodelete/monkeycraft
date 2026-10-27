@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monkeycraft:monkey_skull_t1"
+    },
+    {
+      "item": "monkeycraft:monkey_scepter_t0"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "monkeycraft:monkey_scepter_t1"
+  }
+}
