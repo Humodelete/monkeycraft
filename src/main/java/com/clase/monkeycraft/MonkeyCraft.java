@@ -57,8 +57,15 @@ public class MonkeyCraft
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.MONKEY_SKULL);
-            event.accept(ModItems.MONKEY_SUMMON);
+            event.accept(ModItems.MONKEY_SKULL_T0);
+            event.accept(ModItems.MONKEY_SKULL_T1);
+            event.accept(ModItems.MONKEY_SKULL_T2);
+            event.accept(ModItems.MONKEY_SKULL_T3);
+
+            event.accept(ModItems.MONKEY_SCEPTER_T0);
+            event.accept(ModItems.MONKEY_SCEPTER_T1);
+            event.accept(ModItems.MONKEY_SCEPTER_T2);
+            event.accept(ModItems.MONKEY_SCEPTER_T3);
         }
     }
 

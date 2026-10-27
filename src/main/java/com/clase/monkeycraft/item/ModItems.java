@@ -23,14 +23,14 @@ public class ModItems {
     public static final RegistryObject<Item> MONKEY_SKULL_T3 = ITEMS.register("monkey_skull_t3",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> MONKEY_SUMMON_T0 = ITEMS.register("monkey_summon_t0",
-            () -> new MonkeySummon0(new Item.Properties()));
-    public static final RegistryObject<Item> MONKEY_SUMMON_T1 = ITEMS.register("monkey_summon_t1",
-            () -> new MonkeySummon1(new Item.Properties()));
-    public static final RegistryObject<Item> MONKEY_SUMMON_T2 = ITEMS.register("monkey_summon_t2",
-            () -> new MonkeySummon2(new Item.Properties()));
-    public static final RegistryObject<Item> MONKEY_SUMMON_T3 = ITEMS.register("monkey_summon_t3",
-            () -> new MonkeySummon3(new Item.Properties()));
+    public static final RegistryObject<Item> MONKEY_SCEPTER_T0 = ITEMS.register("monkey_scepter_t0",
+            () -> new MonkeyScepter0(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MONKEY_SCEPTER_T1 = ITEMS.register("monkey_scepter_t1",
+            () -> new MonkeyScepter1(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MONKEY_SCEPTER_T2 = ITEMS.register("monkey_scepter_t2",
+            () -> new MonkeyScepter2(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MONKEY_SCEPTER_T3 = ITEMS.register("monkey_scepter_t3",
+            () -> new MonkeyScepter3(new Item.Properties().stacksTo(1)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
 

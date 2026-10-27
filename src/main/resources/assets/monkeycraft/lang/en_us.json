@@ -1,6 +1,11 @@
 {
-  "item.monkeycraft.monkey_skull": "Monkey Skull",
-  "item.monkeycraft.monkey_summon": "Monkey Summoner",
-
-  "creativetab.monkeycraft.monkeycraft_items": "Monkeycraft"
+  "item.monkeycraft.monkey_skull_t0": "Monkey Skull t0",
+  "item.monkeycraft.monkey_skull_t1": "Monkey Skull t1",
+  "item.monkeycraft.monkey_skull_t2": "Monkey Skull t2",
+  "item.monkeycraft.monkey_skull_t3": "Monkey Skull t3",
+  "item.monkeycraft.monkey_scepter_t0": "Monkey Scepter t0",
+  "item.monkeycraft.monkey_scepter_t1": "Monkey Scepter t1",
+  "item.monkeycraft.monkey_scepter_t2": "Monkey Scepter t2",
+  "item.monkeycraft.monkey_scepter_t3": "Monkey Scepter t3",
+  "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft"
 }

@@ -11,8 +11,8 @@ import net.minecraft.world.level.Level;
 /**
  * Class to handle the monkey summoner
  */
-public class MonkeySummon2 extends Item {
-    public MonkeySummon2(Properties properties) {
+public class MonkeyScepter2 extends Item {
+    public MonkeyScepter2(Properties properties) {
         super(properties);
     }
 

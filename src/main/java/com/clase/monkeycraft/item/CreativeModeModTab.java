@@ -31,10 +31,10 @@ public class CreativeModeModTab {
                         output.accept(ModItems.MONKEY_SKULL_T1.get());
                         output.accept(ModItems.MONKEY_SKULL_T2.get());
                         output.accept(ModItems.MONKEY_SKULL_T3.get());
-                        output.accept(ModItems.MONKEY_SUMMON_T0.get());
-                        output.accept(ModItems.MONKEY_SUMMON_T1.get());
-                        output.accept(ModItems.MONKEY_SUMMON_T2.get());
-                        output.accept(ModItems.MONKEY_SUMMON_T3.get());
+                        output.accept(ModItems.MONKEY_SCEPTER_T0.get());
+                        output.accept(ModItems.MONKEY_SCEPTER_T1.get());
+                        output.accept(ModItems.MONKEY_SCEPTER_T2.get());
+                        output.accept(ModItems.MONKEY_SCEPTER_T3.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {
