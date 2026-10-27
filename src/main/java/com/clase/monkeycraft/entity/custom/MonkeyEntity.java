@@ -1,5 +1,6 @@
 package com.clase.monkeycraft.entity.custom;
 
+import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.item.ModItems;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
@@ -53,17 +54,28 @@ public class MonkeyEntity extends Animal {
         //return pStack.is(ModItems.BANANA.get());
     }
 
+    @Nullable
     @Override
-    public @Nullable AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return null;
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return ModEntities.MONKEY.get().create(pLevel);
     }
 
     private void setupAnimationStates() {
         if(this.idleAnimationTimeout <= 0) {
             //Tiempo de la animación del idle 3.32. Está puesto 6, para intentar que cambie entre idle y quieto
             this.idleAnimationTimeout = 120;
+            this.idleAnimationState.start(this.tickCount);
         } else {
             --this.idleAnimationTimeout;
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if(this.level().isClientSide()) {
+            this.setupAnimationStates();
         }
     }
 }
