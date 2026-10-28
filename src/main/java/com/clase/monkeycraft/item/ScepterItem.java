@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
@@ -83,7 +85,6 @@ public class ScepterItem extends TieredItem {
                         pos.getY() + 1,
                         pos.getZ() + 0.5
                 );
-
                 dimension.addFreshEntity(summons[selectedPosition]);
                 context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
             }
@@ -93,8 +94,21 @@ public class ScepterItem extends TieredItem {
     }
 
     @Override
-    public boolean mineBlock(ItemStack p_41416_, Level p_41417_, BlockState p_41418_, BlockPos p_41419_, LivingEntity p_41420_) {
-        Tool tool = p_41416_.get(DataComponents.TOOL);
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player,
+                                                  LivingEntity entity, InteractionHand interaction){
+        if(entity.getType().toString().equals("entity.minecraft.wolf") ||
+            entity.getType().toString().equals("entity.minecraft.slime") ||
+            entity.getType().toString().equals("entity.minecraft.skeleton") ||
+            entity.getType().toString().equals("entity.minecraft.zombie")){
+            entity.kill();
+            stack.hurtAndBreak(-1,player, Player.getSlotForHand(interaction));
+        }
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public boolean mineBlock(ItemStack itemStack, Level p_41417_, BlockState p_41418_, BlockPos p_41419_, LivingEntity p_41420_) {
+        Tool tool = itemStack.get(DataComponents.TOOL);
         if (tool == null) {
             return false;
         } else {
