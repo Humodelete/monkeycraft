@@ -1,11 +1,16 @@
 {
   "item.monkeycraft.monkey_skull_t0": "Calavera de mono",
-  "item.monkeycraft.monkey_skull_t1": "Calavera de mono",
-  "item.monkeycraft.monkey_skull_t2": "Calavera de mono",
-  "item.monkeycraft.monkey_skull_t3": "Calavera de mono",
-  "item.monkeycraft.monkey_scepter_t0": "Invocador de monos t0",
-  "item.monkeycraft.monkey_scepter_t1": "Invocador de monos t1",
-  "item.monkeycraft.monkey_scepter_t2": "Invocador de monos t2",
-  "item.monkeycraft.monkey_scepter_t3": "Invocador de monos t3",
+  "item.monkeycraft.monkey_skull_t1": "Calavera de mono refinada",
+  "item.monkeycraft.monkey_skull_t2": "Calavera de mono inundada de almas",
+  "item.monkeycraft.monkey_skull_t3": "Calavera de mono maldita",
+  "item.monkeycraft.monkey_scepter_t0": "Báculo de monos de aprendiz",
+  "item.monkeycraft.monkey_scepter_t1": "Báculo de monos de nigromante",
+  "item.monkeycraft.monkey_scepter_t2": "Báculo de monos de Lich",
+  "item.monkeycraft.monkey_scepter_t3": "Báculo de monos de la Cacería Salvaje",
+  "item.monkeycraft.banana_of_doom_and_despair": "Platano del dolor y la agonía",
+
+  "message.monkeycraft.selected" : "Seleccionado: %s",
+  "message.monkeycraft.low_energy" : "Invocación muy cara, desinvoca una invocación antes",
+
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft"
 }

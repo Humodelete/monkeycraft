@@ -8,18 +8,17 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.context.UseOnContext;
@@ -27,13 +26,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
 
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
+    String scepterId;
+    List<Integer> summonId;
+
     public ScepterItem(Tier tier, Item.Properties properties){
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
+        this.scepterId = UUID.randomUUID().toString();
+        this.summonId = new ArrayList<>();
     }
 
     private static Tool createToolProperties() {
@@ -73,33 +78,45 @@ public class ScepterItem extends TieredItem {
 
 
             if(player.isCrouching()){
-            selectedPosition += 1;
+            this.selectedPosition += 1;
             if(selectedPosition >3){
-                selectedPosition = 0;
+                this.selectedPosition = 0;
             }
             String selectedEntity = summons[selectedPosition].getName().getString();
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Selected: " + selectedEntity));
-            } else if (summons[selectedPosition] != null) {
+                Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", selectedEntity));
+                return InteractionResult.CONSUME;
+            } else if (summons[selectedPosition] != null &&
+            context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 1) {
                 summons[selectedPosition].moveTo(
                         pos.getX() + 0.5,
                         pos.getY() + 1,
                         pos.getZ() + 0.5
                 );
                 dimension.addFreshEntity(summons[selectedPosition]);
+                this.summonId.add(summons[selectedPosition].getId());
                 context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+            } else {
+                Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
             }
         }
-
         return InteractionResult.SUCCESS;
     }
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player,
                                                   LivingEntity entity, InteractionHand interaction){
-        if(entity.getType().toString().equals("entity.minecraft.wolf") ||
-            entity.getType().toString().equals("entity.minecraft.slime") ||
-            entity.getType().toString().equals("entity.minecraft.skeleton") ||
-            entity.getType().toString().equals("entity.minecraft.zombie")){
+        boolean thisScepter= false;
+        for(int id : summonId){
+            if(id == entity.getId()){
+                thisScepter = true;
+            }
+        }
+        if(thisScepter){
+            entity.moveTo(
+                    entity.getX(),
+                    -200,
+                    entity.getZ()
+            );
             entity.kill();
             stack.hurtAndBreak(-1,player, Player.getSlotForHand(interaction));
         }
@@ -114,5 +131,8 @@ public class ScepterItem extends TieredItem {
         } else {
             return true;
         }
+    }
+    public String getScepterId(){
+        return this.scepterId;
     }
 }

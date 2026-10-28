@@ -36,6 +36,9 @@ public class ModItems {
     public static final RegistryObject<Item> MONKEY_SCEPTER_T3 = ITEMS.register("monkey_scepter_t3",
             () -> new ScepterItem(ModScepterTiers.TIER_3, new Item.Properties().attributes(ScepterItem.createAttributes(
                     ModScepterTiers.TIER_3, 1, -1))));
+
+    public static final RegistryObject<Item> BANANA_OF_DOOM_AND_DESPAIR = ITEMS.register("banana_of_doom_and_despair",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.DOOM_AND_DESPAIR)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
 

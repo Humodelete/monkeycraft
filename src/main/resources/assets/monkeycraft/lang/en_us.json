@@ -1,11 +1,16 @@
 {
-  "item.monkeycraft.monkey_skull_t0": "Monkey Skull t0",
-  "item.monkeycraft.monkey_skull_t1": "Monkey Skull t1",
-  "item.monkeycraft.monkey_skull_t2": "Monkey Skull t2",
-  "item.monkeycraft.monkey_skull_t3": "Monkey Skull t3",
-  "item.monkeycraft.monkey_scepter_t0": "Monkey Scepter t0",
-  "item.monkeycraft.monkey_scepter_t1": "Monkey Scepter t1",
-  "item.monkeycraft.monkey_scepter_t2": "Monkey Scepter t2",
-  "item.monkeycraft.monkey_scepter_t3": "Monkey Scepter t3",
+  "item.monkeycraft.monkey_skull_t0": "Monkey skull",
+  "item.monkeycraft.monkey_skull_t1": "Refined monkey skull",
+  "item.monkeycraft.monkey_skull_t2": "Soul-flooding monkey skull",
+  "item.monkeycraft.monkey_skull_t3": "Cursed monkey skull",
+  "item.monkeycraft.monkey_scepter_t0": "Apprentice monkey scepter",
+  "item.monkeycraft.monkey_scepter_t1": "Necromancer monkey scepter",
+  "item.monkeycraft.monkey_scepter_t2": "Lich monkey scepter",
+  "item.monkeycraft.monkey_scepter_t3": "Monkey scepter of the Wild Hunt",
+  "item.monkeycraft.banana_of_doom_and_despair": "Banana of doom and despair",
+
+  "message.monkeycraft.selected" : "Selected: %s",
+  "message.monkeycraft.low_energy" : "Summon too expensive, recall other summons first",
+
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft"
 }
