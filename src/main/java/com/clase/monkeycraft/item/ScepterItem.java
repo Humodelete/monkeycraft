@@ -23,7 +23,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.TickEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +33,8 @@ public class ScepterItem extends TieredItem {
     String scepterId;
     List<Entity> summonedEntities;
 
-    public ScepterItem(Tier tier, Item.Properties properties){
+    public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
-        this.scepterId = UUID.randomUUID().toString();
         this.summonedEntities = new ArrayList<>();
     }
 
@@ -48,12 +46,12 @@ public class ScepterItem extends TieredItem {
         return ItemAttributeModifiers.builder()
                 .add(
                         Attributes.ATTACK_DAMAGE,
-                        new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)((float)attackDamage + tier.getAttackDamageBonus()),
+                        new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double) ((float) attackDamage + tier.getAttackDamageBonus()),
                                 AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND
                 )
                 .add(
-                        Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double)attackSpeed,
+                        Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double) attackSpeed,
                                 AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND
                 )
                 .build();
@@ -63,6 +61,9 @@ public class ScepterItem extends TieredItem {
     public InteractionResult useOn(
             UseOnContext context
     ) {
+        if (this.scepterId == null) {
+            this.scepterId = UUID.randomUUID().toString();
+        }
         if (!context.getLevel().isClientSide()) {
             Level dimension = context.getLevel();
             BlockPos pos = context.getClickedPos();
@@ -76,16 +77,13 @@ public class ScepterItem extends TieredItem {
             Entity[] summons = {wolf, slime, zombie, skeleton};
 
 
-            if(player.isCrouching()){
-            this.selectedPosition += 1;
-            if(selectedPosition >3){
-                this.selectedPosition = 0;
-            }
-            String selectedEntity = summons[selectedPosition].getName().getString();
+            if (player.isCrouching()) {
+                cicleSelectedPosition();
+                String selectedEntity = summons[selectedPosition].getName().getString();
                 Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", selectedEntity));
                 return InteractionResult.CONSUME;
             } else if (summons[selectedPosition] != null &&
-            context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 1) {
+                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 1) {
                 summons[selectedPosition].moveTo(
                         pos.getX() + 0.5,
                         pos.getY() + 1,
@@ -103,32 +101,61 @@ public class ScepterItem extends TieredItem {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player,
-                                                  LivingEntity entity, InteractionHand interaction){
-        boolean thisScepter= false;
-        for(Entity summonEntity : summonedEntities){
-            if(summonEntity == entity){
+                                                  LivingEntity entity, InteractionHand interaction) {
+        if (this.scepterId == null) {
+            this.scepterId = UUID.randomUUID().toString();
+        }
+        boolean thisScepter = false;
+        for (Entity summonEntity : summonedEntities) {
+            if (summonEntity == entity) {
                 thisScepter = true;
             }
         }
-        if(thisScepter){
+        if (thisScepter) {
             entity.moveTo(
                     entity.getX(),
                     -200,
                     entity.getZ()
             );
             entity.kill();
-            stack.hurtAndBreak(-1,player, Player.getSlotForHand(interaction));
+            stack.hurtAndBreak(-1, player, Player.getSlotForHand(interaction));
         }
         return InteractionResult.SUCCESS;
     }
 
     @Override
     public boolean mineBlock(ItemStack itemStack, Level p_41417_, BlockState p_41418_, BlockPos p_41419_, LivingEntity p_41420_) {
+        if (this.scepterId == null) {
+            this.scepterId = UUID.randomUUID().toString();
+        }
         Tool tool = itemStack.get(DataComponents.TOOL);
         if (tool == null) {
             return false;
         } else {
             return true;
+        }
+    }
+    public int getSelectedPosition(){
+        return  selectedPosition;
+    }
+    public void cicleSelectedPosition(){
+        this.selectedPosition += 1;
+        if (selectedPosition > 3) {
+            this.selectedPosition = 0;
+        }
+        switch (this.selectedPosition){
+            case 0 -> Minecraft.getInstance().player.sendSystemMessage(
+                    Component.translatable("message.monkeycraft.selected",
+                            Component.translatable("entity.minecraft.wolf")));
+            case 1 -> Minecraft.getInstance().player.sendSystemMessage(
+                    Component.translatable("message.monkeycraft.selected",
+                            Component.translatable("entity.minecraft.slime")));
+            case 2 -> Minecraft.getInstance().player.sendSystemMessage(
+                    Component.translatable("message.monkeycraft.selected",
+                            Component.translatable("entity.minecraft.zombie")));
+            case 3 -> Minecraft.getInstance().player.sendSystemMessage(
+                    Component.translatable("message.monkeycraft.selected",
+                            Component.translatable("entity.minecraft.skeleton")));
         }
     }
 }

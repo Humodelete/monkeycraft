@@ -2,12 +2,14 @@ package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
+import com.clase.monkeycraft.item.ScepterItem;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import cpw.mods.util.Lazy;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -24,7 +26,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 
@@ -55,6 +56,9 @@ public class MonkeyCraft
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        modEventBus.addListener(this::registerBindings);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -100,6 +104,40 @@ public class MonkeyCraft
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+    }
+
+    public static final Lazy<KeyMapping> SCEPTER_KEY = Lazy.of (() ->
+            new KeyMapping("key.monkeycraft.change_summon",
+                    KeyConflictContext.IN_GAME,
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_R,
+                    "key.categories.monkeycraft.key_category"));
+
+    @SubscribeEvent
+    public void registerBindings(RegisterKeyMappingsEvent event){
+        event.register(SCEPTER_KEY.get());
+    }
+    @SubscribeEvent
+    public void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase == TickEvent.Phase.END) { // Only call code once as the tick event is called twice every tick
+            while (SCEPTER_KEY.get().consumeClick()) {
+                // Execute logic to perform on click here
+                String heldItem = String.valueOf(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem()
+                        .getName(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND)));
+                /*String scepterIdentifying = "translation{key='item.monkeycraft.monkey_scepter_t%s', args=[]}";
+                for(int i =0; i<4; i++){
+                    scepterIdentifying = scepterIdentifying, i;
+                }*/
+                if(heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t0', args=[]}")
+                || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t1', args=[]}")
+                || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t2', args=[]}")
+                || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t3', args=[]}"))
+                {
+                    ScepterItem scepter = (ScepterItem)Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem();
+                    scepter.cicleSelectedPosition();
+                }
+            }
         }
     }
 }
