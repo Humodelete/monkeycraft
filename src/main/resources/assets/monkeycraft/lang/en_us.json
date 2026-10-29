@@ -1,5 +1,5 @@
 {
-  "item.monkeycraft.monkey_skull_t0": "Monkey skull",
+  "block.monkeycraft.monkey_skull_t0": "Monkey skull",
   "item.monkeycraft.monkey_skull_t1": "Refined monkey skull",
   "item.monkeycraft.monkey_skull_t2": "Soul-flooding monkey skull",
   "item.monkeycraft.monkey_skull_t3": "Cursed monkey skull",
@@ -16,4 +16,5 @@
 
   "key.monkeycraft.change_summon": "Change summon",
   "key.categories.monkeycraft.key_category": "Monkeycraft"
+  "entity.monkeycraft.monkey": "Monkey"
 }

@@ -1,7 +1,9 @@
 package com.clase.monkeycraft.item;
 
 import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.util.ModScepterTiers;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,7 +18,7 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, MonkeyCraft.MOD_ID);
 
     public static final RegistryObject<Item> MONKEY_SKULL_T0 = ITEMS.register("monkey_skull_t0",
-            () -> new Item(new Item.Properties()));
+            () -> new BlockItem(ModBlocks.SKULL.get(), new Item.Properties()));
     public static final RegistryObject<Item> MONKEY_SKULL_T1 = ITEMS.register("monkey_skull_t1",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MONKEY_SKULL_T2 = ITEMS.register("monkey_skull_t2",

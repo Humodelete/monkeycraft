@@ -1,5 +1,8 @@
 package com.clase.monkeycraft;
 
+import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.entity.client.MonkeyRenderer;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
@@ -9,6 +12,7 @@ import cpw.mods.util.Lazy;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -48,7 +52,8 @@ public class MonkeyCraft
         CreativeModeModTab.register(modEventBus);
 
         ModItems.register(modEventBus);
-
+        ModEntities.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -103,6 +108,8 @@ public class MonkeyCraft
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
         }
     }
 
