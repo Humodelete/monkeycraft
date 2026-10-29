@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "monkeycraft:block/skull"
+    },
+    "facing=south": {
+      "model": "monkeycraft:block/skull",
+      "y": 180
+    },
+    "facing=east":  {
+      "model": "monkeycraft:block/skull",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "monkeycraft:block/skull",
+      "y": 270
+    }
+  }
+}
