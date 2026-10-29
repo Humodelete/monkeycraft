@@ -1,5 +1,6 @@
 package com.clase.monkeycraft;
 
+import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.mojang.logging.LogUtils;
@@ -39,6 +40,7 @@ public class MonkeyCraft
         CreativeModeModTab.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModEntities.register(modEventBus);
 
 
         // Register the item to a creative tab
