@@ -12,5 +12,7 @@
   "message.monkeycraft.selected" : "Selected: %s",
   "message.monkeycraft.low_energy" : "Summon too expensive, recall other summons first",
 
-  "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft"
+  "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
+
+  "entity.monkeycraft.monkey": "Monkey"
 }

@@ -1,10 +1,12 @@
 package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.entity.client.MonkeyRenderer;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -93,6 +95,8 @@ public class MonkeyCraft
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
         }
     }
 }
