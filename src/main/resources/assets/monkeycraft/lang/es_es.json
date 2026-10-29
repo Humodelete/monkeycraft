@@ -12,5 +12,8 @@
   "message.monkeycraft.selected" : "Seleccionado: %s",
   "message.monkeycraft.low_energy" : "Invocación muy cara, desinvoca una invocación antes",
 
-  "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft"
+  "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
+
+  "key.monkeycraft.change_summon": "Cambiar invocación",
+  "key.categories.monkeycraft.key_category": "Monkeycraft"
 }
