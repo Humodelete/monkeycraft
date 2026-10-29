@@ -8,12 +8,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Wolf;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.monster.Zombie;
@@ -33,12 +31,12 @@ import java.util.UUID;
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
     String scepterId;
-    List<Integer> summonId;
+    List<Entity> summonedEntities;
 
     public ScepterItem(Tier tier, Item.Properties properties){
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
         this.scepterId = UUID.randomUUID().toString();
-        this.summonId = new ArrayList<>();
+        this.summonedEntities = new ArrayList<>();
     }
 
     private static Tool createToolProperties() {
@@ -93,7 +91,7 @@ public class ScepterItem extends TieredItem {
                         pos.getZ() + 0.5
                 );
                 dimension.addFreshEntity(summons[selectedPosition]);
-                this.summonId.add(summons[selectedPosition].getId());
+                this.summonedEntities.add(summons[selectedPosition]);
                 context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
             } else {
                 Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
@@ -106,8 +104,8 @@ public class ScepterItem extends TieredItem {
     public InteractionResult interactLivingEntity(ItemStack stack, Player player,
                                                   LivingEntity entity, InteractionHand interaction){
         boolean thisScepter= false;
-        for(int id : summonId){
-            if(id == entity.getId()){
+        for(Entity summonEntity : summonedEntities){
+            if(summonEntity == entity){
                 thisScepter = true;
             }
         }
