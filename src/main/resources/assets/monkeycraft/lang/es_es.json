@@ -14,5 +14,7 @@
 
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
 
+  "key.monkeycraft.change_summon": "Cambiar invocación",
+  "key.categories.monkeycraft.key_category": "Monkeycraft"
   "entity.monkeycraft.monkey": "Mono"
 }
