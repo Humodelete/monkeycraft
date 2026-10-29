@@ -77,12 +77,7 @@ public class ScepterItem extends TieredItem {
             Entity[] summons = {wolf, slime, zombie, skeleton};
 
 
-            if (player.isCrouching()) {
-                cicleSelectedPosition();
-                String selectedEntity = summons[selectedPosition].getName().getString();
-                Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", selectedEntity));
-                return InteractionResult.CONSUME;
-            } else if (summons[selectedPosition] != null &&
+            if (summons[selectedPosition] != null &&
                     context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 1) {
                 summons[selectedPosition].moveTo(
                         pos.getX() + 0.5,
