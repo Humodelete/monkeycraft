@@ -56,17 +56,22 @@ public class MonkeyCraft
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.MONKEY_SKULL_T0);
             event.accept(ModItems.MONKEY_SKULL_T1);
             event.accept(ModItems.MONKEY_SKULL_T2);
             event.accept(ModItems.MONKEY_SKULL_T3);
-
+        }
+        if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);
             event.accept(ModItems.MONKEY_SCEPTER_T1);
             event.accept(ModItems.MONKEY_SCEPTER_T2);
             event.accept(ModItems.MONKEY_SCEPTER_T3);
         }
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
+            event.accept((ModItems.BANANA_OF_DOOM_AND_DESPAIR));
+        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

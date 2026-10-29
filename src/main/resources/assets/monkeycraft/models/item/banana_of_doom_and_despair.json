@@ -1,0 +1,6 @@
+{
+  "parent" : "minecraft:item/generated",
+  "textures": {
+    "layer0": "monkeycraft:item/banana_of_doom_and_despair"
+  }
+}

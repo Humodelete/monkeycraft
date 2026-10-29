@@ -1,6 +1,7 @@
 package com.clase.monkeycraft.item;
 
 import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.util.ModScepterTiers;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,13 +25,20 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> MONKEY_SCEPTER_T0 = ITEMS.register("monkey_scepter_t0",
-            () -> new MonkeyScepter0(new Item.Properties().stacksTo(1)));
+            () -> new ScepterItem(ModScepterTiers.TIER_0, new Item.Properties().attributes(ScepterItem.createAttributes(
+                    ModScepterTiers.TIER_0, 1, -1))));
     public static final RegistryObject<Item> MONKEY_SCEPTER_T1 = ITEMS.register("monkey_scepter_t1",
-            () -> new MonkeyScepter1(new Item.Properties().stacksTo(1)));
+            () -> new ScepterItem(ModScepterTiers.TIER_1, new Item.Properties().attributes(ScepterItem.createAttributes(
+                    ModScepterTiers.TIER_1, 1, -1))));
     public static final RegistryObject<Item> MONKEY_SCEPTER_T2 = ITEMS.register("monkey_scepter_t2",
-            () -> new MonkeyScepter2(new Item.Properties().stacksTo(1)));
+            () -> new ScepterItem(ModScepterTiers.TIER_2, new Item.Properties().attributes(ScepterItem.createAttributes(
+                    ModScepterTiers.TIER_2, 1, -1))));
     public static final RegistryObject<Item> MONKEY_SCEPTER_T3 = ITEMS.register("monkey_scepter_t3",
-            () -> new MonkeyScepter3(new Item.Properties().stacksTo(1)));
+            () -> new ScepterItem(ModScepterTiers.TIER_3, new Item.Properties().attributes(ScepterItem.createAttributes(
+                    ModScepterTiers.TIER_3, 1, -1))));
+
+    public static final RegistryObject<Item> BANANA_OF_DOOM_AND_DESPAIR = ITEMS.register("banana_of_doom_and_despair",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.DOOM_AND_DESPAIR)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
 

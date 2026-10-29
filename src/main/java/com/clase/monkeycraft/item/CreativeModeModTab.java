@@ -35,6 +35,7 @@ public class CreativeModeModTab {
                         output.accept(ModItems.MONKEY_SCEPTER_T1.get());
                         output.accept(ModItems.MONKEY_SCEPTER_T2.get());
                         output.accept(ModItems.MONKEY_SCEPTER_T3.get());
+                        output.accept(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {
