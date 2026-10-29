@@ -23,6 +23,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.event.TickEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -129,8 +130,5 @@ public class ScepterItem extends TieredItem {
         } else {
             return true;
         }
-    }
-    public String getScepterId(){
-        return this.scepterId;
     }
 }

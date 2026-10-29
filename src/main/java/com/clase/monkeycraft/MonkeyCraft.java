@@ -97,17 +97,5 @@ public class MonkeyCraft
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
-
-        private static final KeyMapping MenuKey = new KeyMapping("key.menu",
-                KeyConflictContext.UNIVERSAL,
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_R,
-                KeyMapping.CATEGORY_GAMEPLAY);
-
-        @SubscribeEvent
-        public static void registerKeyBinds (FMLClientSetupEvent event){
-
-        }
-
     }
 }

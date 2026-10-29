@@ -1,13 +1,23 @@
 package com.clase.monkeycraft.util;
 
+import com.mojang.blaze3d.platform.InputConstants;
+import net.minecraft.client.KeyMapping;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import org.lwjgl.glfw.GLFW;
+
 import javax.swing.text.JTextComponent;
 
+@Mod.EventBusSubscriber
 public class KeyBindingList {
-    public static JTextComponent.KeyBinding[] ModKeyBindings;
+    private static final KeyMapping SCEPTER_KEY = new KeyMapping("key.monkeycraft.change_summon",
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_R,
+            "key.categories.monkeycraft.key_category");
 
-    public static void register(){
-        ModKeyBindings = new JTextComponent.KeyBinding[1];
+    @SubscribeEvent
+    public static void registerKeyBinds (FMLClientSetupEvent event){
 
-        ModKeyBindings[0] = new JTextComponent.KeyBinding("key.monkeycraft.selector", 342, "key.monkeycraft.category");
     }
 }
