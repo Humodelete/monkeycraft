@@ -1,6 +1,18 @@
 {
-  "item.monkeycraft.monkey_skull": "Monkey Skull",
-  "item.monkeycraft.monkey_summon": "Monkey Summoner",
+  "item.monkeycraft.monkey_skull_t0": "Monkey skull",
+  "item.monkeycraft.monkey_skull_t1": "Refined monkey skull",
+  "item.monkeycraft.monkey_skull_t2": "Soul-flooding monkey skull",
+  "item.monkeycraft.monkey_skull_t3": "Cursed monkey skull",
+  "item.monkeycraft.monkey_scepter_t0": "Apprentice monkey scepter",
+  "item.monkeycraft.monkey_scepter_t1": "Necromancer monkey scepter",
+  "item.monkeycraft.monkey_scepter_t2": "Lich monkey scepter",
+  "item.monkeycraft.monkey_scepter_t3": "Monkey scepter of the Wild Hunt",
+  "item.monkeycraft.banana_of_doom_and_despair": "Banana of doom and despair",
 
-  "creativetab.monkeycraft.monkeycraft_items": "Monkeycraft"
+  "message.monkeycraft.selected" : "Selected: %s",
+  "message.monkeycraft.low_energy" : "Summon too expensive, recall other summons first",
+
+  "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
+
+  "entity.monkeycraft.monkey": "Monkey"
 }

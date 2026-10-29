@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "monkeycraft:monkey_skull_t0"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "pattern": [
+    "#R ",
+    "LS ",
+    "  S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monkeycraft:monkey_scepter_t0"
+  }
+}

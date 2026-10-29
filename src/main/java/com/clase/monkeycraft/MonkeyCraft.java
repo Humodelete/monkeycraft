@@ -1,10 +1,12 @@
 package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.entity.client.MonkeyRenderer;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -58,10 +60,22 @@ public class MonkeyCraft
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.MONKEY_SKULL);
-            event.accept(ModItems.MONKEY_SUMMON);
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.MONKEY_SKULL_T0);
+            event.accept(ModItems.MONKEY_SKULL_T1);
+            event.accept(ModItems.MONKEY_SKULL_T2);
+            event.accept(ModItems.MONKEY_SKULL_T3);
         }
+        if(event.getTabKey() == CreativeModeTabs.COMBAT){
+            event.accept(ModItems.MONKEY_SCEPTER_T0);
+            event.accept(ModItems.MONKEY_SCEPTER_T1);
+            event.accept(ModItems.MONKEY_SCEPTER_T2);
+            event.accept(ModItems.MONKEY_SCEPTER_T3);
+        }
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
+            event.accept((ModItems.BANANA_OF_DOOM_AND_DESPAIR));
+        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -81,6 +95,8 @@ public class MonkeyCraft
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
         }
     }
 }

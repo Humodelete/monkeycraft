@@ -19,7 +19,7 @@ public class MonkeyEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    protected MonkeyEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    public MonkeyEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 

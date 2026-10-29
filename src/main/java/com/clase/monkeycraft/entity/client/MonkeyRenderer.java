@@ -15,7 +15,7 @@ public class MonkeyRenderer extends MobRenderer<MonkeyEntity, MonkeyModel<Monkey
 
     @Override
     public ResourceLocation getTextureLocation(MonkeyEntity pEntity) {
-        return ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/monkeys/monkey.png");
+        return ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/monkey/monkey.png");
     }
 
     @Override
