@@ -5,6 +5,7 @@
     "parent": "monkeycraft:item/gui_scepter_t3"
   },
   "perspectives": {
+    "ground": { "parent": "monkeycraft:item/handheld_scepter_t3" },
     "firstperson_righthand": { "parent": "monkeycraft:item/handheld_scepter_t3" },
     "thirdperson_righthand": { "parent": "monkeycraft:item/handheld_scepter_t3" },
     "firstperson_lefthand": { "parent": "monkeycraft:item/handheld_scepter_t3" },
