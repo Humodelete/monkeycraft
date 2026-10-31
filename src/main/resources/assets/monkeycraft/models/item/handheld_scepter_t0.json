@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "monkeycraft:item/handheld_scepter_t1"
+    "layer0": "monkeycraft:item/handheld_scepter_t0"
   },
   "display": {
     "thirdperson_righthand": {
@@ -9,8 +9,9 @@
       "scale": [1.2, 1.2, 1.2]
     },
     "firstperson_righthand": {
+      "rotation": [0, -55, 25],
       "translation": [0, 0, 0],
-      "scale": [1.2, 1.2, 0.5]
+      "scale": [1.2, 1.2, 1]
     }
   }
 }
