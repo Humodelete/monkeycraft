@@ -1,6 +1,13 @@
 {
-  "parent" : "minecraft:item/generated",
-  "textures": {
-    "layer0": "monkeycraft:item/monkey_scepter_t3"
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "monkeycraft:item/gui_scepter_t3"
+  },
+  "perspectives": {
+    "firstperson_righthand": { "parent": "monkeycraft:item/handheld_scepter_t3" },
+    "thirdperson_righthand": { "parent": "monkeycraft:item/handheld_scepter_t3" },
+    "firstperson_lefthand": { "parent": "monkeycraft:item/handheld_scepter_t3" },
+    "thirdperson_lefthand": { "parent": "monkeycraft:item/handheld_scepter_t2" }
   }
 }
