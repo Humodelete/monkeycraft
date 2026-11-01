@@ -16,6 +16,8 @@ public class ModEvents {
     public static void onBrewingRecipeRegister(BrewingRecipeRegisterEvent event) {
         PotionBrewing.Builder builder = event.getBuilder();
 
-        builder.addMix(Potions.AWKWARD, ModItems.BANANA_OF_DOOM_AND_DESPAIR.get(), ModPotions.DOOM_POTION.getHolder().get());    }
-
+        builder.addMix(Potions.AWKWARD, ModItems.BANANA_OF_DOOM_AND_DESPAIR.get(), ModPotions.DOOM_POTION.getHolder().get());
+        builder.addMix(ModPotions.DOOM_POTION.getHolder().get(), Items.REDSTONE, ModPotions.LONG_DOOM_POTION.getHolder().get());
+        builder.addMix(ModPotions.DOOM_POTION.getHolder().get(), Items.GLOWSTONE_DUST, ModPotions.STRONG_DOOM_POTION.getHolder().get());
+    }
 }

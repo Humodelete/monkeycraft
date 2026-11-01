@@ -41,6 +41,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> BANANA_OF_DOOM_AND_DESPAIR = ITEMS.register("banana_of_doom_and_despair",
             () -> new Item(new Item.Properties().food(ModFoodProperties.DOOM_AND_DESPAIR)));
+    public static final RegistryObject<Item> BANANA = ITEMS.register("banana",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.BANANA)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
 

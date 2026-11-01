@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monkeycraft:banana_of_doom_and_despair",
+          "name": "monkeycraft:banana",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -45,6 +45,30 @@
                 "type": "minecraft:linear",
                 "base": 0.13,
                 "per_level_above_first": 0.03
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "monkeycraft:banana_of_doom_and_despair",
+          "conditions": [
+            {
+              "condition": "minecraft:killed_by_player"
+            },
+            {
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
+              "enchantment": "minecraft:looting",
+              "unenchanted_chance": 0.015,
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.025,
+                "per_level_above_first": 0.01
               }
             }
           ]

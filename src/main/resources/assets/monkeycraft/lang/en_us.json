@@ -8,6 +8,8 @@
   "item.monkeycraft.monkey_scepter_t2": "Lich monkey scepter",
   "item.monkeycraft.monkey_scepter_t3": "Monkey scepter of the Wild Hunt",
   "item.monkeycraft.banana_of_doom_and_despair": "Banana of doom and despair",
+  "item.monkeycraft.banana": "Banana",
+
 
   "message.monkeycraft.selected" : "Selected: %s",
   "message.monkeycraft.low_energy" : "Summon too expensive, recall other summons first",
@@ -22,5 +24,15 @@
   "item.minecraft.potion.effect.doom_potion": "Potion of Doom",
   "item.minecraft.splash_potion.effect.doom_potion": "Splash Potion of Doom",
   "item.minecraft.lingering_potion.effect.doom_potion": "Lingering Potion of Doom",
-  "item.minecraft.tipped_arrow.effect.doom_potion": "Arrow of Doom"
+  "item.minecraft.tipped_arrow.effect.doom_potion": "Arrow of Doom",
+
+  "item.minecraft.potion.effect.long_doom_potion": "Potion of Doom",
+  "item.minecraft.splash_potion.effect.long_doom_potion": "Splash Potion of Doom",
+  "item.minecraft.lingering_potion.effect.long_doom_potion": "Lingering Potion of Doom",
+  "item.minecraft.tipped_arrow.effect.long_doom_potion": "Arrow of Doom",
+
+  "item.minecraft.potion.effect.strong_doom_potion": "Potion of Doom",
+  "item.minecraft.splash_potion.effect.strong_doom_potion": "Splash Potion of Doom",
+  "item.minecraft.lingering_potion.effect.strong_doom_potion": "Lingering Potion of Doom",
+  "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Arrow of Doom"
 }

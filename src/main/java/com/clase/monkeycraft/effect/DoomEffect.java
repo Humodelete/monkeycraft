@@ -12,7 +12,6 @@ public class DoomEffect extends MobEffect {
     public DoomEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
 
-        // Atributos internos (Ocultos en el inventario)
         this.addAttributeModifier(Attributes.MOVEMENT_SPEED,
                 ResourceLocation.parse("monkeycraft:doom_slowness"),
                 -0.15D, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
@@ -24,13 +23,14 @@ public class DoomEffect extends MobEffect {
 
     @Override
     public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.hurt(pLivingEntity.damageSources().magic(), 2.0F);
+        float damage = 2.0F + (pAmplifier * 1.0F);
+
+        pLivingEntity.hurt(pLivingEntity.damageSources().magic(), damage);
         return true;
     }
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
-        int rate = 20;
-        return pDuration % rate == 0;
+        return pDuration % 20 == 0;
     }
 }

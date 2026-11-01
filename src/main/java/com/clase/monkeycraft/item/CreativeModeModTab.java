@@ -5,7 +5,6 @@ import com.clase.monkeycraft.potion.ModPotions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -37,11 +36,24 @@ public class CreativeModeModTab {
                         output.accept(ModItems.MONKEY_SCEPTER_T2.get());
                         output.accept(ModItems.MONKEY_SCEPTER_T3.get());
                         output.accept(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get());
+                        output.accept(ModItems.BANANA.get());
 
+                        // Base effect
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
 
                     }).build());
 

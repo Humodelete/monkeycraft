@@ -16,8 +16,13 @@ public class ModPotions {
     public static final RegistryObject<Potion> DOOM_POTION = POTIONS.register("doom_potion",
             () -> new Potion(new MobEffectInstance(ModEffects.DOOM.getHolder().get(), 600, 0)));
 
+    public static final RegistryObject<Potion> LONG_DOOM_POTION = POTIONS.register("long_doom_potion",
+            () -> new Potion(new MobEffectInstance(ModEffects.DOOM.getHolder().get(), 1800, 0)));
+
+    public static final RegistryObject<Potion> STRONG_DOOM_POTION = POTIONS.register("strong_doom_potion",
+            () -> new Potion(new MobEffectInstance(ModEffects.DOOM.getHolder().get(), 440, 1)));
+
     public static void register (IEventBus eventBus){
         POTIONS.register(eventBus);
     }
 }
-

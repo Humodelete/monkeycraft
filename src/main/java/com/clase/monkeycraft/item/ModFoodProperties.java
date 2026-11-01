@@ -11,4 +11,9 @@ public class ModFoodProperties {
 
             .effect(new MobEffectInstance(ModEffects.DOOM.getHolder().get(), 600, 10), 1.0F)
             .build();
+    public static final FoodProperties BANANA = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationModifier(1)
+            .build();
+
 }
