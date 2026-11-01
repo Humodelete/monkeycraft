@@ -6,7 +6,24 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monkeycraft:monkey_skull_t0"
+          "name": "monkeycraft:banana_of_doom_and_despair",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
         }
       ]
     },
@@ -15,13 +32,19 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monkeycraft:banana_of_doom_and_despair",
-          "functions": [
+          "name": "monkeycraft:monkey_skull_t0",
+          "conditions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 0,
-                "max": 2
+              "condition": "minecraft:killed_by_player"
+            },
+            {
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
+              "enchantment": "minecraft:looting",
+              "unenchanted_chance": 0.10,
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.13,
+                "per_level_above_first": 0.03
               }
             }
           ]
