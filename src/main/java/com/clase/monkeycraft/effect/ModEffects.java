@@ -10,6 +10,9 @@ public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS =
             DeferredRegister.create(Registries.MOB_EFFECT, "monkeycraft");
 
-    public static final RegistryObject<MobEffect> DOOM = MOB_EFFECTS.register("doom",
+    public static final RegistryObject<MobEffect> DOOM_EFFECT = MOB_EFFECTS.register("doom_effect",
             () -> new DoomEffect(MobEffectCategory.HARMFUL, 0x111111));
+
+    public static final RegistryObject<MobEffect> MONKEY_EFFECT = MOB_EFFECTS.register("monkey_effect",
+            () -> new MonkeyEffect(MobEffectCategory.BENEFICIAL, 0xFFFF00));
 }

@@ -1,5 +1,29 @@
 package com.clase.monkeycraft.effect;
 
-public class MonkeyEffect {
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
+public class MonkeyEffect extends MobEffect {
+    public MonkeyEffect(MobEffectCategory pCategory, int pColor) {
+        super(pCategory, pColor);
+
+        this.addAttributeModifier(Attributes.MOVEMENT_SPEED,
+                ResourceLocation.parse("monkeycraft:monkey_speed"),
+                0.20D, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+
+        this.addAttributeModifier(Attributes.JUMP_STRENGTH,
+                ResourceLocation.parse("monkeycraft:monkey_jump"),
+                0.20D, AttributeModifier.Operation.ADD_VALUE);
+
+        this.addAttributeModifier(Attributes.GRAVITY,
+                ResourceLocation.parse("monkeycraft:monkey_gravity"),
+                -0.05D, AttributeModifier.Operation.ADD_VALUE);
+
+        this.addAttributeModifier(Attributes.SAFE_FALL_DISTANCE,
+                ResourceLocation.parse("monkeycraft:monkey_safe_fall"),
+                20.0D, AttributeModifier.Operation.ADD_VALUE);
+    }
 }

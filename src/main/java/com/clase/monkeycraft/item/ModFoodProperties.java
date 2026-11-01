@@ -8,7 +8,7 @@ public class ModFoodProperties {
     public static final FoodProperties DOOM_AND_DESPAIR = new FoodProperties.Builder()
             .nutrition(5)
             .saturationModifier(1)
-            .effect(new MobEffectInstance(ModEffects.DOOM.getHolder().get(), 600, 10), 1.0F)
+            .effect(new MobEffectInstance(ModEffects.DOOM_EFFECT.getHolder().get(), 600, 10), 1.0F)
             .build();
     public static final FoodProperties BANANA = new FoodProperties.Builder()
             .nutrition(4)

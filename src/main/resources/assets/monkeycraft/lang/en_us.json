@@ -21,20 +21,25 @@
   "key.categories.monkeycraft.key_category": "Monkeycraft",
   "entity.monkeycraft.monkey": "Monkey",
 
-  "effect.monkeycraft.doom": "Doom",
+  "effect.monkeycraft.doom_effect": "Doom",
+  "effect.monkeycraft.monkey_effect": "Simian Agility",
   "item.minecraft.potion.effect.doom_potion": "Potion of Doom",
   "item.minecraft.potion.effect.long_doom_potion": "Potion of Doom",
   "item.minecraft.potion.effect.strong_doom_potion": "Potion of Doom",
+  "item.minecraft.potion.effect.monkey_potion": "Potion of Simian Agility",
 
   "item.minecraft.splash_potion.effect.doom_potion": "Splash Potion of Doom",
   "item.minecraft.splash_potion.effect.long_doom_potion": "Splash Potion of Doom",
   "item.minecraft.splash_potion.effect.strong_doom_potion": "Splash Potion of Doom",
+  "item.minecraft.splash_potion.effect.monkey_potion": "Splash Potion of Simian Agility",
 
   "item.minecraft.lingering_potion.effect.doom_potion": "Lingering Potion of Doom",
   "item.minecraft.lingering_potion.effect.long_doom_potion": "Lingering Potion of Doom",
   "item.minecraft.lingering_potion.effect.strong_doom_potion": "Lingering Potion of Doom",
+  "item.minecraft.lingering_potion.effect.monkey_potion": "Lingering Potion of Simian Agility",
 
   "item.minecraft.tipped_arrow.effect.doom_potion": "Arrow of Doom",
   "item.minecraft.tipped_arrow.effect.long_doom_potion": "Arrow of Doom",
-  "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Arrow of Doom"
+  "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Arrow of Doom",
+  "item.minecraft.tipped_arrow.effect.monkey_potion": "Arrow of Simian Agility"
 }

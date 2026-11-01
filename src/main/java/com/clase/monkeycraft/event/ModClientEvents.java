@@ -15,7 +15,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void onRenderFog(ViewportEvent.RenderFog event) {
         Player player = Minecraft.getInstance().player;
-        if (player != null && player.hasEffect(ModEffects.DOOM.getHolder().get())) {
+        if (player != null && player.hasEffect(ModEffects.DOOM_EFFECT.getHolder().get())) {
             event.setNearPlaneDistance(1.0F);  // Fog min distance
             event.setFarPlaneDistance(5.0F);   // Fog max distance
             event.setCanceled(true);
@@ -25,7 +25,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void onComputeFogColor(ViewportEvent.ComputeFogColor event) {
         Player player = Minecraft.getInstance().player;
-        if (player != null && player.hasEffect(ModEffects.DOOM.getHolder().get())) {
+        if (player != null && player.hasEffect(ModEffects.DOOM_EFFECT.getHolder().get())) {
             // Fog black color
             event.setRed(0.0F);
             event.setGreen(0.0F);

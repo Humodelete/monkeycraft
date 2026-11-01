@@ -21,20 +21,25 @@
   "key.categories.monkeycraft.key_category": "Monkeycraft",
   "entity.monkeycraft.monkey": "Mono",
 
-  "effect.monkeycraft.doom": "Perdición",
+  "effect.monkeycraft.doom_effect": "Perdición",
+  "effect.monkeycraft.monkey_effect": "Agilidad simiesca",
   "item.minecraft.potion.effect.doom_potion": "Poción de la Perdición",
   "item.minecraft.potion.effect.long_doom_potion": "Poción de perdición",
   "item.minecraft.potion.effect.strong_doom_potion": "Poción de perdición",
+  "item.minecraft.potion.effect.monkey_potion": "Poción de agilidad simiesca",
 
   "item.minecraft.splash_potion.effect.doom_potion": "Poción de la Perdición arrojadiza",
   "item.minecraft.splash_potion.effect.long_doom_potion": "Poción de perdición arrojadiza",
   "item.minecraft.splash_potion.effect.strong_doom_potion": "Poción de perdición arrojadiza",
+  "item.minecraft.splash_potion.effect.monkey_potion": "Poción arrojadiza de agilidad simiesca",
 
   "item.minecraft.lingering_potion.effect.doom_potion": "Poción de la Perdición persistente",
   "item.minecraft.lingering_potion.effect.long_doom_potion": "Poción de perdición persistente",
   "item.minecraft.lingering_potion.effect.strong_doom_potion": "Poción de perdición persistente",
+  "item.minecraft.lingering_potion.effect.monkey_potion": "Poción persistente de agilidad simiesca",
 
   "item.minecraft.tipped_arrow.effect.doom_potion": "Flecha de la Perdición",
   "item.minecraft.tipped_arrow.effect.long_doom_potion": "Flecha de perdición",
-  "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Flecha de perdición"
+  "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Flecha de perdición",
+  "item.minecraft.tipped_arrow.effect.monkey_potion": "Flecha de agilidad simiesca"
 }
