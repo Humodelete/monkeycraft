@@ -22,11 +22,11 @@ public class ModClientEvents {
         }
     }
 
-    // 2. Tinta la niebla de color negro
     @SubscribeEvent
     public static void onComputeFogColor(ViewportEvent.ComputeFogColor event) {
         Player player = Minecraft.getInstance().player;
         if (player != null && player.hasEffect(ModEffects.DOOM.getHolder().get())) {
+            // Fog black color
             event.setRed(0.0F);
             event.setGreen(0.0F);
             event.setBlue(0.0F);
