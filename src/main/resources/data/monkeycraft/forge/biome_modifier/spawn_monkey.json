@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:bamboo_jungle",
+    "minecraft:sparse_jungle",
+    "minecraft:jungle"
+  ],
+  "spawners": {
+    "type": "monkeycraft:monkey",
+    "maxCount": 6,
+    "minCount": 3,
+    "weight": 30
+  }
+}
