@@ -97,6 +97,7 @@ public class MonkeyCraft
             event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
             event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.DOOM_POTION.getHolder().get()));
             event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.DOOM_POTION.getHolder().get()));
         }
 
     }

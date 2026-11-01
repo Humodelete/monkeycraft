@@ -41,7 +41,9 @@ public class CreativeModeModTab {
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.DOOM_POTION.getHolder().get()));
-                        output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.DOOM_POTION.getHolder().get()));                    }).build());
+                        output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.DOOM_POTION.getHolder().get()));
+
+                    }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TAB.register(eventBus);
