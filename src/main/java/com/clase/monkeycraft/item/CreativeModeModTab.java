@@ -37,6 +37,7 @@ public class CreativeModeModTab {
                         output.accept(ModItems.MONKEY_SCEPTER_T3.get());
                         output.accept(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get());
                         output.accept(ModItems.BANANA.get());
+                        output.accept(ModItems.BANANA_PEEL.get());
 
                         // Base effect
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));

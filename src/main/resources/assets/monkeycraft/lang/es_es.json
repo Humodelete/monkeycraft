@@ -9,6 +9,7 @@
   "item.monkeycraft.monkey_scepter_t3": "Báculo de monos de la Cacería Salvaje",
   "item.monkeycraft.banana_of_doom_and_despair": "Plátano del dolor y la agonía",
   "item.monkeycraft.banana": "Plátano",
+  "item.monkeycraft.banana_peel": "Cáscara de plátano",
 
 
   "message.monkeycraft.selected" : "Seleccionado: %s",
@@ -22,17 +23,18 @@
 
   "effect.monkeycraft.doom": "Perdición",
   "item.minecraft.potion.effect.doom_potion": "Poción de la Perdición",
-  "item.minecraft.splash_potion.effect.doom_potion": "Poción de la Perdición arrojadiza",
-  "item.minecraft.lingering_potion.effect.doom_potion": "Poción de la Perdición persistente",
-  "item.minecraft.tipped_arrow.effect.doom_potion": "Flecha de la Perdición",
-
   "item.minecraft.potion.effect.long_doom_potion": "Poción de perdición",
-  "item.minecraft.splash_potion.effect.long_doom_potion": "Poción de perdición arrojadiza",
-  "item.minecraft.lingering_potion.effect.long_doom_potion": "Poción de perdición persistente",
-  "item.minecraft.tipped_arrow.effect.long_doom_potion": "Flecha de perdición",
-
   "item.minecraft.potion.effect.strong_doom_potion": "Poción de perdición",
+
+  "item.minecraft.splash_potion.effect.doom_potion": "Poción de la Perdición arrojadiza",
+  "item.minecraft.splash_potion.effect.long_doom_potion": "Poción de perdición arrojadiza",
   "item.minecraft.splash_potion.effect.strong_doom_potion": "Poción de perdición arrojadiza",
+
+  "item.minecraft.lingering_potion.effect.doom_potion": "Poción de la Perdición persistente",
+  "item.minecraft.lingering_potion.effect.long_doom_potion": "Poción de perdición persistente",
   "item.minecraft.lingering_potion.effect.strong_doom_potion": "Poción de perdición persistente",
+
+  "item.minecraft.tipped_arrow.effect.doom_potion": "Flecha de la Perdición",
+  "item.minecraft.tipped_arrow.effect.long_doom_potion": "Flecha de perdición",
   "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Flecha de perdición"
 }
