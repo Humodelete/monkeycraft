@@ -16,5 +16,11 @@
 
   "key.monkeycraft.change_summon": "Change summon",
   "key.categories.monkeycraft.key_category": "Monkeycraft",
-  "entity.monkeycraft.monkey": "Monkey"
+  "entity.monkeycraft.monkey": "Monkey",
+
+  "effect.monkeycraft.doom": "Doom",
+  "item.minecraft.potion.effect.doom_potion": "Potion of Doom",
+  "item.minecraft.splash_potion.effect.doom_potion": "Splash Potion of Doom",
+  "item.minecraft.lingering_potion.effect.doom_potion": "Lingering Potion of Doom",
+  "item.minecraft.tipped_arrow.effect.doom_potion": "Arrow of Doom"
 }

@@ -16,5 +16,12 @@
 
   "key.monkeycraft.change_summon": "Cambiar invocación",
   "key.categories.monkeycraft.key_category": "Monkeycraft",
-  "entity.monkeycraft.monkey": "Mono"
+  "entity.monkeycraft.monkey": "Mono",
+
+  "effect.monkeycraft.doom": "Perdición",
+  "item.minecraft.potion.effect.monkeycraft.doom_potion": "Poción de la Perdición",
+  "item.minecraft.splash_potion.effect.monkeycraft.doom_potion": "Poción de la Perdición arrojadiza",
+  "item.minecraft.lingering_potion.effect.monkeycraft.doom_potion": "Poción de la Perdición persistente",
+  "item.minecraft.tipped_arrow.effect.monkeycraft.doom_potion": "Flecha de la Perdición"
+
 }
