@@ -1,6 +1,8 @@
 package com.clase.monkeycraft.item;
 
 
+import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.entity.custom.MonkeyEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -70,11 +72,12 @@ public class ScepterItem extends TieredItem {
             Player player = context.getPlayer();
 
             //Replace Wolf with Monkey once it's done
-            Wolf wolf = EntityType.WOLF.create(dimension);
+            MonkeyEntity monkey = ModEntities.MONKEY.get().create(dimension);
+            monkey.setScepterCost(2);
             Slime slime = EntityType.SLIME.create(dimension);
             Zombie zombie = EntityType.ZOMBIE.create(dimension);
             Skeleton skeleton = EntityType.SKELETON.create(dimension);
-            Entity[] summons = {wolf, slime, zombie, skeleton};
+            Entity[] summons = {monkey, slime, zombie, skeleton};
 
 
             if (summons[selectedPosition] != null &&
@@ -86,7 +89,15 @@ public class ScepterItem extends TieredItem {
                 );
                 dimension.addFreshEntity(summons[selectedPosition]);
                 this.summonedEntities.add(summons[selectedPosition]);
-                context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+
+                //Workaround for different monkey cost to the scepter while other monkeys are being made
+                if(selectedPosition == 0){
+                    context.getItemInHand().hurtAndBreak(monkey.getScepterCost(), player, LivingEntity.getSlotForHand(context.getHand()));
+
+                }else{
+                    context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                }
+
             } else {
                 Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
             }
@@ -113,6 +124,7 @@ public class ScepterItem extends TieredItem {
                     entity.getZ()
             );
             entity.kill();
+            //Cannot fix the scepter regaining spent energy until more monkeys are added
             stack.hurtAndBreak(-1, player, Player.getSlotForHand(interaction));
         }
         return InteractionResult.SUCCESS;
@@ -141,7 +153,7 @@ public class ScepterItem extends TieredItem {
         switch (this.selectedPosition){
             case 0 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.minecraft.wolf")));
+                            Component.translatable("entity.monkeycraft.monkey")));
             case 1 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
                             Component.translatable("entity.minecraft.slime")));
