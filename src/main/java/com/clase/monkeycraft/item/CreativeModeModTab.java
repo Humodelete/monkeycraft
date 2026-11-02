@@ -39,27 +39,33 @@ public class CreativeModeModTab {
                         output.accept(ModItems.BANANA.get());
                         output.accept(ModItems.BANANA_PEEL.get());
 
-                        // Base effect
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
 
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
 
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
 
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.LONG_DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
-
-                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.MONKEY_POTION.getHolder().get()));
-                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.MONKEY_POTION.getHolder().get()));
-                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.MONKEY_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+                        output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
 
                     }).build());
 

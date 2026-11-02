@@ -1,19 +1,18 @@
 {
-  "block.monkeycraft.monkey_skull_t0": "Calavera de mono",
-  "item.monkeycraft.monkey_skull_t1": "Calavera de mono refinada",
-  "item.monkeycraft.monkey_skull_t2": "Calavera de mono inundada de almas",
-  "item.monkeycraft.monkey_skull_t3": "Calavera de mono maldita",
-  "item.monkeycraft.monkey_scepter_t0": "Báculo de monos de aprendiz",
-  "item.monkeycraft.monkey_scepter_t1": "Báculo de monos de nigromante",
-  "item.monkeycraft.monkey_scepter_t2": "Báculo de monos de Lich",
-  "item.monkeycraft.monkey_scepter_t3": "Báculo de monos de la Cacería Salvaje",
-  "item.monkeycraft.banana_of_doom_and_despair": "Plátano del dolor y la agonía",
+  "block.monkeycraft.monkey_skull_t0": "Cráneo de mono",
+  "item.monkeycraft.monkey_skull_t1": "Cráneo de mono refinado",
+  "item.monkeycraft.monkey_skull_t2": "Cráneo de mono rebosante de almas",
+  "item.monkeycraft.monkey_skull_t3": "Cráneo de mono maldito",
+  "item.monkeycraft.monkey_scepter_t0": "Cetro de mono de aprendiz",
+  "item.monkeycraft.monkey_scepter_t1": "Cetro de mono de nigromante",
+  "item.monkeycraft.monkey_scepter_t2": "Cetro de mono de liche",
+  "item.monkeycraft.monkey_scepter_t3": "Cetro de mono de la cacería salvaje",
+  "item.monkeycraft.banana_of_doom_and_despair": "Plátano de la perdición y la desesperación",
   "item.monkeycraft.banana": "Plátano",
   "item.monkeycraft.banana_peel": "Cáscara de plátano",
 
-
-  "message.monkeycraft.selected" : "Seleccionado: %s",
-  "message.monkeycraft.low_energy" : "Invocación muy cara, desinvoca una invocación antes",
+  "message.monkeycraft.selected": "Seleccionado: %s",
+  "message.monkeycraft.low_energy": "Invocación demasiado costosa, retira otras invocaciones primero",
 
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
 
@@ -23,23 +22,32 @@
 
   "effect.monkeycraft.doom_effect": "Perdición",
   "effect.monkeycraft.monkey_effect": "Agilidad simiesca",
-  "item.minecraft.potion.effect.doom_potion": "Poción de la Perdición",
+
+  "item.minecraft.potion.effect.doom_potion": "Poción de perdición",
   "item.minecraft.potion.effect.long_doom_potion": "Poción de perdición",
   "item.minecraft.potion.effect.strong_doom_potion": "Poción de perdición",
   "item.minecraft.potion.effect.monkey_potion": "Poción de agilidad simiesca",
+  "item.minecraft.potion.effect.long_monkey_potion": "Poción de agilidad simiesca",
+  "item.minecraft.potion.effect.strong_monkey_potion": "Poción de agilidad simiesca",
 
-  "item.minecraft.splash_potion.effect.doom_potion": "Poción de la Perdición arrojadiza",
+  "item.minecraft.splash_potion.effect.doom_potion": "Poción de perdición arrojadiza",
   "item.minecraft.splash_potion.effect.long_doom_potion": "Poción de perdición arrojadiza",
   "item.minecraft.splash_potion.effect.strong_doom_potion": "Poción de perdición arrojadiza",
   "item.minecraft.splash_potion.effect.monkey_potion": "Poción arrojadiza de agilidad simiesca",
+  "item.minecraft.splash_potion.effect.long_monkey_potion": "Poción arrojadiza de agilidad simiesca",
+  "item.minecraft.splash_potion.effect.strong_monkey_potion": "Poción arrojadiza de agilidad simiesca",
 
-  "item.minecraft.lingering_potion.effect.doom_potion": "Poción de la Perdición persistente",
+  "item.minecraft.lingering_potion.effect.doom_potion": "Poción de perdición persistente",
   "item.minecraft.lingering_potion.effect.long_doom_potion": "Poción de perdición persistente",
   "item.minecraft.lingering_potion.effect.strong_doom_potion": "Poción de perdición persistente",
   "item.minecraft.lingering_potion.effect.monkey_potion": "Poción persistente de agilidad simiesca",
+  "item.minecraft.lingering_potion.effect.long_monkey_potion": "Poción persistente de agilidad simiesca",
+  "item.minecraft.lingering_potion.effect.strong_monkey_potion": "Poción persistente de agilidad simiesca",
 
-  "item.minecraft.tipped_arrow.effect.doom_potion": "Flecha de la Perdición",
+  "item.minecraft.tipped_arrow.effect.doom_potion": "Flecha de perdición",
   "item.minecraft.tipped_arrow.effect.long_doom_potion": "Flecha de perdición",
   "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Flecha de perdición",
-  "item.minecraft.tipped_arrow.effect.monkey_potion": "Flecha de agilidad simiesca"
+  "item.minecraft.tipped_arrow.effect.monkey_potion": "Flecha de agilidad simiesca",
+  "item.minecraft.tipped_arrow.effect.long_monkey_potion": "Flecha de agilidad simiesca",
+  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Flecha de agilidad simiesca"
 }
