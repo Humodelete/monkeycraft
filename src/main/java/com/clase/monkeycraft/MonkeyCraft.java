@@ -1,11 +1,13 @@
 package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.client.MonkeyRenderer;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
+import com.clase.monkeycraft.potion.ModPotions;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import cpw.mods.util.Lazy;
@@ -14,6 +16,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
@@ -54,6 +58,8 @@ public class MonkeyCraft
         ModItems.register(modEventBus);
         ModEntities.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModPotions.register(modEventBus);
+        ModEffects.MOB_EFFECTS.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -78,6 +84,7 @@ public class MonkeyCraft
             event.accept(ModItems.MONKEY_SKULL_T1);
             event.accept(ModItems.MONKEY_SKULL_T2);
             event.accept(ModItems.MONKEY_SKULL_T3);
+            event.accept(ModItems.BANANA_PEEL.get());
         }
         if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);
@@ -85,8 +92,30 @@ public class MonkeyCraft
             event.accept(ModItems.MONKEY_SCEPTER_T2);
             event.accept(ModItems.MONKEY_SCEPTER_T3);
         }
-        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
-            event.accept((ModItems.BANANA_OF_DOOM_AND_DESPAIR));
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get());
+            event.accept(ModItems.BANANA.get());
+
+            event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.MONKEY_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
+
+            event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.MONKEY_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
+
+            event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_DOOM_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.MONKEY_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
+            event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
         }
 
     }
