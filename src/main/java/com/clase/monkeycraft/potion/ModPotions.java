@@ -21,11 +21,11 @@ public class ModPotions {
             () -> new Potion(new MobEffectInstance(ModEffects.DOOM_EFFECT.getHolder().get(), 440, 1)));
 
     public static final RegistryObject<Potion> MONKEY_POTION = POTIONS.register("monkey_potion",
-            () -> new Potion(new MobEffectInstance(ModEffects.MONKEY_EFFECT.getHolder().get(), 1200, 0)));
+            () -> new Potion(new MobEffectInstance(ModEffects.MONKEY_EFFECT.getHolder().get(), 3200, 0)));
     public static final RegistryObject<Potion> LONG_MONKEY_POTION = POTIONS.register("long_monkey_potion",
-            () -> new Potion(new MobEffectInstance(ModEffects.MONKEY_EFFECT.getHolder().get(), 3600, 0)));
+            () -> new Potion(new MobEffectInstance(ModEffects.MONKEY_EFFECT.getHolder().get(), 5400, 0)));
     public static final RegistryObject<Potion> STRONG_MONKEY_POTION = POTIONS.register("strong_monkey_potion",
-            () -> new Potion(new MobEffectInstance(ModEffects.MONKEY_EFFECT.getHolder().get(), 600, 1)));
+            () -> new Potion(new MobEffectInstance(ModEffects.MONKEY_EFFECT.getHolder().get(), 1800, 1)));
 
     public static void register (IEventBus eventBus){
         POTIONS.register(eventBus);
