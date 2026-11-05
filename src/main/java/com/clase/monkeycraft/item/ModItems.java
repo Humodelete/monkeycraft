@@ -2,9 +2,11 @@ package com.clase.monkeycraft.item;
 
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.util.ModScepterTiers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,6 +27,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MONKEY_SKULL_T3 = ITEMS.register("monkey_skull_t3",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MONKEY_SPAWN_EGG = ITEMS.register("monkey_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.MONKEY, 0x4a3018,0xe3c73b, new Item.Properties()));
 
     public static final RegistryObject<Item> MONKEY_SCEPTER_T0 = ITEMS.register("monkey_scepter_t0",
             () -> new ScepterItem(ModScepterTiers.TIER_0, new Item.Properties().attributes(ScepterItem.createAttributes(

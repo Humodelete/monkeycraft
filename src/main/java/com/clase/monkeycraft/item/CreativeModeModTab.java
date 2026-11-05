@@ -38,6 +38,7 @@ public class CreativeModeModTab {
                         output.accept(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get());
                         output.accept(ModItems.BANANA.get());
                         output.accept(ModItems.BANANA_PEEL.get());
+                        output.accept(ModItems.MONKEY_SPAWN_EGG.get());
 
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));

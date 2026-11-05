@@ -86,6 +86,9 @@ public class MonkeyCraft
             event.accept(ModItems.MONKEY_SKULL_T3);
             event.accept(ModItems.BANANA_PEEL.get());
         }
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
+            event.accept(ModItems.MONKEY_SPAWN_EGG.get());
+        }
         if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);
             event.accept(ModItems.MONKEY_SCEPTER_T1);
