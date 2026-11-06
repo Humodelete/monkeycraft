@@ -132,6 +132,17 @@ public class ModBlocks {
                     return new ModHangingSignBlockEntity(pPos, pState);
                 }
             });
+    public static final RegistryObject<Block> PALM_TREE_STAIRS = registerBlock("palm_tree_stairs",
+            () -> new StairBlock(ModBlocks.PALM_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)));
+
+    public static final RegistryObject<Block> PALM_TREE_SLAB = registerBlock("palm_tree_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
+
+    public static final RegistryObject<Block> PALM_TREE_BUTTON = registerBlock("palm_tree_button",
+            () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
+
+    public static final RegistryObject<Block> PALM_TREE_PRESSURE_PLATE = registerBlock("palm_tree_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

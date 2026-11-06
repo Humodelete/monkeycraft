@@ -1,6 +1,7 @@
-// 1.21	2026-11-06T20:37:18.114018	Loot Tables
+// 1.21	2026-11-06T22:07:38.8552954	Loot Tables
 a085c28de325a18872a22867c5f7123c6aac8cbb data/minecraft/loot_table/blocks/oak_hanging_sign.json
 f3f57ef29fbe84e2612fef0df5a1d656c60cee8f data/minecraft/loot_table/blocks/oak_sign.json
+acb0d435946852cb696e69132f1a9157cdfaa8dc data/monkeycraft/loot_table/blocks/palm_tree_button.json
 fd5de81c883435c6a00989362e360be8f59949fc data/monkeycraft/loot_table/blocks/palm_tree_door.json
 693b88b2c52f331fb3d697759c8efd6a1cdb2bd7 data/monkeycraft/loot_table/blocks/palm_tree_fence.json
 f22826032ee157870a3a3d7dfa777494ac3b42b9 data/monkeycraft/loot_table/blocks/palm_tree_fence_gate.json
@@ -8,8 +9,11 @@ f22826032ee157870a3a3d7dfa777494ac3b42b9 data/monkeycraft/loot_table/blocks/palm
 b3bc658874bafc2927a84b17ff9d8fb862c0e374 data/monkeycraft/loot_table/blocks/palm_tree_leaves.json
 c92fe292c387bc017d65c5f227be41ca6a128f63 data/monkeycraft/loot_table/blocks/palm_tree_log.json
 fde6101c627d4f208a6b497ee16323ba90baed48 data/monkeycraft/loot_table/blocks/palm_tree_planks.json
+7faf49638fcebcd4891126f5cb6c33fed2263696 data/monkeycraft/loot_table/blocks/palm_tree_pressure_plate.json
 b9058c5a755e98ac8040af083b35bb5984885d6e data/monkeycraft/loot_table/blocks/palm_tree_sapling.json
 3e7bf614b97d2e2dbc6361f63ec36cfa7d719b25 data/monkeycraft/loot_table/blocks/palm_tree_sign.json
+abada69ebb08baa6a601ae91cb1b62120575fe04 data/monkeycraft/loot_table/blocks/palm_tree_slab.json
+39b9eef4147bd4fb37fb43d9ccea3ff1387a37b5 data/monkeycraft/loot_table/blocks/palm_tree_stairs.json
 25e1050fca0f2ecc266048cc33eead50cf77fafc data/monkeycraft/loot_table/blocks/palm_tree_trapdoor.json
 59c5ed9bb6777e993c5b23e9bdd87b47d25cbc23 data/monkeycraft/loot_table/blocks/palm_tree_wood.json
 54a30284f60cf32836348b990dfe01887a8574fb data/monkeycraft/loot_table/blocks/stripped_palm_tree_log.json

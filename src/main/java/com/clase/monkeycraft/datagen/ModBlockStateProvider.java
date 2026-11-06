@@ -19,6 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockWithItem(ModBlocks.PALM_TREE_PLANKS);
         logBlock(ModBlocks.PALM_TREE_LOG.get());
         axisBlock(ModBlocks.PALM_TREE_WOOD.get(), blockTexture(ModBlocks.PALM_TREE_LOG.get()), blockTexture(ModBlocks.PALM_TREE_LOG.get()));
         logBlock(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
@@ -35,13 +36,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         fenceBlock(((FenceBlock) ModBlocks.PALM_TREE_FENCE.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
         fenceGateBlock(((FenceGateBlock) ModBlocks.PALM_TREE_FENCE_GATE.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
 
+        stairsBlock(((StairBlock) ModBlocks.PALM_TREE_STAIRS.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.PALM_TREE_SLAB.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+        buttonBlock(((ButtonBlock) ModBlocks.PALM_TREE_BUTTON.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+        pressurePlateBlock(((PressurePlateBlock) ModBlocks.PALM_TREE_PRESSURE_PLATE.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+
         blockItem(ModBlocks.PALM_TREE_LOG);
         blockItem(ModBlocks.PALM_TREE_WOOD);
         blockItem(ModBlocks.STRIPPED_PALM_TREE_LOG);
         blockItem(ModBlocks.STRIPPED_PALM_TREE_WOOD);
-
-
-        blockWithItem(ModBlocks.PALM_TREE_PLANKS);
 
         leavesBlock(ModBlocks.PALM_TREE_LEAVES);
         saplingBlock(ModBlocks.PALM_TREE_SAPLING);

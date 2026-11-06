@@ -1,6 +1,10 @@
-// 1.21	2026-11-06T20:57:24.3206538	Tags for minecraft:block mod id monkeycraft
+// 1.21	2026-11-06T22:07:38.8542952	Tags for minecraft:block mod id monkeycraft
 54f9a470c1de19b745bffde06c403e6acb033be9 data/minecraft/tags/block/fence_gates.json
 1c07a94c9b5208263a22e8319fea26ac55c0b354 data/minecraft/tags/block/logs_that_burn.json
-6ac10bbec129c777caabd24f89525aec34fd2636 data/minecraft/tags/block/mineable/axe.json
+c889514e3129b9ae806a259c61ad4cd1f3a58ac0 data/minecraft/tags/block/mineable/axe.json
 554929a3e018e69b6048dc92150c2e9116fde66d data/minecraft/tags/block/mineable/hoe.json
+e3032cec5a4339f8399434b51edc8ec16aa0dd32 data/minecraft/tags/block/wooden_buttons.json
 9d273b4ef6468aff077e70babbd00fee3aec9505 data/minecraft/tags/block/wooden_fences.json
+881c6afc38216988f379f9242e8d91b1f396db43 data/minecraft/tags/block/wooden_pressure_plates.json
+bb3f98f65c6f8ea86f23eb7ec3e3782e2b612bdd data/minecraft/tags/block/wooden_slabs.json
+fbfbfd2ec9def272d54a69f223ae232067f53b4b data/minecraft/tags/block/wooden_stairs.json

@@ -88,5 +88,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('W', ModBlocks.STRIPPED_PALM_TREE_LOG.get())
                 .unlockedBy(getHasName(ModBlocks.STRIPPED_PALM_TREE_LOG.get()), has(ModBlocks.STRIPPED_PALM_TREE_LOG.get()))
                 .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PALM_TREE_STAIRS.get(), 4)
+                .pattern("W  ")
+                .pattern("WW ")
+                .pattern("WWW")
+                .define('W', ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PALM_TREE_SLAB.get(), 6)
+                .pattern("WWW")
+                .define('W', ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.PALM_TREE_PRESSURE_PLATE.get())
+                .pattern("WW")
+                .define('W', ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, ModBlocks.PALM_TREE_BUTTON.get())
+                .requires(ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
     }
 }

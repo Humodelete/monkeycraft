@@ -52,6 +52,15 @@
   "item.minecraft.tipped_arrow.effect.long_monkey_potion": "Arrow of Simian Agility",
   "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Arrow of Simian Agility",
 
+  "item.monkeycraft.palm_tree_sign": "Palm Tree Sign",
+  "item.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign",
+
+  "block.monkeycraft.palm_tree_wall_sign": "Palm Tree Wall Sign",
+  "block.monkeycraft.palm_tree_fence": "Palm Tree Fence",
+  "block.monkeycraft.palm_tree_fence_gate": "Palm Tree Fence Gate",
+  "block.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign",
+  "block.monkeycraft.palm_tree_wall_hanging_sign": "Palm Tree Hanging Sign",
+
   "block.monkeycraft.palm_tree_log": "Palm Log",
   "block.monkeycraft.palm_tree_wood": "Palm Wood",
   "block.monkeycraft.stripped_palm_tree_log": "Stripped Palm Log",
@@ -62,11 +71,8 @@
   "block.monkeycraft.palm_tree_door": "Palm Tree Door",
   "block.monkeycraft.palm_tree_trapdoor": "Palm Tree Trapdoor",
   "block.monkeycraft.palm_tree_sign": "Palm Tree Sign",
-  "item.monkeycraft.palm_tree_sign": "Palm Tree Sign",
-  "block.monkeycraft.palm_tree_wall_sign": "Palm Tree Wall Sign",
-  "block.monkeycraft.palm_tree_fence": "Palm Tree Fence",
-  "block.monkeycraft.palm_tree_fence_gate": "Palm Tree Fence Gate",
-  "block.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign",
-  "block.monkeycraft.palm_tree_wall_hanging_sign": "Palm Tree Hanging Sign",
-  "item.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign"
+  "block.monkeycraft.palm_tree_stairs": "Palm Tree Stairs",
+  "block.monkeycraft.palm_tree_slab": "Palm Tree Slab",
+  "block.monkeycraft.palm_tree_button": "Palm Tree Button",
+  "block.monkeycraft.palm_tree_pressure_plate": "Palm Tree Pressure Plate"
 }

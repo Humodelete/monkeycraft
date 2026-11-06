@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "monkeycraft:block/palm_tree_planks",
+    "side": "monkeycraft:block/palm_tree_planks",
+    "top": "monkeycraft:block/palm_tree_planks"
+  }
+}

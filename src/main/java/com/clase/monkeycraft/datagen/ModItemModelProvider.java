@@ -32,7 +32,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(ModBlocks.PALM_TREE_FENCE_GATE.getId().getPath(), modLoc("block/palm_tree_fence_gate"));
         withExistingParent(ModBlocks.PALM_TREE_TRAPDOOR.getId().getPath(), modLoc("block/palm_tree_trapdoor_bottom"));
-
+        withExistingParent(ModBlocks.PALM_TREE_STAIRS.getId().getPath(), modLoc("block/palm_tree_stairs"));
+        withExistingParent(ModBlocks.PALM_TREE_SLAB.getId().getPath(), modLoc("block/palm_tree_slab"));
+        withExistingParent(ModBlocks.PALM_TREE_PRESSURE_PLATE.getId().getPath(), modLoc("block/palm_tree_pressure_plate"));
+        buttonItem(ModBlocks.PALM_TREE_BUTTON, ModBlocks.PALM_TREE_PLANKS);
         basicItem(ModItems.PALM_TREE_SIGN.get());
         basicItem(ModItems.PALM_TREE_HANGING_SIGN.get());
     }
@@ -47,5 +50,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(ForgeRegistries.ITEMS.getKey(item).getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "item/" + ForgeRegistries.ITEMS.getKey(item).getPath()));
+    }
+    public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
+                .texture("texture",  ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID,
+                        "block/" + baseBlock.getId().getPath()));
     }
 }

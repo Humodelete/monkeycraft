@@ -108,6 +108,8 @@ public class MonkeyCraft
             event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
             event.accept(ModBlocks.PALM_TREE_FENCE.get());
             event.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
+            event.accept(ModBlocks.PALM_TREE_STAIRS.get());
+            event.accept(ModBlocks.PALM_TREE_SLAB.get());
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
             event.accept(ModItems.PALM_TREE_SIGN.get());
@@ -116,6 +118,8 @@ public class MonkeyCraft
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.accept(ModBlocks.PALM_TREE_DOOR.get());
             event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+            event.accept(ModBlocks.PALM_TREE_BUTTON.get());
+            event.accept(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
         }
         if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);

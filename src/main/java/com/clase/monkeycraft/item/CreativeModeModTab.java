@@ -52,6 +52,10 @@ public class CreativeModeModTab {
                         output.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
                         output.accept(ModBlocks.PALM_TREE_FENCE.get());
                         output.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
+                        output.accept(ModBlocks.PALM_TREE_STAIRS.get());
+                        output.accept(ModBlocks.PALM_TREE_SLAB.get());
+                        output.accept(ModBlocks.PALM_TREE_BUTTON.get());
+                        output.accept(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
 
                         output.accept(ModBlocks.PALM_TREE_SIGN.get());
                         output.accept(ModBlocks.PALM_TREE_HANGING_SIGN.get());

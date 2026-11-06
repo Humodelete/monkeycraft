@@ -1,8 +1,12 @@
-// 1.21	2026-11-06T20:48:23.9526992	Item Models: monkeycraft
+// 1.21	2026-11-06T22:07:38.8582958	Item Models: monkeycraft
+d7f88517bd32352440c2552f25eb1100cdd5491d assets/monkeycraft/models/item/palm_tree_button.json
 57971c4d528712239688d3a91245d0dfb0002a68 assets/monkeycraft/models/item/palm_tree_door.json
 f44776e4e1c498ae2e617dcb0c60d4eb7ffe1aa1 assets/monkeycraft/models/item/palm_tree_fence.json
 5bb6d3931fb47b0754f14a8b26e89fc1002413d6 assets/monkeycraft/models/item/palm_tree_fence_gate.json
 ef49039e7b7bff7696834e7593ee0c1e76a6a4b8 assets/monkeycraft/models/item/palm_tree_hanging_sign.json
+ba26b3c64ae52d6b7ade3b4c0b095fe9f09584b4 assets/monkeycraft/models/item/palm_tree_pressure_plate.json
 2f938f4113e65433ae04d680679fcb914b96cfef assets/monkeycraft/models/item/palm_tree_sapling.json
 c3833baff87d80de320c298d750db5b751c6c3fa assets/monkeycraft/models/item/palm_tree_sign.json
+5cb0d20188e64e73f2731c8dfbb0a45e724b3b37 assets/monkeycraft/models/item/palm_tree_slab.json
+5664a9628cf9c8f6e7bc39982f3be8ac8cd50039 assets/monkeycraft/models/item/palm_tree_stairs.json
 98947b5972fca1c7a5acb3fc0a07d5fb7fcc14cf assets/monkeycraft/models/item/palm_tree_trapdoor.json
