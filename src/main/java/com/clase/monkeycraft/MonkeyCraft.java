@@ -4,6 +4,7 @@ import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.client.MonkeyRenderer;
+import com.clase.monkeycraft.entity.client.MonkeyTankRenderer;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
@@ -139,6 +140,7 @@ public class MonkeyCraft
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
             EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
+            EntityRenderers.register(ModEntities.MONKEY_TANK.get(), MonkeyTankRenderer::new);
         }
     }
 

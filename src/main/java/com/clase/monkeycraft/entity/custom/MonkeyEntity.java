@@ -21,9 +21,6 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class MonkeyEntity extends Animal {
-    public final AnimationState walkAnimationState = new AnimationState();
-    private int walkAnimationTimeout = 0;
-
     public final AnimationState attackAnimationState = new AnimationState();
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(MonkeyEntity.class, EntityDataSerializers.BOOLEAN);

@@ -3,7 +3,9 @@ package com.clase.monkeycraft.event;
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.client.MonkeyModel;
+import com.clase.monkeycraft.entity.client.MonkeyTankModel;
 import com.clase.monkeycraft.entity.custom.MonkeyEntity;
+import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -18,11 +20,13 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(MonkeyModel.LAYER_LOCATION, MonkeyModel::createBodyLayer);
+        event.registerLayerDefinition(MonkeyTankModel.LAYER_LOCATION, MonkeyTankModel::createBodyLayer);
     }
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.MONKEY.get(), MonkeyEntity.createAttributes().build());
+        event.put(ModEntities.MONKEY_TANK.get(), MonkeyTankEntity.createAttributes().build());
     }
 
     @SubscribeEvent
