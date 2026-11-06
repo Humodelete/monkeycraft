@@ -63,5 +63,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('/', Items.STICK)
                 .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
                 .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PALM_TREE_FENCE.get(), 3)
+                .pattern("W#W")
+                .pattern("W#W")
+                .define('W', ModBlocks.PALM_TREE_PLANKS.get())
+                .define('#', Items.STICK)
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.PALM_TREE_FENCE_GATE.get())
+                .pattern("#W#")
+                .pattern("#W#")
+                .define('W', ModBlocks.PALM_TREE_PLANKS.get())
+                .define('#', Items.STICK)
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.PALM_TREE_HANGING_SIGN.get(), 6)
+                .pattern("C C")
+                .pattern("WWW")
+                .pattern("WWW")
+                .define('C', Items.CHAIN)
+                .define('W', ModBlocks.STRIPPED_PALM_TREE_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.STRIPPED_PALM_TREE_LOG.get()), has(ModBlocks.STRIPPED_PALM_TREE_LOG.get()))
+                .save(pRecipeOutput);
     }
 }
