@@ -8,6 +8,7 @@ import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
 import com.clase.monkeycraft.potion.ModPotions;
+import com.clase.monkeycraft.worldgen.tree.custom.ModTreePlacers;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import cpw.mods.util.Lazy;
@@ -60,6 +61,7 @@ public class MonkeyCraft
         ModBlocks.register(modEventBus);
         ModPotions.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
+        ModTreePlacers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

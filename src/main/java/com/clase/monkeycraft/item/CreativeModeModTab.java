@@ -1,6 +1,7 @@
 package com.clase.monkeycraft.item;
 
 import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.potion.ModPotions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -39,6 +40,14 @@ public class CreativeModeModTab {
                         output.accept(ModItems.BANANA.get());
                         output.accept(ModItems.BANANA_PEEL.get());
                         output.accept(ModItems.MONKEY_SPAWN_EGG.get());
+
+                        output.accept(ModBlocks.PALM_TREE_LOG.get());
+                        output.accept(ModBlocks.PALM_TREE_WOOD.get());
+                        output.accept(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
+                        output.accept(ModBlocks.STRIPPED_PALM_TREE_WOOD.get());
+                        output.accept(ModBlocks.PALM_TREE_PLANKS.get());
+                        output.accept(ModBlocks.PALM_TREE_LEAVES.get());
+                        output.accept(ModBlocks.PALM_TREE_SAPLING.get());
 
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));

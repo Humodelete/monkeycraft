@@ -1,0 +1,8 @@
+// 1.21	2026-11-06T16:44:59.652037	Loot Tables
+b3bc658874bafc2927a84b17ff9d8fb862c0e374 data/monkeycraft/loot_table/blocks/palm_tree_leaves.json
+c92fe292c387bc017d65c5f227be41ca6a128f63 data/monkeycraft/loot_table/blocks/palm_tree_log.json
+fde6101c627d4f208a6b497ee16323ba90baed48 data/monkeycraft/loot_table/blocks/palm_tree_planks.json
+b9058c5a755e98ac8040af083b35bb5984885d6e data/monkeycraft/loot_table/blocks/palm_tree_sapling.json
+59c5ed9bb6777e993c5b23e9bdd87b47d25cbc23 data/monkeycraft/loot_table/blocks/palm_tree_wood.json
+54a30284f60cf32836348b990dfe01887a8574fb data/monkeycraft/loot_table/blocks/stripped_palm_tree_log.json
+ffa10816c27b668cb92b7b4d6f8a0b1784f9f7a9 data/monkeycraft/loot_table/blocks/stripped_palm_tree_wood.json

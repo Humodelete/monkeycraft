@@ -25,8 +25,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.SKULL.get());
-
         this.dropSelf(ModBlocks.PALM_TREE_LOG.get());
         this.dropSelf(ModBlocks.PALM_TREE_WOOD.get());
         this.dropSelf(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
@@ -48,6 +46,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
-    }
+        return ModBlocks.BLOCKS.getEntries().stream()
+                .map(RegistryObject::get)
+                .filter(block -> block != ModBlocks.SKULL.get())
+                ::iterator;    }
+
 }

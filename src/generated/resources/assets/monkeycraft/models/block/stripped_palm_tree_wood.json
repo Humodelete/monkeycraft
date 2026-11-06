@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "monkeycraft:block/stripped_palm_tree_log",
+    "side": "monkeycraft:block/stripped_palm_tree_log"
+  }
+}

@@ -153,4 +153,11 @@ public class ScepterItem extends TieredItem {
                             Component.translatable("entity.minecraft.skeleton")));
         }
     }
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        if (repair.is(com.clase.monkeycraft.item.ModItems.BANANA.get())) {
+            return true;
+        }
+        return super.isValidRepairItem(toRepair, repair);
+    }
 }

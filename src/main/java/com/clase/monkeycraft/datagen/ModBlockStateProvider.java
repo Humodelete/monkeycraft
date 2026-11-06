@@ -19,8 +19,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.SKULL);
-
         logBlock(ModBlocks.PALM_TREE_LOG.get());
         axisBlock(ModBlocks.PALM_TREE_WOOD.get(), blockTexture(ModBlocks.PALM_TREE_LOG.get()), blockTexture(ModBlocks.PALM_TREE_LOG.get()));
         logBlock(ModBlocks.STRIPPED_PALM_TREE_LOG.get());

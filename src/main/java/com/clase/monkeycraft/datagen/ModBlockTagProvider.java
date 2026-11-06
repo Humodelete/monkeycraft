@@ -33,8 +33,5 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(ModBlocks.PALM_TREE_LEAVES.get());
-
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.SKULL.get());
     }
 }
