@@ -2,7 +2,6 @@ package com.clase.monkeycraft.block;
 
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.custom.ModFlammableRotatedPillarBlock;
-import com.clase.monkeycraft.block.custom.SkullBlock;
 import com.clase.monkeycraft.block.entity.ModHangingSignBlockEntity;
 import com.clase.monkeycraft.block.entity.ModSignBlockEntity;
 import com.clase.monkeycraft.item.ModItems;
@@ -32,11 +31,6 @@ public class ModBlocks {
     public static final BlockSetType PALM_SET_TYPE = BlockSetType.register(new BlockSetType(MonkeyCraft.MOD_ID + ":palm_tree"));
 
     public static final WoodType PALM_WOOD_TYPE = WoodType.register(new WoodType(MonkeyCraft.MOD_ID + ":palm_tree", PALM_SET_TYPE));
-
-    public static final RegistryObject<Block> SKULL = BLOCKS.register("monkey_skull_t0",
-            () -> new SkullBlock(BlockBehaviour.Properties.of()
-                    .strength(1.0f)
-                    .noOcclusion()));
 
     public static final RegistryObject<RotatedPillarBlock> PALM_TREE_LOG = registerBlock("palm_tree_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));

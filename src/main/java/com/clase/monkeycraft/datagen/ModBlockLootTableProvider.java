@@ -62,7 +62,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected @NotNull Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream()
                 .map(RegistryObject::get)
-                .filter(block -> block != ModBlocks.SKULL.get())
-                ::iterator;    }
-
+                ::iterator;
+    }
 }
