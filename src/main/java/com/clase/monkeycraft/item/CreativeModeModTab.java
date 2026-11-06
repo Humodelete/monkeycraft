@@ -40,6 +40,7 @@ public class CreativeModeModTab {
                         output.accept(ModItems.BANANA.get());
                         output.accept(ModItems.BANANA_PEEL.get());
                         output.accept(ModItems.MONKEY_SPAWN_EGG.get());
+                        output.accept(ModBlocks.MONKEY_HEAD.get());
 
                         output.accept(ModBlocks.PALM_TREE_LOG.get());
                         output.accept(ModBlocks.PALM_TREE_WOOD.get());

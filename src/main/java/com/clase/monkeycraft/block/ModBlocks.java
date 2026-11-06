@@ -27,6 +27,8 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, MonkeyCraft.MOD_ID);
+    public static final RegistryObject<Block> MONKEY_HEAD = registerBlock("monkey_head",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PLAYER_HEAD).noOcclusion()));
 
     public static final BlockSetType PALM_SET_TYPE = BlockSetType.register(new BlockSetType(MonkeyCraft.MOD_ID + ":palm_tree"));
 

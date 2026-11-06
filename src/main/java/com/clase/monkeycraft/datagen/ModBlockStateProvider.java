@@ -19,6 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        simpleBlock(ModBlocks.MONKEY_HEAD.get(), models().getExistingFile(modLoc("block/monkey_head")));
         blockWithItem(ModBlocks.PALM_TREE_PLANKS);
         logBlock(ModBlocks.PALM_TREE_LOG.get());
         axisBlock(ModBlocks.PALM_TREE_WOOD.get(), blockTexture(ModBlocks.PALM_TREE_LOG.get()), blockTexture(ModBlocks.PALM_TREE_LOG.get()));

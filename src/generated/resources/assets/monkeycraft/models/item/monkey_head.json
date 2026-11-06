@@ -1,0 +1,7 @@
+{
+  "parent": "monkeycraft:block/monkey_head",
+  "textures": {
+    "0": "monkeycraft:block/monkey_head",
+    "particle": "monkeycraft:block/monkey_head"
+  }
+}

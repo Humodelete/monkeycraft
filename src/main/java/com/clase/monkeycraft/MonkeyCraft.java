@@ -110,6 +110,7 @@ public class MonkeyCraft
             event.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
             event.accept(ModBlocks.PALM_TREE_STAIRS.get());
             event.accept(ModBlocks.PALM_TREE_SLAB.get());
+            event.accept(ModBlocks.MONKEY_HEAD.get());
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
             event.accept(ModItems.PALM_TREE_SIGN.get());

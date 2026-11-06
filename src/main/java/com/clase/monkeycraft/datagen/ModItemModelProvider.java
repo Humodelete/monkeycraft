@@ -20,6 +20,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        withExistingParent(ModBlocks.MONKEY_HEAD.getId().getPath(), modLoc("block/monkey_head"))
+                .texture("0", modLoc("block/monkey_head"))
+                .texture("particle", modLoc("block/monkey_head"));
+
         saplingItem(ModBlocks.PALM_TREE_SAPLING);
         withExistingParent(ModBlocks.PALM_TREE_DOOR.getId().getPath(), mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/palm_tree_door"));

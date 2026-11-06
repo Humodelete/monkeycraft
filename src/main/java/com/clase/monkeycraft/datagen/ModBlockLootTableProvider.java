@@ -56,6 +56,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.PALM_TREE_BUTTON.get());
         this.dropSelf(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
         this.add(ModBlocks.PALM_TREE_SLAB.get(), this::createSlabItemTable);
+        this.dropSelf(ModBlocks.MONKEY_HEAD.get());
     }
 
     @Override
