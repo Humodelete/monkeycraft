@@ -26,7 +26,9 @@ public class MonkeyTankAttackGoal extends MeleeAttackGoal {
 
     @Override
     protected void checkAndPerformAttack(LivingEntity pEnemy) {
-        if (isEnemyWithinAttackDistance(pEnemy)) {
+        boolean withinDistance = isEnemyWithinAttackDistance(pEnemy);
+
+        if (withinDistance || (shouldCountTillNextAttack && !isTimeToAttack())) {
             shouldCountTillNextAttack = true;
 
             if(isTimeToStartAttackAnimation()) {

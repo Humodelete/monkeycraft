@@ -1,6 +1,7 @@
 package com.clase.monkeycraft.entity;
 
 import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
 import net.minecraft.world.entity.EntityType;
@@ -21,6 +22,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<MonkeyTankEntity>> MONKEY_TANK =
             ENTITY_TYPES.register("monkey_tank", () -> EntityType.Builder.of(MonkeyTankEntity::new, MobCategory.CREATURE)
                     .sized(1.5f, 2.5f).build("monkey_tank"));
+
+    public static final RegistryObject<EntityType<MonkeyDartEntity>> MONKEY_DART =
+            ENTITY_TYPES.register("monkey_dart", () -> EntityType.Builder.of(MonkeyDartEntity::new, MobCategory.CREATURE)
+                    .sized(0.75f, 1.25f).build("monkey_dart"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

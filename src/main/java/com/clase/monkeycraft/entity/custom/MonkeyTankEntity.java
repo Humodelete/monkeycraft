@@ -43,7 +43,7 @@ public class MonkeyTankEntity extends TamableAnimal {
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
                 // if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
                 // || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJockerEntity) {
-                if(potentialTarget instanceof MonkeyTankEntity) {
+                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity) {
                     return false;
                 }
                 return super.canAttack(potentialTarget, targetingConditions);
@@ -54,7 +54,7 @@ public class MonkeyTankEntity extends TamableAnimal {
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
                 // if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
                 // || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJockerEntity) {
-                if(potentialTarget instanceof MonkeyTankEntity) {
+                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity) {
                     return false;
                 }
                 return super.canAttack(potentialTarget, targetingConditions);
@@ -65,7 +65,7 @@ public class MonkeyTankEntity extends TamableAnimal {
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
                 // if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
                 // || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJockerEntity) {
-                if(potentialTarget instanceof MonkeyTankEntity) {
+                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity) {
                     return false;
                 }
                 return super.canAttack(potentialTarget, targetingConditions);
