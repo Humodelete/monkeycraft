@@ -58,5 +58,10 @@
   "block.monkeycraft.stripped_palm_tree_wood": "Madera de palmera sin corteza",
   "block.monkeycraft.palm_tree_planks": "Tablones de palmera",
   "block.monkeycraft.palm_tree_sapling": "Brote de palmera",
-  "block.monkeycraft.palm_tree_leaves": "Hojas de palmera"
+  "block.monkeycraft.palm_tree_leaves": "Hojas de palmera",
+  "block.monkeycraft.palm_tree_door": "Puerta de palmera",
+  "block.monkeycraft.palm_tree_trapdoor": "Trampilla de palmera",
+  "block.monkeycraft.palm_tree_sign": "Letrero de palmera",
+  "item.monkeycraft.palm_tree_sign": "Letrero de palmera",
+  "block.monkeycraft.palm_tree_wall_sign": "Letrero de palmera en pared"
 }

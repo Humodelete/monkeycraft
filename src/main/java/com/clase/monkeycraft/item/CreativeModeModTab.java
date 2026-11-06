@@ -48,6 +48,9 @@ public class CreativeModeModTab {
                         output.accept(ModBlocks.PALM_TREE_PLANKS.get());
                         output.accept(ModBlocks.PALM_TREE_LEAVES.get());
                         output.accept(ModBlocks.PALM_TREE_SAPLING.get());
+                        output.accept(ModBlocks.PALM_TREE_DOOR.get());
+                        output.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+                        output.accept(ModBlocks.PALM_TREE_SIGN.get());
 
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
@@ -76,6 +79,7 @@ public class CreativeModeModTab {
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.MONKEY_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
+
 
                     }).build());
 

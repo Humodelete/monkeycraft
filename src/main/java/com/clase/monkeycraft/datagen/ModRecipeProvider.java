@@ -2,6 +2,7 @@ package com.clase.monkeycraft.datagen;
 
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -9,6 +10,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.concurrent.CompletableFuture;
@@ -36,6 +38,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("##")
                 .define('#', ModBlocks.PALM_TREE_LOG.get())
                 .unlockedBy(getHasName(ModBlocks.PALM_TREE_LOG.get()), has(ModBlocks.PALM_TREE_LOG.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.PALM_TREE_DOOR.get(), 3)
+                .pattern("##")
+                .pattern("##")
+                .pattern("##")
+                .define('#', ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.PALM_TREE_TRAPDOOR.get(), 2)
+                .pattern("###")
+                .pattern("###")
+                .define('#', ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.PALM_TREE_SIGN.get(), 3)
+                .pattern("###")
+                .pattern("###")
+                .pattern(" / ")
+                .define('#', ModBlocks.PALM_TREE_PLANKS.get())
+                .define('/', Items.STICK)
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
                 .save(pRecipeOutput);
     }
 }

@@ -2,6 +2,7 @@ package com.clase.monkeycraft.datagen;
 
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,9 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         saplingItem(ModBlocks.PALM_TREE_SAPLING);
+        basicItem(ModBlocks.PALM_TREE_DOOR.get().asItem());
+        withExistingParent(ModBlocks.PALM_TREE_TRAPDOOR.getId().getPath(), modLoc("block/palm_tree_trapdoor_bottom"));
+        basicItem(ModItems.PALM_TREE_SIGN.get());
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {

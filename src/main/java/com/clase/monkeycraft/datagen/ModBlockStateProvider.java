@@ -4,7 +4,7 @@ import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -23,16 +23,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlock(ModBlocks.PALM_TREE_WOOD.get(), blockTexture(ModBlocks.PALM_TREE_LOG.get()), blockTexture(ModBlocks.PALM_TREE_LOG.get()));
         logBlock(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
         axisBlock(ModBlocks.STRIPPED_PALM_TREE_WOOD.get(), blockTexture(ModBlocks.STRIPPED_PALM_TREE_LOG.get()), blockTexture(ModBlocks.STRIPPED_PALM_TREE_LOG.get()));
+        signBlock(((StandingSignBlock) ModBlocks.PALM_TREE_SIGN.get()), ((WallSignBlock) ModBlocks.PALM_TREE_WALL_SIGN.get()), modLoc("block/palm_tree_planks"));
 
         blockItem(ModBlocks.PALM_TREE_LOG);
         blockItem(ModBlocks.PALM_TREE_WOOD);
         blockItem(ModBlocks.STRIPPED_PALM_TREE_LOG);
         blockItem(ModBlocks.STRIPPED_PALM_TREE_WOOD);
 
+
         blockWithItem(ModBlocks.PALM_TREE_PLANKS);
 
         leavesBlock(ModBlocks.PALM_TREE_LEAVES);
         saplingBlock(ModBlocks.PALM_TREE_SAPLING);
+
+        doorBlockWithRenderType((DoorBlock) ModBlocks.PALM_TREE_DOOR.get(),
+                modLoc("block/palm_tree_door_bottom"),
+                modLoc("block/palm_tree_door_top"),
+                "cutout");
+
+        trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.PALM_TREE_TRAPDOOR.get(),
+                modLoc("block/palm_tree_trapdoor"),
+                true,
+                "cutout");
     }
 
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {

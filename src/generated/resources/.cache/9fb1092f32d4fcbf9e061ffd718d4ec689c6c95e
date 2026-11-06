@@ -1,7 +1,13 @@
-// 1.21	2026-11-06T17:00:19.811642	Recipes
+// 1.21	2026-11-06T18:38:12.7878112	Recipes
 90a6b5c8c896dc945aa690ff7c6ce5dbcc3deb11 data/monkeycraft/advancement/recipes/building_blocks/palm_tree_planks.json
 672785f602d02e2a4f0535e96f06ae62c81409ab data/monkeycraft/advancement/recipes/building_blocks/palm_tree_planks_from_wood.json
 1b62fd16dbc01810fda93410519b3951f5b32065 data/monkeycraft/advancement/recipes/building_blocks/palm_tree_wood.json
+89a954ec31ce9824e0b228500d2f32984ad93e36 data/monkeycraft/advancement/recipes/decorations/palm_tree_sign.json
+bffbf8bf2d758b0a26a86d4da100574701416297 data/monkeycraft/advancement/recipes/redstone/palm_tree_door.json
+0b6cfa05881c76c56be2f59f4efb8080c0df4945 data/monkeycraft/advancement/recipes/redstone/palm_tree_trapdoor.json
+b46f76f1060b9e6f7b732e6b3ff70e65f923f5a5 data/monkeycraft/recipe/palm_tree_door.json
 ec57900f53a8d80daebbef6e0dc7145d6bf3f310 data/monkeycraft/recipe/palm_tree_planks.json
 39ae507a0a69426c7f830d6b6f3c5834855dbda4 data/monkeycraft/recipe/palm_tree_planks_from_wood.json
+0607f3a7283facde864c773b7a09ed2023301484 data/monkeycraft/recipe/palm_tree_sign.json
+da26f4db775811b104ab2dc204d85177e21f3277 data/monkeycraft/recipe/palm_tree_trapdoor.json
 a5392fd534372e868d0d6882ab9eb027db7ec2cc data/monkeycraft/recipe/palm_tree_wood.json

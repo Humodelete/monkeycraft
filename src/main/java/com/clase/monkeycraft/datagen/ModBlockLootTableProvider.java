@@ -42,6 +42,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                                 .when(LootItemRandomChanceCondition.randomChance(0.05f)) // 5% de probabilidad
                         )
         );
+        this.dropSelf(ModBlocks.PALM_TREE_TRAPDOOR.get());
+        this.add(ModBlocks.PALM_TREE_DOOR.get(), this::createDoorTable);
+        this.dropSelf(ModBlocks.PALM_TREE_SIGN.get());
+        this.add(ModBlocks.PALM_TREE_WALL_SIGN.get(), block -> createSingleItemTable(ModItems.PALM_TREE_SIGN.get()));
     }
 
     @Override

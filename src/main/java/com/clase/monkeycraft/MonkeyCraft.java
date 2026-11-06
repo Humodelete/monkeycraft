@@ -1,6 +1,7 @@
 package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.block.entity.ModBlockEntities;
 import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.client.MonkeyRenderer;
@@ -14,6 +15,9 @@ import com.mojang.logging.LogUtils;
 import cpw.mods.util.Lazy;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -62,6 +66,7 @@ public class MonkeyCraft
         ModPotions.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
         ModTreePlacers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -90,6 +95,23 @@ public class MonkeyCraft
         }
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
             event.accept(ModItems.MONKEY_SPAWN_EGG.get());
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.PALM_TREE_LOG.get());
+            event.accept(ModBlocks.PALM_TREE_WOOD.get());
+            event.accept(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
+            event.accept(ModBlocks.STRIPPED_PALM_TREE_WOOD.get());
+            event.accept(ModBlocks.PALM_TREE_PLANKS.get());
+            event.accept(ModBlocks.PALM_TREE_DOOR.get());
+            event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(ModItems.PALM_TREE_SIGN.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModBlocks.PALM_TREE_DOOR.get());
+            event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
         }
         if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);
@@ -143,7 +165,16 @@ public class MonkeyCraft
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
-            EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
+            event.enqueueWork(() -> {
+                Sheets.addWoodType(ModBlocks.PALM_WOOD_TYPE);
+            });
+        }
+
+        // To render the sign
+        @SubscribeEvent
+        public static void registerRenderers(net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(ModEntities.MONKEY.get(), MonkeyRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
         }
     }
 

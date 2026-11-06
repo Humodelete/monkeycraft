@@ -58,5 +58,10 @@
   "block.monkeycraft.stripped_palm_tree_wood": "Stripped Palm Wood",
   "block.monkeycraft.palm_tree_planks": "Palm Planks",
   "block.monkeycraft.palm_tree_sapling": "Palm Sapling",
-  "block.monkeycraft.palm_tree_leaves": "Palm Leaves"
+  "block.monkeycraft.palm_tree_leaves": "Palm Leaves",
+  "block.monkeycraft.palm_tree_door": "Palm Tree Door",
+  "block.monkeycraft.palm_tree_trapdoor": "Palm Tree Trapdoor",
+  "block.monkeycraft.palm_tree_sign": "Palm Tree Sign",
+  "item.monkeycraft.palm_tree_sign": "Palm Tree Sign",
+  "block.monkeycraft.palm_tree_wall_sign": "Palm Tree Wall Sign"
 }
