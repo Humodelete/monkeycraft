@@ -24,7 +24,7 @@ public class MonkeyTankRenderer extends MobRenderer<MonkeyTankEntity, MonkeyTank
         if(pEntity.isBaby()) {
             pPoseStack.scale(0.25f, 0.25f, 0.25f);
         } else {
-            pPoseStack.scale(1.25f,1.25f, 1.25f);
+            pPoseStack.scale(0.85f,0.85f, 0.85f);
         }
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);

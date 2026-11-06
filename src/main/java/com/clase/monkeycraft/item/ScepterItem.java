@@ -1,6 +1,8 @@
 package com.clase.monkeycraft.item;
 
 
+import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -72,23 +74,40 @@ public class ScepterItem extends TieredItem {
             //Replace Wolf with Monkey once it's done
             Wolf wolf = EntityType.WOLF.create(dimension);
             Slime slime = EntityType.SLIME.create(dimension);
-            Zombie zombie = EntityType.ZOMBIE.create(dimension);
+            MonkeyTankEntity monkeyTank = ModEntities.MONKEY_TANK.get().create(dimension);
             Skeleton skeleton = EntityType.SKELETON.create(dimension);
-            Entity[] summons = {wolf, slime, zombie, skeleton};
+            Entity[] summons = {wolf, slime, monkeyTank, skeleton};
 
 
             if (summons[selectedPosition] != null &&
                     context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 1) {
-                summons[selectedPosition].moveTo(
+
+                Entity currentSummon = summons[selectedPosition];
+
+                currentSummon.moveTo(
                         pos.getX() + 0.5,
                         pos.getY() + 1,
                         pos.getZ() + 0.5
                 );
-                dimension.addFreshEntity(summons[selectedPosition]);
-                this.summonedEntities.add(summons[selectedPosition]);
-                context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+
+                // Asignación de dueño
+                if(currentSummon instanceof TamableAnimal tamableAnimal) {
+                    if(player != null) {
+                        tamableAnimal.setOwnerUUID(player.getUUID());
+                        tamableAnimal.setTame(true, true);
+                    }
+                }
+
+                dimension.addFreshEntity(currentSummon);
+                this.summonedEntities.add(currentSummon);
+
+                if (player != null) {
+                    context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                }
             } else {
-                Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
+                if (Minecraft.getInstance().player != null) {
+                    Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
+                }
             }
         }
         return InteractionResult.SUCCESS;

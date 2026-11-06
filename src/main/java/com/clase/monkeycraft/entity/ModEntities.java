@@ -20,7 +20,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<MonkeyTankEntity>> MONKEY_TANK =
             ENTITY_TYPES.register("monkey_tank", () -> EntityType.Builder.of(MonkeyTankEntity::new, MobCategory.CREATURE)
-                    .sized(2.0f, 3.5f).build("monkey_tank"));
+                    .sized(1.5f, 2.5f).build("monkey_tank"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
