@@ -50,5 +50,13 @@
   "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Flecha de perdición",
   "item.minecraft.tipped_arrow.effect.monkey_potion": "Flecha de agilidad simiesca",
   "item.minecraft.tipped_arrow.effect.long_monkey_potion": "Flecha de agilidad simiesca",
-  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Flecha de agilidad simiesca"
+  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Flecha de agilidad simiesca",
+
+  "block.monkeycraft.palm_tree_log": "Tronco de palmera",
+  "block.monkeycraft.palm_tree_wood": "Madera de palmera",
+  "block.monkeycraft.stripped_palm_tree_log": "Tronco de palmera sin corteza",
+  "block.monkeycraft.stripped_palm_tree_wood": "Madera de palmera sin corteza",
+  "block.monkeycraft.palm_tree_planks": "Tablones de palmera",
+  "block.monkeycraft.palm_tree_sapling": "Brote de palmera",
+  "block.monkeycraft.palm_tree_leaves": "Hojas de palmera"
 }

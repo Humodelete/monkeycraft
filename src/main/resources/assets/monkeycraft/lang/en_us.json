@@ -50,5 +50,13 @@
   "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Arrow of Doom",
   "item.minecraft.tipped_arrow.effect.monkey_potion": "Arrow of Simian Agility",
   "item.minecraft.tipped_arrow.effect.long_monkey_potion": "Arrow of Simian Agility",
-  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Arrow of Simian Agility"
+  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Arrow of Simian Agility",
+
+  "block.monkeycraft.palm_tree_log": "Palm Log",
+  "block.monkeycraft.palm_tree_wood": "Palm Wood",
+  "block.monkeycraft.stripped_palm_tree_log": "Stripped Palm Log",
+  "block.monkeycraft.stripped_palm_tree_wood": "Stripped Palm Wood",
+  "block.monkeycraft.palm_tree_planks": "Palm Planks",
+  "block.monkeycraft.palm_tree_sapling": "Palm Sapling",
+  "block.monkeycraft.palm_tree_leaves": "Palm Leaves"
 }
