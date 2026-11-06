@@ -30,6 +30,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.STRIPPED_PALM_TREE_LOG.get())
                 .add(ModBlocks.STRIPPED_PALM_TREE_WOOD.get())
                 .add(ModBlocks.PALM_TREE_PLANKS.get());
+        this.tag(BlockTags.WOODEN_FENCES).add(ModBlocks.PALM_TREE_FENCE.get());
+        this.tag(BlockTags.FENCE_GATES).add(ModBlocks.PALM_TREE_FENCE_GATE.get());
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(ModBlocks.PALM_TREE_LEAVES.get());

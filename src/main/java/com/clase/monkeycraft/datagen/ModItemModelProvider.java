@@ -21,9 +21,20 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         saplingItem(ModBlocks.PALM_TREE_SAPLING);
-        basicItem(ModBlocks.PALM_TREE_DOOR.get().asItem());
+        withExistingParent(ModBlocks.PALM_TREE_DOOR.getId().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/palm_tree_door"));
+
+        withExistingParent(ModBlocks.PALM_TREE_SAPLING.getId().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("block/palm_tree_sapling"));
+
+        withExistingParent(ModBlocks.PALM_TREE_FENCE.getId().getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture", modLoc("block/palm_tree_planks"));
+
+        withExistingParent(ModBlocks.PALM_TREE_FENCE_GATE.getId().getPath(), modLoc("block/palm_tree_fence_gate"));
         withExistingParent(ModBlocks.PALM_TREE_TRAPDOOR.getId().getPath(), modLoc("block/palm_tree_trapdoor_bottom"));
+
         basicItem(ModItems.PALM_TREE_SIGN.get());
+        basicItem(ModItems.PALM_TREE_HANGING_SIGN.get());
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {

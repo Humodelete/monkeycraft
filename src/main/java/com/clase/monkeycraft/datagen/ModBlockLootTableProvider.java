@@ -31,6 +31,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_PALM_TREE_WOOD.get());
         this.dropSelf(ModBlocks.PALM_TREE_PLANKS.get());
         this.dropSelf(ModBlocks.PALM_TREE_SAPLING.get());
+        this.dropSelf(ModBlocks.PALM_TREE_FENCE.get());
+        this.dropSelf(ModBlocks.PALM_TREE_FENCE_GATE.get());
 
         this.add(ModBlocks.PALM_TREE_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.PALM_TREE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES)
@@ -46,6 +48,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.PALM_TREE_DOOR.get(), this::createDoorTable);
         this.dropSelf(ModBlocks.PALM_TREE_SIGN.get());
         this.add(ModBlocks.PALM_TREE_WALL_SIGN.get(), block -> createSingleItemTable(ModItems.PALM_TREE_SIGN.get()));
+        this.dropOther(ModBlocks.PALM_TREE_HANGING_SIGN.get(), ModItems.PALM_TREE_HANGING_SIGN.get());
+        this.dropOther(ModBlocks.PALM_TREE_WALL_HANGING_SIGN.get(), ModItems.PALM_TREE_HANGING_SIGN.get());
     }
 
     @Override

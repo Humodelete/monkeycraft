@@ -1,4 +1,6 @@
-// 1.21	2026-11-06T16:44:59.6500377	Tags for minecraft:block mod id monkeycraft
+// 1.21	2026-11-06T20:57:24.3206538	Tags for minecraft:block mod id monkeycraft
+54f9a470c1de19b745bffde06c403e6acb033be9 data/minecraft/tags/block/fence_gates.json
 1c07a94c9b5208263a22e8319fea26ac55c0b354 data/minecraft/tags/block/logs_that_burn.json
 6ac10bbec129c777caabd24f89525aec34fd2636 data/minecraft/tags/block/mineable/axe.json
 554929a3e018e69b6048dc92150c2e9116fde66d data/minecraft/tags/block/mineable/hoe.json
+9d273b4ef6468aff077e70babbd00fee3aec9505 data/minecraft/tags/block/wooden_fences.json

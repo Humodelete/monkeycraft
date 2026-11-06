@@ -18,6 +18,10 @@ public class ModBlockEntities {
                             ModBlocks.PALM_TREE_SIGN.get(),
                             ModBlocks.PALM_TREE_WALL_SIGN.get()
                     ).build(null));
+    public static final RegistryObject<BlockEntityType<ModHangingSignBlockEntity>> MOD_HANGING_SIGN =
+            BLOCK_ENTITIES.register("mod_hanging_sign", () ->
+                    BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
+                            ModBlocks.PALM_TREE_HANGING_SIGN.get(), ModBlocks.PALM_TREE_WALL_HANGING_SIGN.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

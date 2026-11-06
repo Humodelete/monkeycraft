@@ -63,5 +63,10 @@
   "block.monkeycraft.palm_tree_trapdoor": "Palm Tree Trapdoor",
   "block.monkeycraft.palm_tree_sign": "Palm Tree Sign",
   "item.monkeycraft.palm_tree_sign": "Palm Tree Sign",
-  "block.monkeycraft.palm_tree_wall_sign": "Palm Tree Wall Sign"
+  "block.monkeycraft.palm_tree_wall_sign": "Palm Tree Wall Sign",
+  "block.monkeycraft.palm_tree_fence": "Palm Tree Fence",
+  "block.monkeycraft.palm_tree_fence_gate": "Palm Tree Fence Gate",
+  "block.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign",
+  "block.monkeycraft.palm_tree_wall_hanging_sign": "Palm Tree Hanging Sign",
+  "item.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign"
 }

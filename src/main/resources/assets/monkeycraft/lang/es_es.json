@@ -63,5 +63,10 @@
   "block.monkeycraft.palm_tree_trapdoor": "Trampilla de palmera",
   "block.monkeycraft.palm_tree_sign": "Letrero de palmera",
   "item.monkeycraft.palm_tree_sign": "Letrero de palmera",
-  "block.monkeycraft.palm_tree_wall_sign": "Letrero de palmera en pared"
+  "block.monkeycraft.palm_tree_wall_sign": "Letrero de palmera en pared",
+  "block.monkeycraft.palm_tree_fence": "Valla de palmera",
+  "block.monkeycraft.palm_tree_fence_gate": "Puerta de valla de palmera",
+  "block.monkeycraft.palm_tree_hanging_sign": "Letrero colgante de palmera",
+  "block.monkeycraft.palm_tree_wall_hanging_sign": "Letrero colgante de palmera",
+  "item.monkeycraft.palm_tree_hanging_sign": "Letrero colgante de palmera"
 }

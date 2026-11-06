@@ -1,6 +1,10 @@
-// 1.21	2026-11-06T18:38:12.7868098	Loot Tables
+// 1.21	2026-11-06T20:37:18.114018	Loot Tables
+a085c28de325a18872a22867c5f7123c6aac8cbb data/minecraft/loot_table/blocks/oak_hanging_sign.json
 f3f57ef29fbe84e2612fef0df5a1d656c60cee8f data/minecraft/loot_table/blocks/oak_sign.json
 fd5de81c883435c6a00989362e360be8f59949fc data/monkeycraft/loot_table/blocks/palm_tree_door.json
+693b88b2c52f331fb3d697759c8efd6a1cdb2bd7 data/monkeycraft/loot_table/blocks/palm_tree_fence.json
+f22826032ee157870a3a3d7dfa777494ac3b42b9 data/monkeycraft/loot_table/blocks/palm_tree_fence_gate.json
+8ce3774d00be8c44cabca059fcf8c7e5f422f541 data/monkeycraft/loot_table/blocks/palm_tree_hanging_sign.json
 b3bc658874bafc2927a84b17ff9d8fb862c0e374 data/monkeycraft/loot_table/blocks/palm_tree_leaves.json
 c92fe292c387bc017d65c5f227be41ca6a128f63 data/monkeycraft/loot_table/blocks/palm_tree_log.json
 fde6101c627d4f208a6b497ee16323ba90baed48 data/monkeycraft/loot_table/blocks/palm_tree_planks.json

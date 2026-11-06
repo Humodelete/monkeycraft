@@ -5,6 +5,7 @@ import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.util.ModScepterTiers;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -32,7 +33,11 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.MONKEY, 0x4a3018,0xe3c73b, new Item.Properties()));
 
     public static final RegistryObject<Item> PALM_TREE_SIGN = ITEMS.register("palm_tree_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.PALM_TREE_SIGN.get(), ModBlocks.PALM_TREE_WALL_SIGN.get()));
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.PALM_TREE_SIGN.get(),
+                    ModBlocks.PALM_TREE_WALL_SIGN.get()));
+    public static final RegistryObject<Item> PALM_TREE_HANGING_SIGN = ITEMS.register("palm_tree_hanging_sign",
+            () -> new HangingSignItem(ModBlocks.PALM_TREE_HANGING_SIGN.get(), ModBlocks.PALM_TREE_WALL_HANGING_SIGN.get(),
+                    new Item.Properties().stacksTo(16)));
 
     public static final RegistryObject<Item> MONKEY_SCEPTER_T0 = ITEMS.register("monkey_scepter_t0",
             () -> new ScepterItem(ModScepterTiers.TIER_0, new Item.Properties().attributes(ScepterItem.createAttributes(

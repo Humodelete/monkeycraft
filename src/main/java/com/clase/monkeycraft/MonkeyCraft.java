@@ -17,6 +17,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -105,9 +106,12 @@ public class MonkeyCraft
             event.accept(ModBlocks.PALM_TREE_PLANKS.get());
             event.accept(ModBlocks.PALM_TREE_DOOR.get());
             event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+            event.accept(ModBlocks.PALM_TREE_FENCE.get());
+            event.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
             event.accept(ModItems.PALM_TREE_SIGN.get());
+            event.accept(ModItems.PALM_TREE_HANGING_SIGN.get());
         }
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.accept(ModBlocks.PALM_TREE_DOOR.get());
@@ -175,6 +179,8 @@ public class MonkeyCraft
         public static void registerRenderers(net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(ModEntities.MONKEY.get(), MonkeyRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new); // NUEVA
+
         }
     }
 

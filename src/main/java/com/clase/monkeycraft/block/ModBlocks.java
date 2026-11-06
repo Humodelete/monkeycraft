@@ -3,6 +3,7 @@ package com.clase.monkeycraft.block;
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.custom.ModFlammableRotatedPillarBlock;
 import com.clase.monkeycraft.block.custom.SkullBlock;
+import com.clase.monkeycraft.block.entity.ModHangingSignBlockEntity;
 import com.clase.monkeycraft.block.entity.ModSignBlockEntity;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.worldgen.tree.ModTreeGrowers;
@@ -107,6 +108,28 @@ public class ModBlocks {
                 @Override
                 public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
                     return new ModSignBlockEntity(pPos, pState);
+                }
+            });
+
+    public static final RegistryObject<Block> PALM_TREE_FENCE = registerBlock("palm_tree_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)));
+
+    public static final RegistryObject<Block> PALM_TREE_FENCE_GATE = registerBlock("palm_tree_fence_gate",
+            () -> new FenceGateBlock(PALM_WOOD_TYPE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)));
+
+    public static final RegistryObject<Block> PALM_TREE_HANGING_SIGN = BLOCKS.register("palm_tree_hanging_sign",
+            () -> new CeilingHangingSignBlock(PALM_WOOD_TYPE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)) {
+                @Override
+                public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+                    return new ModHangingSignBlockEntity(pPos, pState);
+                }
+            });
+
+    public static final RegistryObject<Block> PALM_TREE_WALL_HANGING_SIGN = BLOCKS.register("palm_tree_wall_hanging_sign",
+            () -> new WallHangingSignBlock(PALM_WOOD_TYPE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)) {
+                @Override
+                public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+                    return new ModHangingSignBlockEntity(pPos, pState);
                 }
             });
 

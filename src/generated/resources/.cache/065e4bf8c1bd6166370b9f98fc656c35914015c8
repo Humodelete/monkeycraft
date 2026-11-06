@@ -1,5 +1,8 @@
-// 1.21	2026-11-06T18:38:12.7888111	Item Models: monkeycraft
+// 1.21	2026-11-06T20:48:23.9526992	Item Models: monkeycraft
 57971c4d528712239688d3a91245d0dfb0002a68 assets/monkeycraft/models/item/palm_tree_door.json
+f44776e4e1c498ae2e617dcb0c60d4eb7ffe1aa1 assets/monkeycraft/models/item/palm_tree_fence.json
+5bb6d3931fb47b0754f14a8b26e89fc1002413d6 assets/monkeycraft/models/item/palm_tree_fence_gate.json
+ef49039e7b7bff7696834e7593ee0c1e76a6a4b8 assets/monkeycraft/models/item/palm_tree_hanging_sign.json
 2f938f4113e65433ae04d680679fcb914b96cfef assets/monkeycraft/models/item/palm_tree_sapling.json
 c3833baff87d80de320c298d750db5b751c6c3fa assets/monkeycraft/models/item/palm_tree_sign.json
 98947b5972fca1c7a5acb3fc0a07d5fb7fcc14cf assets/monkeycraft/models/item/palm_tree_trapdoor.json

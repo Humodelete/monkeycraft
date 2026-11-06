@@ -24,6 +24,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
         logBlock(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
         axisBlock(ModBlocks.STRIPPED_PALM_TREE_WOOD.get(), blockTexture(ModBlocks.STRIPPED_PALM_TREE_LOG.get()), blockTexture(ModBlocks.STRIPPED_PALM_TREE_LOG.get()));
         signBlock(((StandingSignBlock) ModBlocks.PALM_TREE_SIGN.get()), ((WallSignBlock) ModBlocks.PALM_TREE_WALL_SIGN.get()), modLoc("block/palm_tree_planks"));
+        ModelFile hangingSign = models().sign(ModBlocks.PALM_TREE_HANGING_SIGN.getId().getPath(), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+        ModelFile wallHangingSign = models().sign(ModBlocks.PALM_TREE_WALL_HANGING_SIGN.getId().getPath(), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+
+        getVariantBuilder(ModBlocks.PALM_TREE_HANGING_SIGN.get())
+                .partialState().setModels(new net.minecraftforge.client.model.generators.ConfiguredModel(hangingSign));
+
+        getVariantBuilder(ModBlocks.PALM_TREE_WALL_HANGING_SIGN.get())
+                .partialState().setModels(new net.minecraftforge.client.model.generators.ConfiguredModel(wallHangingSign));
+        fenceBlock(((FenceBlock) ModBlocks.PALM_TREE_FENCE.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.PALM_TREE_FENCE_GATE.get()), blockTexture(ModBlocks.PALM_TREE_PLANKS.get()));
 
         blockItem(ModBlocks.PALM_TREE_LOG);
         blockItem(ModBlocks.PALM_TREE_WOOD);
