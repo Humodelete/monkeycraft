@@ -87,8 +87,16 @@ public class ScepterItem extends TieredItem {
 
             //TamableAnimal[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey};
             MonkeyEntity[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey}; //Replace with the upper line once the monkeys are added
+
+            int currentCost = 0;
+            switch (selectedPosition){
+                case 0 -> currentCost = DART_MONKEY_COST;
+                case 1 -> currentCost = MAGE_MONKEY_COST;
+                case 2 -> currentCost = TANK_MONKEY_COST;
+                case 3 -> currentCost = JESTER_MONKEY_COST;
+            }
             if (summons[selectedPosition] != null &&
-                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - summons[selectedPosition].getScepterCost()) {
+                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - currentCost) {
 
                 summons[selectedPosition].moveTo(
                         pos.getX() + 0.5,
