@@ -137,7 +137,7 @@ public class ScepterItem extends TieredItem {
             if (summonEntity.equals(entity.getStringUUID())) {
                 thisScepter = true;
                 removeEntity = entity.getStringUUID();
-
+                break;
             }
         }
         if (thisScepter) {
