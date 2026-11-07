@@ -1,0 +1,15 @@
+{
+  "values": [
+    "monkeycraft:palm_tree_log",
+    "monkeycraft:palm_tree_wood",
+    "monkeycraft:stripped_palm_tree_log",
+    "monkeycraft:stripped_palm_tree_wood",
+    "monkeycraft:palm_tree_planks",
+    "#minecraft:wooden_fences",
+    "#minecraft:fence_gates",
+    "#minecraft:wooden_stairs",
+    "#minecraft:wooden_slabs",
+    "#minecraft:wooden_buttons",
+    "#minecraft:wooden_pressure_plates"
+  ]
+}

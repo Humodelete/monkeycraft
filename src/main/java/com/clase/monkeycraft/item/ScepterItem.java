@@ -179,4 +179,11 @@ public class ScepterItem extends TieredItem {
                             Component.translatable("entity.monkeycraft.monkey_jester"))); //Might not end up as "jester", just predicting that word
         }
     }
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        if (repair.is(com.clase.monkeycraft.item.ModItems.BANANA.get())) {
+            return true;
+        }
+        return super.isValidRepairItem(toRepair, repair);
+    }
 }

@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/skull_t0",
+  "criteria": {
+    "has_skull_1": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_skull_t1"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Upgrade the monkey skull to Tier 1.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_skull_t1"
+    },
+    "title": "Mystic Skull"
+  },
+  "requirements": [
+    [
+      "has_skull_1"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,30 @@
+{
+  "parent": "monkeycraft:monkeycraft/scepter_t2",
+  "criteria": {
+    "has_scepter_3": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_scepter_t3"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Unleash the full power of the Tier 3 scepter.",
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_scepter_t3"
+    },
+    "title": "Scepter of the Ape King"
+  },
+  "requirements": [
+    [
+      "has_scepter_3"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
