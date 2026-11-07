@@ -29,8 +29,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
         AdvancementHolder root = Advancement.Builder.advancement()
                 .display(
                         ModItems.BANANA.get(),
-                        Component.literal("MonkeyCraft"),
-                        Component.literal("Welcome to the jungle."),
+                        Component.translatable("advancement.monkeycraft.root.title"),
+                        Component.translatable("advancement.monkeycraft.root.desc"),
                         ResourceLocation.withDefaultNamespace("textures/block/moss_block.png"),
                         AdvancementType.TASK,
                         false, false, false
@@ -42,8 +42,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(root)
                 .display(
                         ModItems.BANANA.get(),
-                        Component.literal("Oh, Banana!"),
-                        Component.literal("Get a banana for the first time."),
+                        Component.translatable("advancement.monkeycraft.get_banana.title"),
+                        Component.translatable("advancement.monkeycraft.get_banana.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_banana", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BANANA.get()))
@@ -53,8 +53,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(getBanana)
                 .display(
                         ModItems.BANANA_PEEL.get(),
-                        Component.literal("Slippery Business"),
-                        Component.literal("Obtain a banana peel."),
+                        Component.translatable("advancement.monkeycraft.get_banana_peel.title"),
+                        Component.translatable("advancement.monkeycraft.get_banana_peel.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_banana_peel", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BANANA_PEEL.get()))
@@ -64,8 +64,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(getBananaPeel)
                 .display(
                         Items.POTION,
-                        Component.literal("Simian Agility"),
-                        Component.literal("Brew the Simian Agility potion using a banana peel."),
+                        Component.translatable("advancement.monkeycraft.get_monkey_potion.title"),
+                        Component.translatable("advancement.monkeycraft.get_monkey_potion.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_monkey_potion", InventoryChangeTrigger.TriggerInstance.hasItems(
@@ -81,8 +81,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(getBanana)
                 .display(
                         ModItems.BANANA_OF_DOOM_AND_DESPAIR.get(),
-                        Component.literal("Doom and Despair"),
-                        Component.literal("Obtain the forbidden banana."),
+                        Component.translatable("advancement.monkeycraft.get_doom_banana.title"),
+                        Component.translatable("advancement.monkeycraft.get_doom_banana.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_doom_banana", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get()))
@@ -92,8 +92,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(getDoomBanana)
                 .display(
                         ModItems.BANANA_OF_DOOM_AND_DESPAIR.get(),
-                        Component.literal("Taste of Doom"),
-                        Component.literal("Brew the Doom potion in a brewing stand."),
+                        Component.translatable("advancement.monkeycraft.get_doom_potion.title"),
+                        Component.translatable("advancement.monkeycraft.get_doom_potion.desc"),
                         null, AdvancementType.GOAL, true, true, false
                 )
                 .addCriterion("has_doom_potion", InventoryChangeTrigger.TriggerInstance.hasItems(
@@ -109,8 +109,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(getDoomPotion)
                 .display(
                         ModItems.BANANA_OF_DOOM_AND_DESPAIR.get(),
-                        Component.literal("Death Wish"),
-                        Component.literal("Eat the forbidden banana and face the consequences."),
+                        Component.translatable("advancement.monkeycraft.death_wish.title"),
+                        Component.translatable("advancement.monkeycraft.death_wish.desc"),
                         null, AdvancementType.CHALLENGE, true, true, false
                 )
                 .addCriterion("eat_doom_banana", ConsumeItemTrigger.TriggerInstance.usedItem(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get()))
@@ -120,8 +120,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(root)
                 .display(
                         ModBlocks.MONKEY_HEAD.get().asItem(),
-                        Component.literal("Monkey See, Monkey Do"),
-                        Component.literal("Obtain the wearable monkey head."),
+                        Component.translatable("advancement.monkeycraft.wearable_head.title"),
+                        Component.translatable("advancement.monkeycraft.wearable_head.desc"),
                         null, AdvancementType.CHALLENGE, true, true, true
                 )
                 .addCriterion("has_monkey_head", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.MONKEY_HEAD.get().asItem()))
@@ -131,8 +131,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(root)
                 .display(
                         ModItems.MONKEY_SKULL_T0.get(),
-                        Component.literal("Head Collector"),
-                        Component.literal("Obtain your first monkey skull."),
+                        Component.translatable("advancement.monkeycraft.skull_t0.title"),
+                        Component.translatable("advancement.monkeycraft.skull_t0.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_skull_0", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SKULL_T0.get()))
@@ -142,8 +142,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(skullT0)
                 .display(
                         ModItems.MONKEY_SKULL_T1.get(),
-                        Component.literal("Mystic Skull"),
-                        Component.literal("Upgrade the monkey skull to Tier 1."),
+                        Component.translatable("advancement.monkeycraft.skull_t1.title"),
+                        Component.translatable("advancement.monkeycraft.skull_t1.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_skull_1", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SKULL_T1.get()))
@@ -153,8 +153,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(skullT1)
                 .display(
                         ModItems.MONKEY_SKULL_T2.get(),
-                        Component.literal("Advanced Skull"),
-                        Component.literal("Upgrade the monkey skull to Tier 2."),
+                        Component.translatable("advancement.monkeycraft.skull_t2.title"),
+                        Component.translatable("advancement.monkeycraft.skull_t2.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_skull_2", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SKULL_T2.get()))
@@ -164,8 +164,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(skullT2)
                 .display(
                         ModItems.MONKEY_SKULL_T3.get(),
-                        Component.literal("Master Skull"),
-                        Component.literal("Upgrade the monkey skull to its final form."),
+                        Component.translatable("advancement.monkeycraft.skull_t3.title"),
+                        Component.translatable("advancement.monkeycraft.skull_t3.desc"),
                         null, AdvancementType.GOAL, true, true, false
                 )
                 .addCriterion("has_skull_3", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SKULL_T3.get()))
@@ -175,8 +175,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(root)
                 .display(
                         ModItems.MONKEY_SCEPTER_T0.get(),
-                        Component.literal("Primal Magic"),
-                        Component.literal("Craft the basic monkey scepter."),
+                        Component.translatable("advancement.monkeycraft.scepter_t0.title"),
+                        Component.translatable("advancement.monkeycraft.scepter_t0.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_scepter_0", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SCEPTER_T0.get()))
@@ -186,8 +186,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(scepterT0)
                 .display(
                         ModItems.MONKEY_SCEPTER_T1.get(),
-                        Component.literal("Apprentice Scepter"),
-                        Component.literal("Upgrade the scepter to Tier 1."),
+                        Component.translatable("advancement.monkeycraft.scepter_t1.title"),
+                        Component.translatable("advancement.monkeycraft.scepter_t1.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_scepter_1", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SCEPTER_T1.get()))
@@ -197,8 +197,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(scepterT1)
                 .display(
                         ModItems.MONKEY_SCEPTER_T2.get(),
-                        Component.literal("Empowered Scepter"),
-                        Component.literal("Upgrade the scepter to Tier 2."),
+                        Component.translatable("advancement.monkeycraft.scepter_t2.title"),
+                        Component.translatable("advancement.monkeycraft.scepter_t2.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .addCriterion("has_scepter_2", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SCEPTER_T2.get()))
@@ -208,8 +208,8 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                 .parent(scepterT2)
                 .display(
                         ModItems.MONKEY_SCEPTER_T3.get(),
-                        Component.literal("Scepter of the Ape King"),
-                        Component.literal("Unleash the full power of the Tier 3 scepter."),
+                        Component.translatable("advancement.monkeycraft.scepter_t3.title"),
+                        Component.translatable("advancement.monkeycraft.scepter_t3.desc"),
                         null, AdvancementType.CHALLENGE, true, true, false
                 )
                 .addCriterion("has_scepter_3", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MONKEY_SCEPTER_T3.get()))

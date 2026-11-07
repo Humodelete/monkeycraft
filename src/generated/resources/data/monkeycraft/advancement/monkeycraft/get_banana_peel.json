@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a banana peel.",
+    "description": {
+      "translate": "advancement.monkeycraft.get_banana_peel.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana_peel"
     },
-    "title": "Slippery Business"
+    "title": {
+      "translate": "advancement.monkeycraft.get_banana_peel.title"
+    }
   },
   "requirements": [
     [

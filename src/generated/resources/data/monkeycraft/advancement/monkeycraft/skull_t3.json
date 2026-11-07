@@ -13,13 +13,17 @@
     }
   },
   "display": {
-    "description": "Upgrade the monkey skull to its final form.",
+    "description": {
+      "translate": "advancement.monkeycraft.skull_t3.desc"
+    },
     "frame": "goal",
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_skull_t3"
     },
-    "title": "Master Skull"
+    "title": {
+      "translate": "advancement.monkeycraft.skull_t3.title"
+    }
   },
   "requirements": [
     [

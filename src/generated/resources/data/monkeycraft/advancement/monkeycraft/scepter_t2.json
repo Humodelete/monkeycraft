@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Upgrade the scepter to Tier 2.",
+    "description": {
+      "translate": "advancement.monkeycraft.scepter_t2.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_scepter_t2"
     },
-    "title": "Empowered Scepter"
+    "title": {
+      "translate": "advancement.monkeycraft.scepter_t2.title"
+    }
   },
   "requirements": [
     [

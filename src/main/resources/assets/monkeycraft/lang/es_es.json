@@ -13,7 +13,7 @@
 
   "message.monkeycraft.selected": "Seleccionado: %s",
   "message.monkeycraft.low_energy": "Invocación demasiado costosa, retira otras invocaciones primero",
-  "message.monkeycraft.overcharge": "Desinvocar gastaría energía",
+  "message.monkeycraft.overcharge": "Desinvocar desperdiciaría energía",
 
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
 
@@ -80,5 +80,38 @@
   "block.monkeycraft.palm_tree_stairs": "Escaleras de palmera",
   "block.monkeycraft.palm_tree_slab": "Losa de palmera",
   "block.monkeycraft.palm_tree_button": "Botón de palmera",
-  "block.monkeycraft.palm_tree_pressure_plate": "Placa de presión de palmera"
+  "block.monkeycraft.palm_tree_pressure_plate": "Placa de presión de palmera",
+
+  "advancement.monkeycraft.root.title": "MonkeyCraft",
+  "advancement.monkeycraft.root.desc": "Bienvenido a la jungla.",
+  "advancement.monkeycraft.get_banana.title": "¡Oh, Plátano!",
+  "advancement.monkeycraft.get_banana.desc": "Consigue un plátano por primera vez.",
+  "advancement.monkeycraft.get_banana_peel.title": "Negocio Resbaladizo",
+  "advancement.monkeycraft.get_banana_peel.desc": "Obtén una cáscara de plátano.",
+  "advancement.monkeycraft.get_monkey_potion.title": "Agilidad Simiesca",
+  "advancement.monkeycraft.get_monkey_potion.desc": "Prepara la poción de agilidad simiesca usando una cáscara de plátano.",
+  "advancement.monkeycraft.get_doom_banana.title": "Perdición y Desesperación",
+  "advancement.monkeycraft.get_doom_banana.desc": "Obtén el plátano prohibido.",
+  "advancement.monkeycraft.get_doom_potion.title": "Sabor a Perdición",
+  "advancement.monkeycraft.get_doom_potion.desc": "Prepara la poción de perdición en un soporte para pociones.",
+  "advancement.monkeycraft.death_wish.title": "Deseo de Muerte",
+  "advancement.monkeycraft.death_wish.desc": "...¿Por qué?",
+  "advancement.monkeycraft.wearable_head.title": "Mono ve, mono hace",
+  "advancement.monkeycraft.wearable_head.desc": "Consigue la cabeza de mono equipable.",
+  "advancement.monkeycraft.skull_t0.title": "Coleccionista de Cabezas",
+  "advancement.monkeycraft.skull_t0.desc": "Obtén tu primera calavera de mono.",
+  "advancement.monkeycraft.skull_t1.title": "Calavera Mística",
+  "advancement.monkeycraft.skull_t1.desc": "Mejora la calavera de mono al Nivel 1.",
+  "advancement.monkeycraft.skull_t2.title": "Calavera Avanzada",
+  "advancement.monkeycraft.skull_t2.desc": "Mejora la calavera de mono al Nivel 2.",
+  "advancement.monkeycraft.skull_t3.title": "Calavera Maestra",
+  "advancement.monkeycraft.skull_t3.desc": "Mejora la calavera de mono a su forma definitiva.",
+  "advancement.monkeycraft.scepter_t0.title": "Magia Primitiva",
+  "advancement.monkeycraft.scepter_t0.desc": "Crea el cetro de mono básico.",
+  "advancement.monkeycraft.scepter_t1.title": "Cetro de Aprendiz",
+  "advancement.monkeycraft.scepter_t1.desc": "Mejora el cetro al Nivel 1.",
+  "advancement.monkeycraft.scepter_t2.title": "Cetro Potenciado",
+  "advancement.monkeycraft.scepter_t2.desc": "Mejora el cetro al Nivel 2.",
+  "advancement.monkeycraft.scepter_t3.title": "Cetro del Rey Simio",
+  "advancement.monkeycraft.scepter_t3.desc": "Desata todo el poder del cetro de Nivel 3."
 }

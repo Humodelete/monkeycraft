@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Get a banana for the first time.",
+    "description": {
+      "translate": "advancement.monkeycraft.get_banana.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana"
     },
-    "title": "Oh, Banana!"
+    "title": {
+      "translate": "advancement.monkeycraft.get_banana.title"
+    }
   },
   "requirements": [
     [

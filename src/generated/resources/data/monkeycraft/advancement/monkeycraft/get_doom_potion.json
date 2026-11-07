@@ -18,13 +18,17 @@
     }
   },
   "display": {
-    "description": "Brew the Doom potion in a brewing stand.",
+    "description": {
+      "translate": "advancement.monkeycraft.get_doom_potion.desc"
+    },
     "frame": "goal",
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana_of_doom_and_despair"
     },
-    "title": "Taste of Doom"
+    "title": {
+      "translate": "advancement.monkeycraft.get_doom_potion.title"
+    }
   },
   "requirements": [
     [

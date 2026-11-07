@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Craft the basic monkey scepter.",
+    "description": {
+      "translate": "advancement.monkeycraft.scepter_t0.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_scepter_t0"
     },
-    "title": "Primal Magic"
+    "title": {
+      "translate": "advancement.monkeycraft.scepter_t0.title"
+    }
   },
   "requirements": [
     [

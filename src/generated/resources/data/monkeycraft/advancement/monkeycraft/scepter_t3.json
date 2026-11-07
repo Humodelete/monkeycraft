@@ -13,13 +13,17 @@
     }
   },
   "display": {
-    "description": "Unleash the full power of the Tier 3 scepter.",
+    "description": {
+      "translate": "advancement.monkeycraft.scepter_t3.desc"
+    },
     "frame": "challenge",
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_scepter_t3"
     },
-    "title": "Scepter of the Ape King"
+    "title": {
+      "translate": "advancement.monkeycraft.scepter_t3.title"
+    }
   },
   "requirements": [
     [

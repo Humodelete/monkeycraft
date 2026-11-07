@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Upgrade the scepter to Tier 1.",
+    "description": {
+      "translate": "advancement.monkeycraft.scepter_t1.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_scepter_t1"
     },
-    "title": "Apprentice Scepter"
+    "title": {
+      "translate": "advancement.monkeycraft.scepter_t1.title"
+    }
   },
   "requirements": [
     [

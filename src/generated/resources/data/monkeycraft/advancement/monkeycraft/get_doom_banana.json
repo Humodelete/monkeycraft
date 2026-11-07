@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain the forbidden banana.",
+    "description": {
+      "translate": "advancement.monkeycraft.get_doom_banana.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana_of_doom_and_despair"
     },
-    "title": "Doom and Despair"
+    "title": {
+      "translate": "advancement.monkeycraft.get_doom_banana.title"
+    }
   },
   "requirements": [
     [

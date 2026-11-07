@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Upgrade the monkey skull to Tier 1.",
+    "description": {
+      "translate": "advancement.monkeycraft.skull_t1.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_skull_t1"
     },
-    "title": "Mystic Skull"
+    "title": {
+      "translate": "advancement.monkeycraft.skull_t1.title"
+    }
   },
   "requirements": [
     [

@@ -11,13 +11,17 @@
     }
   },
   "display": {
-    "description": "Eat the forbidden banana and face the consequences.",
+    "description": {
+      "translate": "advancement.monkeycraft.death_wish.desc"
+    },
     "frame": "challenge",
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana_of_doom_and_despair"
     },
-    "title": "Death Wish"
+    "title": {
+      "translate": "advancement.monkeycraft.death_wish.title"
+    }
   },
   "requirements": [
     [

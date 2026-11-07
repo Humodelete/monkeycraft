@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Upgrade the monkey skull to Tier 2.",
+    "description": {
+      "translate": "advancement.monkeycraft.skull_t2.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_skull_t2"
     },
-    "title": "Advanced Skull"
+    "title": {
+      "translate": "advancement.monkeycraft.skull_t2.title"
+    }
   },
   "requirements": [
     [

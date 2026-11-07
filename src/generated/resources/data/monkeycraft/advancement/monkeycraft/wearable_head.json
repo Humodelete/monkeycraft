@@ -13,14 +13,18 @@
     }
   },
   "display": {
-    "description": "Obtain the wearable monkey head.",
+    "description": {
+      "translate": "advancement.monkeycraft.wearable_head.desc"
+    },
     "frame": "challenge",
     "hidden": true,
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_head"
     },
-    "title": "Monkey See, Monkey Do"
+    "title": {
+      "translate": "advancement.monkeycraft.wearable_head.title"
+    }
   },
   "requirements": [
     [

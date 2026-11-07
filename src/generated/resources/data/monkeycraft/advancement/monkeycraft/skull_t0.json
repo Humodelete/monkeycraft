@@ -13,12 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain your first monkey skull.",
+    "description": {
+      "translate": "advancement.monkeycraft.skull_t0.desc"
+    },
     "icon": {
       "count": 1,
       "id": "monkeycraft:monkey_skull_t0"
     },
-    "title": "Head Collector"
+    "title": {
+      "translate": "advancement.monkeycraft.skull_t0.title"
+    }
   },
   "requirements": [
     [
