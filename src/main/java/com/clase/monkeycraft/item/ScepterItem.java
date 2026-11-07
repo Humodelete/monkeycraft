@@ -124,7 +124,6 @@ public class ScepterItem extends TieredItem {
         }
         String removeEntity = null;
         for (String summonEntity : summonedEntities) {
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal(summonEntity));
             if (summonEntity.equals(entity.getStringUUID())) {
                 thisScepter = true;
                 removeEntity = entity.getStringUUID();
