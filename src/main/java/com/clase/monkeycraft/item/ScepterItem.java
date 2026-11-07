@@ -33,7 +33,7 @@ import java.util.UUID;
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
     String scepterId;
-    List<Entity> summonedEntities;
+    List<String> summonedEntities;
 
     public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
@@ -89,11 +89,15 @@ public class ScepterItem extends TieredItem {
                         pos.getZ() + 0.5
                 );
                 dimension.addFreshEntity(summons[selectedPosition]);
-                this.summonedEntities.add(summons[selectedPosition]);
+                this.summonedEntities.add(summons[selectedPosition].getStringUUID());
 
                 //Workaround for different monkey cost to the scepter while other monkeys are being made
                 if(selectedPosition == 0){
-                    context.getItemInHand().hurtAndBreak(monkey.getScepterCost(), player, LivingEntity.getSlotForHand(context.getHand()));
+                    if(context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 2){ //Remove this if and else once more monkeys are added
+                        context.getItemInHand().hurtAndBreak(monkey.getScepterCost(), player, LivingEntity.getSlotForHand(context.getHand()));
+                    } else{
+                        Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
+                    }
                 }else{
                     context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
                 }
@@ -111,20 +115,18 @@ public class ScepterItem extends TieredItem {
         if (this.scepterId == null) {
             this.scepterId = UUID.randomUUID().toString();
         }
-
-        Minecraft.getInstance().player.sendSystemMessage(Component.literal(String.valueOf(entity.getType())));
-        Minecraft.getInstance().player.sendSystemMessage(Component.literal(String.valueOf(this.scepterId)));
-
-
         boolean thisScepter = false;
 
         if(stack.getDamageValue()==0){
             return InteractionResult.SUCCESS;
         }
-
-        for (Entity summonEntity : summonedEntities) {
-            if (summonEntity == entity) {
+        String removeEntity = null;
+        for (String summonEntity : summonedEntities) {
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal(summonEntity));
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal(entity.getStringUUID()));
+            if (summonEntity.equals(entity.getStringUUID())) {
                 thisScepter = true;
+                removeEntity = entity.getStringUUID();
             }
         }
         if (thisScepter) {
@@ -136,6 +138,7 @@ public class ScepterItem extends TieredItem {
             entity.kill();
             //Cannot fix the scepter regaining spent energy until more monkeys are added
             stack.hurtAndBreak(-1, player, Player.getSlotForHand(interaction));
+            this.summonedEntities.remove(removeEntity);
         }
         return InteractionResult.SUCCESS;
     }
