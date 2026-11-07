@@ -135,23 +135,28 @@ public class ScepterItem extends TieredItem {
                 }
             }
             if (thisScepter) {
-                entity.discard();
                 int recoverEnergy = 0;
                 switch (entity.getType().toString()) {
                     case "entity.monkeycraft.monkey_dart" ->
-                            stack.hurtAndBreak(-DART_MONKEY_COST, player, Player.getSlotForHand(interaction));
+                            recoverEnergy = -DART_MONKEY_COST;
                     case "entity.monkeycraft.monkey_mage" ->
-                            stack.hurtAndBreak(-MAGE_MONKEY_COST, player, Player.getSlotForHand(interaction));
+                            recoverEnergy = -MAGE_MONKEY_COST;
                     case "entity.monkeycraft.monkey_tank" ->
-                            stack.hurtAndBreak(-TANK_MONKEY_COST, player, Player.getSlotForHand(interaction));
+                            recoverEnergy = -TANK_MONKEY_COST;
                     case "entity.monkeycraft.monkey_jester" ->
-                            stack.hurtAndBreak(-JESTER_MONKEY_COST, player, Player.getSlotForHand(interaction));
+                            recoverEnergy = -JESTER_MONKEY_COST;
+                }
+                if(stack.getDamageValue() < -recoverEnergy){
+                    Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
+                } else{
+                    entity.discard();
+                    stack.hurtAndBreak(recoverEnergy, player, Player.getSlotForHand(interaction));
                 }
                 this.summonedEntities.remove(removeEntity);
                 return InteractionResult.SUCCESS;
             }
         }
-            return InteractionResult.PASS;
+        return InteractionResult.PASS;
     }
 
     @Override

@@ -13,6 +13,7 @@
 
   "message.monkeycraft.selected": "Seleccionado: %s",
   "message.monkeycraft.low_energy": "Invocación demasiado costosa, retira otras invocaciones primero",
+  "message.monkeycraft.overcharge": "Desinvocar gastaría energía",
 
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
 
