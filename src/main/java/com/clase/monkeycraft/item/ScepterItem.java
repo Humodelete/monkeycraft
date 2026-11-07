@@ -74,6 +74,7 @@ public class ScepterItem extends TieredItem {
             //Replace Wolf with Monkey once it's done
             MonkeyEntity monkey = ModEntities.MONKEY.get().create(dimension);
             monkey.setScepterCost(2);
+            monkey.setOwnerScepter(this.scepterId);
             Slime slime = EntityType.SLIME.create(dimension);
             Zombie zombie = EntityType.ZOMBIE.create(dimension);
             Skeleton skeleton = EntityType.SKELETON.create(dimension);
@@ -93,7 +94,6 @@ public class ScepterItem extends TieredItem {
                 //Workaround for different monkey cost to the scepter while other monkeys are being made
                 if(selectedPosition == 0){
                     context.getItemInHand().hurtAndBreak(monkey.getScepterCost(), player, LivingEntity.getSlotForHand(context.getHand()));
-
                 }else{
                     context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
                 }
@@ -111,7 +111,17 @@ public class ScepterItem extends TieredItem {
         if (this.scepterId == null) {
             this.scepterId = UUID.randomUUID().toString();
         }
+
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal(String.valueOf(entity.getType())));
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal(String.valueOf(this.scepterId)));
+
+
         boolean thisScepter = false;
+
+        if(stack.getDamageValue()==0){
+            return InteractionResult.SUCCESS;
+        }
+
         for (Entity summonEntity : summonedEntities) {
             if (summonEntity == entity) {
                 thisScepter = true;
@@ -142,9 +152,7 @@ public class ScepterItem extends TieredItem {
             return true;
         }
     }
-    public int getSelectedPosition(){
-        return  selectedPosition;
-    }
+
     public void cicleSelectedPosition(){
         this.selectedPosition += 1;
         if (selectedPosition > 3) {
