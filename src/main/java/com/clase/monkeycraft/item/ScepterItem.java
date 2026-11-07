@@ -31,8 +31,8 @@ public class ScepterItem extends TieredItem {
     String scepterId;
     List<String> summonedEntities;
     int DART_MONKEY_COST = 1; //Requires balance changes
-    int TANK_MONKEY_COST = 2; //Requires balance changes
     int MAGE_MONKEY_COST= 3; //Requires balance changes
+    int TANK_MONKEY_COST = 2; //Requires balance changes
     int JESTER_MONKEY_COST = 4; //Requires balance changes
 
     public ScepterItem(Tier tier, Item.Properties properties) {
@@ -89,8 +89,8 @@ public class ScepterItem extends TieredItem {
             MonkeyEntity jesterMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
             jesterMonkey.setScepterCost(JESTER_MONKEY_COST); //This will explode if  MonkeyTankEntity does not have a private int named ScepterCost with both getter and setters
 
-            //TamableAnimal[] summons = {dartMonkey, tankMonkey, mageMonkey};
-            MonkeyEntity[] summons = {dartMonkey, tankMonkey, mageMonkey}; //Replace with the upper line once the monkeys are added
+            //TamableAnimal[] summons = {dartMonkey, tankMonkey, mageMonkey, jesterMonkey};
+            MonkeyEntity[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey}; //Replace with the upper line once the monkeys are added
             if (summons[selectedPosition] != null &&
                     context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - summons[selectedPosition].getScepterCost()) {
 
@@ -169,10 +169,10 @@ public class ScepterItem extends TieredItem {
                             Component.translatable("entity.monkeycraft.monkey_dart")));
             case 1 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.monkeycraft.monkey_tank")));
+                            Component.translatable("entity.monkeycraft.monkey_mage"))); //Might not tnd up as "mage", just predicting that word
             case 2 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.monkeycraft.monkey_mage"))); //Might not tnd up as "mage", just predicting that word
+                            Component.translatable("entity.monkeycraft.monkey_tank")));
             case 3 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
                             Component.translatable("entity.monkeycraft.monkey_jester"))); //Might not end up as "jester", just predicting that word
