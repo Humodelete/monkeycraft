@@ -143,7 +143,7 @@ public class ScepterItem extends TieredItem {
                             recoverEnergy = -JESTER_MONKEY_COST;
                 }
                 if(stack.getDamageValue() < -recoverEnergy){
-                    Minecraft.getInstance().player.sendSystemMessage(Component.literal("Nuh uh"));
+                    Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
                 } else{
                     entity.discard();
                     stack.hurtAndBreak(recoverEnergy, player, Player.getSlotForHand(interaction));
