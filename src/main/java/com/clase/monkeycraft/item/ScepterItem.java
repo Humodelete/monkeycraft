@@ -30,10 +30,10 @@ public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
     String scepterId;
     List<String> summonedEntities;
-    int DART_MONKEY_COST = 1; //Requires balance changes
-    int MAGE_MONKEY_COST= 2; //Requires balance changes
-    int TANK_MONKEY_COST = 3; //Requires balance changes
-    int JESTER_MONKEY_COST = 4; //Requires balance changes
+    int DART_MONKEY_COST = 1;
+    int MAGE_MONKEY_COST= 2;
+    int TANK_MONKEY_COST = 3;
+    int JESTER_MONKEY_COST = 4;
 
     public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
