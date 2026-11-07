@@ -28,7 +28,6 @@ import java.util.UUID;
 
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
-    String scepterId;
     List<String> summonedEntities;
     int DART_MONKEY_COST = 1;
     int MAGE_MONKEY_COST= 2;
@@ -63,9 +62,6 @@ public class ScepterItem extends TieredItem {
     public InteractionResult useOn(
             UseOnContext context
     ) {
-        if (this.scepterId == null) {
-            this.scepterId = UUID.randomUUID().toString();
-        }
         if (!context.getLevel().isClientSide()) {
             Level dimension = context.getLevel();
             BlockPos pos = context.getClickedPos();
@@ -124,9 +120,6 @@ public class ScepterItem extends TieredItem {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player,
                                                   LivingEntity entity, InteractionHand interaction) {
-        if (this.scepterId == null) {
-            this.scepterId = UUID.randomUUID().toString();
-        }
         boolean thisScepter = false;
 
         if(stack.getDamageValue()==0){
@@ -157,9 +150,6 @@ public class ScepterItem extends TieredItem {
 
     @Override
     public boolean mineBlock(ItemStack itemStack, Level p_41417_, BlockState p_41418_, BlockPos p_41419_, LivingEntity p_41420_) {
-        if (this.scepterId == null) {
-            this.scepterId = UUID.randomUUID().toString();
-        }
         Tool tool = itemStack.get(DataComponents.TOOL);
         if (tool == null) {
             return false;
