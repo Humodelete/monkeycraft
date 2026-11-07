@@ -7,10 +7,10 @@ import net.minecraftforge.common.ForgeTier;
 
 public class ModScepterTiers {
 
-    public static int TIER_0_ENERGY = 4; //Requires balance changes
-    public static int TIER_1_ENERGY = 6; //Requires balance changes
-    public static int TIER_2_ENERGY = 8; //Requires balance changes
-    public static int TIER_3_ENERGY = 10; //Requires balance changes
+    public static int TIER_0_ENERGY = 4;
+    public static int TIER_1_ENERGY = 6;
+    public static int TIER_2_ENERGY = 8;
+    public static int TIER_3_ENERGY = 10;
 
     public static final Tier TIER_0 = new ForgeTier(TIER_0_ENERGY + 1, 0, 0, 0,
             BlockTags.DIRT,

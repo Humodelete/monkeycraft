@@ -79,14 +79,14 @@ public class ScepterItem extends TieredItem {
 
             //Watch out for this one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
             //MonkeyMageEntity mageMonkey = ModEntities.MONKEY_MAGE.get().create(dimension);
-            Wolf wolf = EntityType.WOLF.create(dimension);
+            Wolf wolf = EntityType.WOLF.create(dimension); //borrar esto y descomentar lo de arriba
 
             MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
 
             //Watch out for this one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
             //MonkeyMageEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
-            Cat cat = EntityType.CAT.create(dimension);
-            TamableAnimal[] summons = {dartMonkey, wolf, tankMonkey, cat};
+            Cat cat = EntityType.CAT.create(dimension); //borrad esto y descomentar lo de arriba
+            TamableAnimal[] summons = {dartMonkey, wolf, tankMonkey, cat};  //cambiar wolf y cat por mage y jester
 
             int currentCost = 0;
             switch (selectedPosition){
