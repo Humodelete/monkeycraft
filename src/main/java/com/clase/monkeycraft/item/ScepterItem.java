@@ -134,10 +134,10 @@ public class ScepterItem extends TieredItem {
             entity.remove(Entity.RemovalReason.DISCARDED);
             int recoverEnergy = 0;
             switch(entity.getType().toString()){
-                case "entity.monkeycraft.monkey_dart" -> recoverEnergy = DART_MONKEY_COST;
-                case "entity.monkeycraft.monkey_tank" -> recoverEnergy = TANK_MONKEY_COST;
-                case "entity.monkeycraft.monkey_mage" -> recoverEnergy = MAGE_MONKEY_COST;
-                case "entity.monkeycraft.monkey_jester" -> recoverEnergy = JESTER_MONKEY_COST;
+                case "entity.monkeycraft.monkey_dart" -> recoverEnergy = -DART_MONKEY_COST;
+                case "entity.monkeycraft.monkey_tank" -> recoverEnergy = -TANK_MONKEY_COST;
+                case "entity.monkeycraft.monkey_mage" -> recoverEnergy = -MAGE_MONKEY_COST;
+                case "entity.monkeycraft.monkey_jester" -> recoverEnergy = -JESTER_MONKEY_COST;
             }
             stack.hurtAndBreak(recoverEnergy, player, Player.getSlotForHand(interaction));
             this.summonedEntities.remove(removeEntity);
