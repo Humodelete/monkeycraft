@@ -13,6 +13,7 @@
 
   "message.monkeycraft.selected": "Selected: %s",
   "message.monkeycraft.low_energy": "Summon too expensive, recall other summons first",
+  "message.monkeycraft.overcharge": "Desummoning would waste energy",
 
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
 
