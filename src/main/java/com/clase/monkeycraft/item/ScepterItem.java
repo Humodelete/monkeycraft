@@ -31,8 +31,8 @@ public class ScepterItem extends TieredItem {
     String scepterId;
     List<String> summonedEntities;
     int DART_MONKEY_COST = 1; //Requires balance changes
-    int MAGE_MONKEY_COST= 3; //Requires balance changes
-    int TANK_MONKEY_COST = 2; //Requires balance changes
+    int MAGE_MONKEY_COST= 2; //Requires balance changes
+    int TANK_MONKEY_COST = 3; //Requires balance changes
     int JESTER_MONKEY_COST = 4; //Requires balance changes
 
     public ScepterItem(Tier tier, Item.Properties properties) {
@@ -77,11 +77,11 @@ public class ScepterItem extends TieredItem {
             //MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
             MonkeyEntity tankMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
 
-            //Watch out for this one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
+            //WATCH OUT!! This one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
             //MonkeyMageEntity mageMonkey = ModEntities.MONKEY_MAGE.get().create(dimension);
             MonkeyEntity mageMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
 
-            //Watch out for this one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
+            //WATCH OUT!! This one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
             //MonkeyMageEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
             MonkeyEntity jesterMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
 
