@@ -73,21 +73,17 @@ public class ScepterItem extends TieredItem {
 
             //MonkeyDartEntity dartMonkey = ModEntities.MONKEY_DART.get().create(dimension);
             MonkeyEntity dartMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
-            dartMonkey.setScepterCost(DART_MONKEY_COST); //This will explode if  MonkeyDartEntity does not have a private int named ScepterCost with both getter and setters
 
             //MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
             MonkeyEntity tankMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
-            tankMonkey.setScepterCost(TANK_MONKEY_COST); //This will explode if  MonkeyTankEntity does not have a private int named ScepterCost with both getter and setters
 
             //Watch out for this one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
             //MonkeyMageEntity mageMonkey = ModEntities.MONKEY_MAGE.get().create(dimension);
             MonkeyEntity mageMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
-            mageMonkey.setScepterCost(MAGE_MONKEY_COST); //This will explode if  MonkeyTankEntity does not have a private int named ScepterCost with both getter and setters
 
             //Watch out for this one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
             //MonkeyMageEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
             MonkeyEntity jesterMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
-            jesterMonkey.setScepterCost(JESTER_MONKEY_COST); //This will explode if  MonkeyTankEntity does not have a private int named ScepterCost with both getter and setters
 
             //TamableAnimal[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey};
             MonkeyEntity[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey}; //Replace with the upper line once the monkeys are added
@@ -103,7 +99,13 @@ public class ScepterItem extends TieredItem {
                 //summons[selectedPosition].tame(player); This line should tame the monkey when summoning
                 dimension.addFreshEntity(summons[selectedPosition]);
                 this.summonedEntities.add(summons[selectedPosition].getStringUUID());
-                context.getItemInHand().hurtAndBreak(summons[selectedPosition].getScepterCost(), player, LivingEntity.getSlotForHand(context.getHand()));
+                switch(selectedPosition){
+                    case 0 -> context.getItemInHand().hurtAndBreak(DART_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    case 1 -> context.getItemInHand().hurtAndBreak(MAGE_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    case 2 -> context.getItemInHand().hurtAndBreak(TANK_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    case 3 -> context.getItemInHand().hurtAndBreak(JESTER_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                }
+
             } else {
                 Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
             }
