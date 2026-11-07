@@ -199,7 +199,7 @@ public class MonkeyCraft
                         || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t3', args=[]}"))
                 {
                     ScepterItem scepter = (ScepterItem)Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem();
-                    scepter.cicleSelectedPosition();
+                    scepter.cycleSelectedPosition();
                 }
             }
         }

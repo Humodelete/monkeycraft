@@ -41,16 +41,16 @@ public class ModItems {
 
     public static final RegistryObject<Item> MONKEY_SCEPTER_T0 = ITEMS.register("monkey_scepter_t0",
             () -> new ScepterItem(ModScepterTiers.TIER_0, new Item.Properties().attributes(ScepterItem.createAttributes(
-                    ModScepterTiers.TIER_0, 1, -1))));
+                    ModScepterTiers.TIER_0, 0, -3))));
     public static final RegistryObject<Item> MONKEY_SCEPTER_T1 = ITEMS.register("monkey_scepter_t1",
             () -> new ScepterItem(ModScepterTiers.TIER_1, new Item.Properties().attributes(ScepterItem.createAttributes(
-                    ModScepterTiers.TIER_1, 1, -1))));
+                    ModScepterTiers.TIER_1, 0, -3))));
     public static final RegistryObject<Item> MONKEY_SCEPTER_T2 = ITEMS.register("monkey_scepter_t2",
             () -> new ScepterItem(ModScepterTiers.TIER_2, new Item.Properties().attributes(ScepterItem.createAttributes(
-                    ModScepterTiers.TIER_2, 1, -1))));
+                    ModScepterTiers.TIER_2, 0, -3))));
     public static final RegistryObject<Item> MONKEY_SCEPTER_T3 = ITEMS.register("monkey_scepter_t3",
             () -> new ScepterItem(ModScepterTiers.TIER_3, new Item.Properties().attributes(ScepterItem.createAttributes(
-                    ModScepterTiers.TIER_3, 1, -1))));
+                    ModScepterTiers.TIER_3, 0, -3))));
 
     public static final RegistryObject<Item> BANANA_PEEL = ITEMS.register("banana_peel",
             () -> new Item(new Item.Properties()));
