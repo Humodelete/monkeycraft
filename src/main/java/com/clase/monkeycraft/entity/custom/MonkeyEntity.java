@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public class MonkeyEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
-
+    private int scepterCost; //Remove  once the other monkeys are added
     public MonkeyEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -78,4 +78,11 @@ public class MonkeyEntity extends Animal {
             this.setupAnimationStates();
         }
     }
+    public void setScepterCost(int scepterCost){ //Remove  once the other monkeys are added
+        this.scepterCost = scepterCost;
+    }
+
+    public int getScepterCost(){
+        return this.scepterCost;
+    } //Remove  once the other monkeys are added
 }
