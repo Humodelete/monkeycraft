@@ -2,7 +2,9 @@ package com.clase.monkeycraft.item;
 
 
 import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyEntity;
+import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -13,6 +15,8 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -28,11 +32,12 @@ import java.util.UUID;
 
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
+    String scepterId;
     List<String> summonedEntities;
-    int DART_MONKEY_COST = 1;
-    int MAGE_MONKEY_COST= 2;
-    int TANK_MONKEY_COST = 3;
-    int JESTER_MONKEY_COST = 4;
+    int DART_MONKEY_COST = 1; //Requires balance changes
+    int MAGE_MONKEY_COST= 2; //Requires balance changes
+    int TANK_MONKEY_COST = 3; //Requires balance changes
+    int JESTER_MONKEY_COST = 4; //Requires balance changes
 
     public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
@@ -62,27 +67,26 @@ public class ScepterItem extends TieredItem {
     public InteractionResult useOn(
             UseOnContext context
     ) {
+        if (this.scepterId == null) {
+            this.scepterId = UUID.randomUUID().toString();
+        }
         if (!context.getLevel().isClientSide()) {
             Level dimension = context.getLevel();
             BlockPos pos = context.getClickedPos();
             Player player = context.getPlayer();
 
-            //MonkeyDartEntity dartMonkey = ModEntities.MONKEY_DART.get().create(dimension);
-            MonkeyEntity dartMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
+            MonkeyDartEntity dartMonkey = ModEntities.MONKEY_DART.get().create(dimension);
 
-            //MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
-            MonkeyEntity tankMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
-
-            //WATCH OUT!! This one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
+            //Watch out for this one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
             //MonkeyMageEntity mageMonkey = ModEntities.MONKEY_MAGE.get().create(dimension);
-            MonkeyEntity mageMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
+            Wolf wolf = EntityType.WOLF.create(dimension); //borrar esto y descomentar lo de arriba
 
-            //WATCH OUT!! This one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
+            MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
+
+            //Watch out for this one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
             //MonkeyMageEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
-            MonkeyEntity jesterMonkey = ModEntities.MONKEY.get().create(dimension); // Replace with the upper line once the monkeys are added
-
-            //TamableAnimal[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey};
-            MonkeyEntity[] summons = {dartMonkey, mageMonkey, tankMonkey, jesterMonkey}; //Replace with the upper line once the monkeys are added
+            Cat cat = EntityType.CAT.create(dimension); //borrad esto y descomentar lo de arriba
+            TamableAnimal[] summons = {dartMonkey, wolf, tankMonkey, cat};  //cambiar wolf y cat por mage y jester
 
             int currentCost = 0;
             switch (selectedPosition){
@@ -100,7 +104,7 @@ public class ScepterItem extends TieredItem {
                         pos.getZ() + 0.5
                 );
 
-                //summons[selectedPosition].tame(player); This line should tame the monkey when summoning
+                summons[selectedPosition].tame(player);
                 dimension.addFreshEntity(summons[selectedPosition]);
                 this.summonedEntities.add(summons[selectedPosition].getStringUUID());
                 switch(selectedPosition){
@@ -157,6 +161,9 @@ public class ScepterItem extends TieredItem {
 
     @Override
     public boolean mineBlock(ItemStack itemStack, Level p_41417_, BlockState p_41418_, BlockPos p_41419_, LivingEntity p_41420_) {
+        if (this.scepterId == null) {
+            this.scepterId = UUID.randomUUID().toString();
+        }
         Tool tool = itemStack.get(DataComponents.TOOL);
         if (tool == null) {
             return false;

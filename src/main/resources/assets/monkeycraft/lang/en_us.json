@@ -19,7 +19,11 @@
 
   "key.monkeycraft.change_summon": "Change summon",
   "key.categories.monkeycraft.key_category": "Monkeycraft",
+
   "entity.monkeycraft.monkey": "Monkey",
+  "entity.monkeycraft.monkey_tank": "Monkey Tank",
+  "entity.monkeycraft.monkey_dart": "Monkey Dart",
+
   "block.monkeycraft.monkey_head": "Monkey Head",
   "item.monkeycraft.monkey_spawn_egg": "Monkey spawn egg",
 
