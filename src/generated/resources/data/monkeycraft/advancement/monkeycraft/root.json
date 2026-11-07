@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "has_banana": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/jungle.png",
+    "description": "Consigue un plátano por primera vez.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana"
+    },
+    "title": "¡Oh, plátano!"
+  },
+  "requirements": [
+    [
+      "has_banana"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

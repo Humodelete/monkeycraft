@@ -33,5 +33,9 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModDatapackEntries(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+
+        generator.addProvider(event.includeServer(), new net.minecraftforge.common.data.ForgeAdvancementProvider(
+                packOutput, lookupProvider, existingFileHelper, java.util.List.of(new ModAdvancementProvider())
+        ));
     }
 }

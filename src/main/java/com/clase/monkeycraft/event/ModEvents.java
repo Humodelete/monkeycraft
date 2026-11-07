@@ -56,6 +56,33 @@ public class ModEvents {
             event.setCost(bananasToConsume);
         }
     }
+    @SubscribeEvent
+    public static void onFurnaceFuelBurnTime(net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent event) {
+        ItemStack itemStack = event.getItemStack();
+
+        if (itemStack.is(ModBlocks.PALM_TREE_PLANKS.get().asItem()) ||
+                itemStack.is(ModBlocks.PALM_TREE_STAIRS.get().asItem()) ||
+                itemStack.is(ModBlocks.PALM_TREE_TRAPDOOR.get().asItem()) ||
+                itemStack.is(ModBlocks.PALM_TREE_FENCE.get().asItem()) ||
+                itemStack.is(ModBlocks.PALM_TREE_FENCE_GATE.get().asItem()) ||
+                itemStack.is(ModBlocks.PALM_TREE_PRESSURE_PLATE.get().asItem())) {
+            event.setBurnTime(300);
+        }
+        else if (itemStack.is(ModBlocks.PALM_TREE_DOOR.get().asItem()) ||
+                itemStack.is(ModItems.PALM_TREE_SIGN.get())) {
+            event.setBurnTime(200);
+        }
+        else if (itemStack.is(ModBlocks.PALM_TREE_SLAB.get().asItem())) {
+            event.setBurnTime(150);
+        }
+        else if (itemStack.is(ModBlocks.PALM_TREE_BUTTON.get().asItem()) ||
+                itemStack.is(ModBlocks.PALM_TREE_SAPLING.get().asItem())) {
+            event.setBurnTime(100);
+        }
+        else if (itemStack.is(ModItems.PALM_TREE_HANGING_SIGN.get())) {
+            event.setBurnTime(800);
+        }
+    }
 
     @SubscribeEvent
     public static void onMonkeyDeathByCreeper(LivingDropsEvent event) {
