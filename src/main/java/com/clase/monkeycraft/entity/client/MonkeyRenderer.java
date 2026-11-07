@@ -22,9 +22,9 @@ public class MonkeyRenderer extends MobRenderer<MonkeyEntity, MonkeyModel<Monkey
     public void render(MonkeyEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
         if(pEntity.isBaby()) {
-            pPoseStack.scale(0.5f, 0.5f, 0.5f);
+            pPoseStack.scale(0.25f, 0.25f, 0.25f);
         } else {
-            pPoseStack.scale(1f,1f, 1f);
+            pPoseStack.scale(0.5f,0.5f, 0.5f);
         }
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
