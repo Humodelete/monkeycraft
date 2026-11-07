@@ -1,5 +1,5 @@
 {
-  "parent": "monkeycraft:monkeycraft/root",
+  "parent": "monkeycraft:monkeycraft/get_doom_potion",
   "criteria": {
     "eat_doom_banana": {
       "conditions": {
@@ -11,13 +11,13 @@
     }
   },
   "display": {
-    "description": "Cómete el plátano prohibido.",
+    "description": "Eat the forbidden banana and face the consequences.",
     "frame": "challenge",
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana_of_doom_and_despair"
     },
-    "title": "Deseos de Morir"
+    "title": "Death Wish"
   },
   "requirements": [
     [

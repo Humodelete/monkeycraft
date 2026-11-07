@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_banana",
+  "criteria": {
+    "has_doom_banana": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana_of_doom_and_despair"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain the forbidden banana.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana_of_doom_and_despair"
+    },
+    "title": "Doom and Despair"
+  },
+  "requirements": [
+    [
+      "has_doom_banana"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

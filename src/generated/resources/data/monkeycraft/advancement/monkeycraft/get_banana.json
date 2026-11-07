@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/root",
+  "criteria": {
+    "has_banana": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Get a banana for the first time.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana"
+    },
+    "title": "Oh, Banana!"
+  },
+  "requirements": [
+    [
+      "has_banana"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

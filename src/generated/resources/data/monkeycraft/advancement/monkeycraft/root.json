@@ -1,28 +1,23 @@
 {
   "criteria": {
-    "has_banana": {
-      "conditions": {
-        "items": [
-          {
-            "items": "monkeycraft:banana"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
+    "tick": {
+      "trigger": "minecraft:tick"
     }
   },
   "display": {
-    "background": "minecraft:textures/gui/advancements/backgrounds/jungle.png",
-    "description": "Consigue un plátano por primera vez.",
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/moss_block.png",
+    "description": "Welcome to the jungle.",
     "icon": {
       "count": 1,
       "id": "monkeycraft:banana"
     },
-    "title": "¡Oh, plátano!"
+    "show_toast": false,
+    "title": "MonkeyCraft"
   },
   "requirements": [
     [
-      "has_banana"
+      "tick"
     ]
   ],
   "sends_telemetry_event": true

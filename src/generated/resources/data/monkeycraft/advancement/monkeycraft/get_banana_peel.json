@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_banana",
+  "criteria": {
+    "has_banana_peel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana_peel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a banana peel.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana_peel"
+    },
+    "title": "Slippery Business"
+  },
+  "requirements": [
+    [
+      "has_banana_peel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

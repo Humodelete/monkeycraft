@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/scepter_t0",
+  "criteria": {
+    "has_scepter_1": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_scepter_t1"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Upgrade the scepter to Tier 1.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_scepter_t1"
+    },
+    "title": "Apprentice Scepter"
+  },
+  "requirements": [
+    [
+      "has_scepter_1"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

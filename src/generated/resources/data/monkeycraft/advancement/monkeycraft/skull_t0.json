@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/root",
+  "criteria": {
+    "has_skull_0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_skull_t0"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain your first monkey skull.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_skull_t0"
+    },
+    "title": "Head Collector"
+  },
+  "requirements": [
+    [
+      "has_skull_0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

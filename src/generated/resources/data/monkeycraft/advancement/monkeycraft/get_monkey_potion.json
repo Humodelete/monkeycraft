@@ -1,0 +1,34 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_banana_peel",
+  "criteria": {
+    "has_monkey_potion": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "minecraft:potion_contents": {
+                "potion": "monkeycraft:monkey_potion"
+              }
+            },
+            "items": "minecraft:potion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Brew the Simian Agility potion using a banana peel.",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:potion"
+    },
+    "title": "Simian Agility"
+  },
+  "requirements": [
+    [
+      "has_monkey_potion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

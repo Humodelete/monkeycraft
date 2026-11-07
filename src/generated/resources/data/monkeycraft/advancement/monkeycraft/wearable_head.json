@@ -1,0 +1,31 @@
+{
+  "parent": "monkeycraft:monkeycraft/root",
+  "criteria": {
+    "has_monkey_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain the wearable monkey head.",
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_head"
+    },
+    "title": "Monkey See, Monkey Do"
+  },
+  "requirements": [
+    [
+      "has_monkey_head"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
