@@ -131,17 +131,13 @@ public class MonkeyCraft
                 // Execute logic to perform on click here
                 String heldItem = String.valueOf(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem()
                         .getName(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND)));
-                /*String scepterIdentifying = "translation{key='item.monkeycraft.monkey_scepter_t%s', args=[]}";
-                for(int i =0; i<4; i++){
-                    scepterIdentifying = scepterIdentifying, i;
-                }*/
                 if(heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t0', args=[]}")
                 || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t1', args=[]}")
                 || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t2', args=[]}")
                 || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t3', args=[]}"))
                 {
                     ScepterItem scepter = (ScepterItem)Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem();
-                    scepter.cicleSelectedPosition();
+                    scepter.cycleSelectedPosition();
                 }
             }
         }

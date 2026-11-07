@@ -18,8 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public class MonkeyEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
-    private int scepterCost; //not yet used
-    private String ownerScepter;
+    private int scepterCost; //Remove  once the other monkeys are added
     public MonkeyEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -79,21 +78,11 @@ public class MonkeyEntity extends Animal {
             this.setupAnimationStates();
         }
     }
-
-    public void setScepterCost(int scepterCost){
+    public void setScepterCost(int scepterCost){ //Remove  once the other monkeys are added
         this.scepterCost = scepterCost;
     }
 
     public int getScepterCost(){
         return this.scepterCost;
-    }
-
-    //Unused methods to prepare for later attempts at rewriting the desummon into a better system
-    public void setOwnerScepter(String ownerScepter){
-        this.ownerScepter= ownerScepter;
-    }
-
-    public String getOwnerScepter(){
-        return  this.ownerScepter;
-    }
+    } //Remove  once the other monkeys are added
 }
