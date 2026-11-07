@@ -1,5 +1,5 @@
 {
-  "block.monkeycraft.monkey_skull_t0": "Monkey skull",
+  "item.monkeycraft.monkey_skull_t0": "Monkey skull",
   "item.monkeycraft.monkey_skull_t1": "Refined monkey skull",
   "item.monkeycraft.monkey_skull_t2": "Soul-flooding monkey skull",
   "item.monkeycraft.monkey_skull_t3": "Cursed monkey skull",
@@ -19,6 +19,8 @@
   "key.monkeycraft.change_summon": "Change summon",
   "key.categories.monkeycraft.key_category": "Monkeycraft",
   "entity.monkeycraft.monkey": "Monkey",
+  "block.monkeycraft.monkey_head": "Monkey Head",
+  "item.monkeycraft.monkey_spawn_egg": "Monkey spawn egg",
 
   "effect.monkeycraft.doom_effect": "Doom",
   "effect.monkeycraft.monkey_effect": "Simian Agility",
@@ -49,5 +51,29 @@
   "item.minecraft.tipped_arrow.effect.strong_doom_potion": "Arrow of Doom",
   "item.minecraft.tipped_arrow.effect.monkey_potion": "Arrow of Simian Agility",
   "item.minecraft.tipped_arrow.effect.long_monkey_potion": "Arrow of Simian Agility",
-  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Arrow of Simian Agility"
+  "item.minecraft.tipped_arrow.effect.strong_monkey_potion": "Arrow of Simian Agility",
+
+  "item.monkeycraft.palm_tree_sign": "Palm Tree Sign",
+  "item.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign",
+
+  "block.monkeycraft.palm_tree_wall_sign": "Palm Tree Wall Sign",
+  "block.monkeycraft.palm_tree_fence": "Palm Tree Fence",
+  "block.monkeycraft.palm_tree_fence_gate": "Palm Tree Fence Gate",
+  "block.monkeycraft.palm_tree_hanging_sign": "Palm Tree Hanging Sign",
+  "block.monkeycraft.palm_tree_wall_hanging_sign": "Palm Tree Hanging Sign",
+
+  "block.monkeycraft.palm_tree_log": "Palm Log",
+  "block.monkeycraft.palm_tree_wood": "Palm Wood",
+  "block.monkeycraft.stripped_palm_tree_log": "Stripped Palm Log",
+  "block.monkeycraft.stripped_palm_tree_wood": "Stripped Palm Wood",
+  "block.monkeycraft.palm_tree_planks": "Palm Planks",
+  "block.monkeycraft.palm_tree_sapling": "Palm Sapling",
+  "block.monkeycraft.palm_tree_leaves": "Palm Leaves",
+  "block.monkeycraft.palm_tree_door": "Palm Tree Door",
+  "block.monkeycraft.palm_tree_trapdoor": "Palm Tree Trapdoor",
+  "block.monkeycraft.palm_tree_sign": "Palm Tree Sign",
+  "block.monkeycraft.palm_tree_stairs": "Palm Tree Stairs",
+  "block.monkeycraft.palm_tree_slab": "Palm Tree Slab",
+  "block.monkeycraft.palm_tree_button": "Palm Tree Button",
+  "block.monkeycraft.palm_tree_pressure_plate": "Palm Tree Pressure Plate"
 }

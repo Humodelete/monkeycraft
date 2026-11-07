@@ -1,0 +1,24 @@
+{
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/moss_block.png",
+    "description": "Welcome to the jungle.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana"
+    },
+    "show_toast": false,
+    "title": "MonkeyCraft"
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

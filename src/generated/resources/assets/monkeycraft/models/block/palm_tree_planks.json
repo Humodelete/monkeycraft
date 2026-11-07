@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "monkeycraft:block/palm_tree_planks"
+  }
+}

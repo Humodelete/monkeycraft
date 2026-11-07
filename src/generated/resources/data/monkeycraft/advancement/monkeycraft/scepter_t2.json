@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/scepter_t1",
+  "criteria": {
+    "has_scepter_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_scepter_t2"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Upgrade the scepter to Tier 2.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_scepter_t2"
+    },
+    "title": "Empowered Scepter"
+  },
+  "requirements": [
+    [
+      "has_scepter_2"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

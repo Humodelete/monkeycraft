@@ -1,0 +1,4 @@
+// 1.21	2026-11-07T01:47:47.1725349	Registries
+bb819cad7b4390f9292252d7c402499994ab49b7 data/monkeycraft/forge/biome_modifier/add_palm_tree.json
+c33527f678fafa6d0e0b6fd34874483ca1d3c914 data/monkeycraft/worldgen/configured_feature/palm_tree.json
+2c675c46ca8b46b46ed74f631e892154dc655f2b data/monkeycraft/worldgen/placed_feature/palm_placed.json

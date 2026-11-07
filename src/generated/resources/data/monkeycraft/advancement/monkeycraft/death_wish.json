@@ -1,0 +1,28 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_doom_potion",
+  "criteria": {
+    "eat_doom_banana": {
+      "conditions": {
+        "item": {
+          "items": "monkeycraft:banana_of_doom_and_despair"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat the forbidden banana and face the consequences.",
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana_of_doom_and_despair"
+    },
+    "title": "Death Wish"
+  },
+  "requirements": [
+    [
+      "eat_doom_banana"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

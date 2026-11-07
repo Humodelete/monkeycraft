@@ -1,0 +1,29 @@
+{
+  "parent": "monkeycraft:monkeycraft/root",
+  "criteria": {
+    "has_scepter_0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_scepter_t0"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft the basic monkey scepter.",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_scepter_t0"
+    },
+    "title": "Primal Magic"
+  },
+  "requirements": [
+    [
+      "has_scepter_0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

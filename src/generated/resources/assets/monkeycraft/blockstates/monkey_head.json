@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "monkeycraft:block/monkey_head",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "monkeycraft:block/monkey_head"
+    },
+    "facing=south": {
+      "model": "monkeycraft:block/monkey_head",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "monkeycraft:block/monkey_head",
+      "y": 270
+    }
+  }
+}

@@ -1,6 +1,7 @@
 package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.block.entity.ModBlockEntities;
 import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.client.MonkeyRenderer;
@@ -8,11 +9,16 @@ import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
 import com.clase.monkeycraft.potion.ModPotions;
+import com.clase.monkeycraft.worldgen.tree.custom.ModTreePlacers;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import cpw.mods.util.Lazy;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -60,6 +66,8 @@ public class MonkeyCraft
         ModBlocks.register(modEventBus);
         ModPotions.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
+        ModTreePlacers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -85,6 +93,34 @@ public class MonkeyCraft
             event.accept(ModItems.MONKEY_SKULL_T2);
             event.accept(ModItems.MONKEY_SKULL_T3);
             event.accept(ModItems.BANANA_PEEL.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
+            event.accept(ModItems.MONKEY_SPAWN_EGG.get());
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.PALM_TREE_LOG.get());
+            event.accept(ModBlocks.PALM_TREE_WOOD.get());
+            event.accept(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
+            event.accept(ModBlocks.STRIPPED_PALM_TREE_WOOD.get());
+            event.accept(ModBlocks.PALM_TREE_PLANKS.get());
+            event.accept(ModBlocks.PALM_TREE_DOOR.get());
+            event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+            event.accept(ModBlocks.PALM_TREE_FENCE.get());
+            event.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
+            event.accept(ModBlocks.PALM_TREE_STAIRS.get());
+            event.accept(ModBlocks.PALM_TREE_SLAB.get());
+            event.accept(ModBlocks.MONKEY_HEAD.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(ModItems.PALM_TREE_SIGN.get());
+            event.accept(ModItems.PALM_TREE_HANGING_SIGN.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModBlocks.PALM_TREE_DOOR.get());
+            event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+            event.accept(ModBlocks.PALM_TREE_BUTTON.get());
+            event.accept(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
         }
         if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);
@@ -138,7 +174,18 @@ public class MonkeyCraft
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
-            EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
+            event.enqueueWork(() -> {
+                Sheets.addWoodType(ModBlocks.PALM_WOOD_TYPE);
+            });
+        }
+
+        // To render the sign
+        @SubscribeEvent
+        public static void registerRenderers(net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(ModEntities.MONKEY.get(), MonkeyRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new); // NUEVA
+
         }
     }
 
