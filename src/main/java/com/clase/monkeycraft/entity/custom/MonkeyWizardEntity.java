@@ -135,36 +135,50 @@ public class MonkeyWizardEntity extends TamableAnimal implements RangedAttackMob
 
     @Override
     public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
+        if(pTarget == null) return;
+
+        if(this.getRandom().nextFloat() < 0.2F) { //20% lightning, 80% fireball
+            castLightning(pTarget);
+        } else {
+            shootFireball(pTarget);
+        }
+    }
+
+    private void castLightning(LivingEntity pTarget) {
+        if(this.level() instanceof ServerLevel serverLevel) {
+            LightningBolt lightningBolt = EntityType.LIGHTNING_BOLT.create(serverLevel);
+            if(lightningBolt != null) {
+                lightningBolt.moveTo(Vec3.atBottomCenterOf(pTarget.blockPosition()));
+                lightningBolt.setVisualOnly(true);
+                this.getTarget().hurt(this.damageSources().lightningBolt(), 8.0F);
+                serverLevel.addFreshEntity(lightningBolt);
+            }
+        }
+    }
+
+    private void shootFireball(LivingEntity pTarget) {
         Level level = this.level();
 
-        // 1. Asegurar un objetivo válido
         LivingEntity actualTarget = this.getTarget();
         if (actualTarget == null) return;
 
-        // 2. Calcular la trayectoria limpia hacia la altura de los ojos del objetivo
         Vec3 targetPos = actualTarget.getEyePosition();
         Vec3 shooterPos = this.getEyePosition();
         Vec3 lookVec = targetPos.subtract(shooterPos);
 
-        // 3. Crear la bola de fuego pequeña compatible con 1.21 usando el EntityType nativo
         SmallFireball fireball = new SmallFireball(EntityType.SMALL_FIREBALL, level);
 
-        // 4. Definir este mob como el propietario oficial del proyectil
         fireball.setOwner(this);
 
-        // 5. Aplicar aceleración y dirección (Multiplicamos la dirección normalizada por la velocidad deseada)
-        fireball.setDeltaMovement(lookVec.normalize().scale(0.5D));
+        fireball.setDeltaMovement(lookVec.normalize().scale(0.7D));
 
-        // 6. Calcular la posición de spawn (Ligeramente enfrente del mob para no chocar con su propia hitbox)
         double spawnX = this.getX() + lookVec.normalize().x * 0.5D;
         double spawnY = this.getY() + this.getEyeHeight() + lookVec.normalize().y * 0.1D;
         double spawnZ = this.getZ() + lookVec.normalize().z * 0.5D;
         fireball.setPos(spawnX, spawnY, spawnZ);
 
-        // 7. Generar el proyectil en el mundo del servidor
         level.addFreshEntity(fireball);
 
-        // 8. Sonido del disparo limpio de un Blaze (estilo mágico/fuego)
         this.playSound(SoundEvents.BLAZE_SHOOT, 1.0F, (this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.2F + 1.0F);
     }
 }

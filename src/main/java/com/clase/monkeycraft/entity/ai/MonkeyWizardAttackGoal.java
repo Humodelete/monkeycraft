@@ -22,7 +22,7 @@ public class MonkeyWizardAttackGoal extends Goal {
 
     private final double speedModifier;
     private int seeTime;
-    private final int attackIntervalMin = 20;
+    private final int attackIntervalMin = 10;
 
     private boolean hasShot = false;
 
