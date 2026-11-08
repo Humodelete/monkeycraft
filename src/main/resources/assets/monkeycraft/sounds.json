@@ -1,0 +1,16 @@
+{
+  "monkey_idle": {
+    "category": "neutral",
+    "sounds": [
+      "monkeycraft:entity/monkey/monkey_idle"
+    ]
+  },
+  "monkey_hurt": {
+    "category": "neutral",
+    "sounds": [
+      "monkeycraft:entity/monkey/monkey_hurt1",
+      "monkeycraft:entity/monkey/monkey_hurt2",
+      "monkeycraft:entity/monkey/monkey_hurt3"
+    ]
+  }
+}

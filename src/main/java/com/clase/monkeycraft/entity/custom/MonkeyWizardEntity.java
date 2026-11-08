@@ -183,4 +183,25 @@ public class MonkeyWizardEntity extends TamableAnimal implements RangedAttackMob
 
         this.playSound(SoundEvents.BLAZE_SHOOT, 1.0F, (this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.2F + 1.0F);
     }
+    @Override
+    public void playAmbientSound() {
+        if (this.hurtTime == 0 && !this.isAttacking()) {
+            super.playAmbientSound();
+        }
+    }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 200;
+    }
+
+    @Override
+    protected net.minecraft.sounds.SoundEvent getDeathSound() {
+        return net.minecraft.sounds.SoundEvents.FOX_DEATH;
+    }
+
+    @Override
+    protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource damageSource) {
+        return com.clase.monkeycraft.sound.ModSounds.MONKEY_HURT.get();
+    }
 }

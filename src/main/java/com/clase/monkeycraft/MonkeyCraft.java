@@ -9,6 +9,7 @@ import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
 import com.clase.monkeycraft.potion.ModPotions;
+import com.clase.monkeycraft.sound.ModSounds;
 import com.clase.monkeycraft.worldgen.tree.custom.ModTreePlacers;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
@@ -59,6 +60,7 @@ public class MonkeyCraft
         ModBlocks.register(modEventBus);
         ModPotions.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
+        ModSounds.register(modEventBus);
         ModTreePlacers.register(modEventBus);
         ModBlockEntities.register(modEventBus);
 

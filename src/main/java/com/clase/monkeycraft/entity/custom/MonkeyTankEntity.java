@@ -32,7 +32,6 @@ public class MonkeyTankEntity extends TamableAnimal {
         super(pEntityType, pLevel);
     }
 
-    //wander del mob, eventos como pillar agro cuando recibe un hit
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -139,5 +138,30 @@ public class MonkeyTankEntity extends TamableAnimal {
                 this.setAttacking(true);
             }
         }
+    }
+    @Override
+    public float getVoicePitch() {
+        return 0.60F;
+    }
+
+    @Override
+    public void playAmbientSound() {
+        if (this.hurtTime == 0 && !this.isAttacking()) {
+            super.playAmbientSound();
+        }
+    }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 200;
+    }
+    @Override
+    protected net.minecraft.sounds.SoundEvent getDeathSound() {
+        return net.minecraft.sounds.SoundEvents.FOX_DEATH;
+    }
+
+    @Override
+    protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource damageSource) {
+        return com.clase.monkeycraft.sound.ModSounds.MONKEY_HURT.get();
     }
 }

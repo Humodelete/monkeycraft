@@ -115,4 +115,25 @@ public class MonkeyJesterEntity extends TamableAnimal {
             this.setupAnimationStates();
         }
     }
+    @Override
+    public void playAmbientSound() {
+        if (this.hurtTime == 0) {
+            super.playAmbientSound();
+        }
+    }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 200;
+    }
+
+    @Override
+    protected net.minecraft.sounds.SoundEvent getDeathSound() {
+        return net.minecraft.sounds.SoundEvents.FOX_DEATH;
+    }
+
+    @Override
+    protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource damageSource) {
+        return com.clase.monkeycraft.sound.ModSounds.MONKEY_HURT.get();
+    }
 }
