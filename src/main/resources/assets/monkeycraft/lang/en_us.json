@@ -14,6 +14,7 @@
   "message.monkeycraft.selected": "Selected: %s",
   "message.monkeycraft.low_energy": "Summon too expensive, recall other summons first",
   "message.monkeycraft.overcharge": "Desummoning would waste energy",
+  "message.monkeycraft.max_tanks": "You have already summoned your maximum of Tank Monkeys.",
 
   "creativetab.monkeycraft.monkeycraft_items": "MonkeyCraft",
 
