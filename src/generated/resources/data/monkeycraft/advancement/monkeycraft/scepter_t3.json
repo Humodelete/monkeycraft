@@ -1,0 +1,34 @@
+{
+  "parent": "monkeycraft:monkeycraft/scepter_t2",
+  "criteria": {
+    "has_scepter_3": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_scepter_t3"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.scepter_t3.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_scepter_t3"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.scepter_t3.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_scepter_3"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

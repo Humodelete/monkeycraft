@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/moss_block.png",
+    "description": {
+      "translate": "advancement.monkeycraft.root.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.monkeycraft.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

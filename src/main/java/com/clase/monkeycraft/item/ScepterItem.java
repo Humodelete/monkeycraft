@@ -16,10 +16,8 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.animal.Wolf;
-import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.entity.monster.Slime;
-import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -36,7 +34,11 @@ import java.util.UUID;
 public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
     String scepterId;
-    List<Entity> summonedEntities;
+    List<String> summonedEntities;
+    int DART_MONKEY_COST = 1; //Requires balance changes
+    int MAGE_MONKEY_COST= 2; //Requires balance changes
+    int TANK_MONKEY_COST = 3; //Requires balance changes
+    int JESTER_MONKEY_COST = 4; //Requires balance changes
 
     public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
@@ -80,36 +82,45 @@ public class ScepterItem extends TieredItem {
             MonkeyJesterEntity monkeyJester = ModEntities.MONKEY_JESTER.get().create(dimension);
             Entity[] summons = {monkeyDart, monkeyWizard, monkeyTank, monkeyJester};
 
+            //Watch out for this one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
+            //MonkeyMageEntity mageMonkey = ModEntities.MONKEY_MAGE.get().create(dimension);
+            Wolf wolf = EntityType.WOLF.create(dimension); //borrar esto y descomentar lo de arriba
 
+            MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
+
+            //Watch out for this one monkey when leaving the upper line as I used the word jester out of prediction for the future word, it may not be that one
+            //MonkeyMageEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
+            Cat cat = EntityType.CAT.create(dimension); //borrad esto y descomentar lo de arriba
+            TamableAnimal[] summons = {dartMonkey, wolf, tankMonkey, cat};  //cambiar wolf y cat por mage y jester
+
+            int currentCost = 0;
+            switch (selectedPosition){
+                case 0 -> currentCost = DART_MONKEY_COST;
+                case 1 -> currentCost = MAGE_MONKEY_COST;
+                case 2 -> currentCost = TANK_MONKEY_COST;
+                case 3 -> currentCost = JESTER_MONKEY_COST;
+            }
             if (summons[selectedPosition] != null &&
-                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - 1) {
+                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - currentCost) {
 
-                Entity currentSummon = summons[selectedPosition];
-
-                currentSummon.moveTo(
+                summons[selectedPosition].moveTo(
                         pos.getX() + 0.5,
                         pos.getY() + 1,
                         pos.getZ() + 0.5
                 );
 
-                // Asignación de dueño
-                if(currentSummon instanceof TamableAnimal tamableAnimal) {
-                    if(player != null) {
-                        tamableAnimal.setOwnerUUID(player.getUUID());
-                        tamableAnimal.setTame(true, true);
-                    }
+                summons[selectedPosition].tame(player);
+                dimension.addFreshEntity(summons[selectedPosition]);
+                this.summonedEntities.add(summons[selectedPosition].getStringUUID());
+                switch(selectedPosition){
+                    case 0 -> context.getItemInHand().hurtAndBreak(DART_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    case 1 -> context.getItemInHand().hurtAndBreak(MAGE_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    case 2 -> context.getItemInHand().hurtAndBreak(TANK_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    case 3 -> context.getItemInHand().hurtAndBreak(JESTER_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
                 }
 
-                dimension.addFreshEntity(currentSummon);
-                this.summonedEntities.add(currentSummon);
-
-                if (player != null) {
-                    context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
-                }
             } else {
-                if (Minecraft.getInstance().player != null) {
-                    Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
-                }
+                Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.low_energy"));
             }
         }
         return InteractionResult.SUCCESS;
@@ -118,25 +129,39 @@ public class ScepterItem extends TieredItem {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player,
                                                   LivingEntity entity, InteractionHand interaction) {
-        if (this.scepterId == null) {
-            this.scepterId = UUID.randomUUID().toString();
-        }
-        boolean thisScepter = false;
-        for (Entity summonEntity : summonedEntities) {
-            if (summonEntity == entity) {
-                thisScepter = true;
+        if (!player.level().isClientSide()) {
+            boolean thisScepter = false;
+            String removeEntity = null;
+            for (String summonEntity : summonedEntities) {
+                if (summonEntity.equals(entity.getStringUUID())) {
+                    thisScepter = true;
+                    removeEntity = entity.getStringUUID();
+                    break;
+                }
+            }
+            if (thisScepter) {
+                int recoverEnergy = 0;
+                switch (entity.getType().toString()) {
+                    case "entity.monkeycraft.monkey_dart" ->
+                            recoverEnergy = -DART_MONKEY_COST;
+                    case "entity.monkeycraft.monkey_mage" ->
+                            recoverEnergy = -MAGE_MONKEY_COST;
+                    case "entity.monkeycraft.monkey_tank" ->
+                            recoverEnergy = -TANK_MONKEY_COST;
+                    case "entity.monkeycraft.monkey_jester" ->
+                            recoverEnergy = -JESTER_MONKEY_COST;
+                }
+                if(stack.getDamageValue() < -recoverEnergy){
+                    Minecraft.getInstance().player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
+                } else{
+                    entity.discard();
+                    stack.hurtAndBreak(recoverEnergy, player, Player.getSlotForHand(interaction));
+                }
+                this.summonedEntities.remove(removeEntity);
+                return InteractionResult.SUCCESS;
             }
         }
-        if (thisScepter) {
-            entity.moveTo(
-                    entity.getX(),
-                    -200,
-                    entity.getZ()
-            );
-            entity.kill();
-            stack.hurtAndBreak(-1, player, Player.getSlotForHand(interaction));
-        }
-        return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
 
     @Override
@@ -151,10 +176,8 @@ public class ScepterItem extends TieredItem {
             return true;
         }
     }
-    public int getSelectedPosition(){
-        return  selectedPosition;
-    }
-    public void cicleSelectedPosition(){
+
+    public void cycleSelectedPosition(){
         this.selectedPosition += 1;
         if (selectedPosition > 3) {
             this.selectedPosition = 0;
@@ -162,16 +185,23 @@ public class ScepterItem extends TieredItem {
         switch (this.selectedPosition){
             case 0 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.minecraft.wolf")));
+                            Component.translatable("entity.monkeycraft.monkey_dart")));
             case 1 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.minecraft.slime")));
+                            Component.translatable("entity.monkeycraft.monkey_mage"))); //Might not tnd up as "mage", just predicting that word
             case 2 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.minecraft.zombie")));
+                            Component.translatable("entity.monkeycraft.monkey_tank")));
             case 3 -> Minecraft.getInstance().player.sendSystemMessage(
                     Component.translatable("message.monkeycraft.selected",
-                            Component.translatable("entity.minecraft.skeleton")));
+                            Component.translatable("entity.monkeycraft.monkey_jester"))); //Might not end up as "jester", just predicting that word
         }
+    }
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        if (repair.is(com.clase.monkeycraft.item.ModItems.BANANA.get())) {
+            return true;
+        }
+        return super.isValidRepairItem(toRepair, repair);
     }
 }

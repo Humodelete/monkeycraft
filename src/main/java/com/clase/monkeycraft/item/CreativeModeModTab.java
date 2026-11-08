@@ -1,6 +1,7 @@
 package com.clase.monkeycraft.item;
 
 import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.potion.ModPotions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -38,6 +39,27 @@ public class CreativeModeModTab {
                         output.accept(ModItems.BANANA_OF_DOOM_AND_DESPAIR.get());
                         output.accept(ModItems.BANANA.get());
                         output.accept(ModItems.BANANA_PEEL.get());
+                        output.accept(ModItems.MONKEY_SPAWN_EGG.get());
+                        output.accept(ModBlocks.MONKEY_HEAD.get());
+
+                        output.accept(ModBlocks.PALM_TREE_LOG.get());
+                        output.accept(ModBlocks.PALM_TREE_WOOD.get());
+                        output.accept(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
+                        output.accept(ModBlocks.STRIPPED_PALM_TREE_WOOD.get());
+                        output.accept(ModBlocks.PALM_TREE_PLANKS.get());
+                        output.accept(ModBlocks.PALM_TREE_LEAVES.get());
+                        output.accept(ModBlocks.PALM_TREE_SAPLING.get());
+                        output.accept(ModBlocks.PALM_TREE_DOOR.get());
+                        output.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+                        output.accept(ModBlocks.PALM_TREE_FENCE.get());
+                        output.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
+                        output.accept(ModBlocks.PALM_TREE_STAIRS.get());
+                        output.accept(ModBlocks.PALM_TREE_SLAB.get());
+                        output.accept(ModBlocks.PALM_TREE_BUTTON.get());
+                        output.accept(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
+
+                        output.accept(ModBlocks.PALM_TREE_SIGN.get());
+                        output.accept(ModBlocks.PALM_TREE_HANGING_SIGN.get());
 
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));
@@ -66,6 +88,7 @@ public class CreativeModeModTab {
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.MONKEY_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
+
 
                     }).build());
 

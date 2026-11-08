@@ -1,0 +1,33 @@
+{
+  "parent": "monkeycraft:monkeycraft/root",
+  "criteria": {
+    "has_banana": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.get_banana.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.get_banana.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_banana"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

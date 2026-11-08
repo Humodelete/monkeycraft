@@ -1,6 +1,7 @@
 package com.clase.monkeycraft;
 
 import com.clase.monkeycraft.block.ModBlocks;
+import com.clase.monkeycraft.block.entity.ModBlockEntities;
 import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.client.*;
@@ -8,13 +9,16 @@ import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
 import com.clase.monkeycraft.potion.ModPotions;
+import com.clase.monkeycraft.worldgen.tree.custom.ModTreePlacers;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import cpw.mods.util.Lazy;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -36,47 +40,36 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(MonkeyCraft.MOD_ID)
 public class MonkeyCraft
 {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "monkeycraft";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MonkeyCraft()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-        //Adds the creative mode tab
-        CreativeModeModTab.register(modEventBus);
 
+        CreativeModeModTab.register(modEventBus);
         ModItems.register(modEventBus);
         ModEntities.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModPotions.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
+        ModTreePlacers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
         modEventBus.addListener(this::registerBindings);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
@@ -85,6 +78,33 @@ public class MonkeyCraft
             event.accept(ModItems.MONKEY_SKULL_T2);
             event.accept(ModItems.MONKEY_SKULL_T3);
             event.accept(ModItems.BANANA_PEEL.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
+            event.accept(ModItems.MONKEY_SPAWN_EGG.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.PALM_TREE_LOG.get());
+            event.accept(ModBlocks.PALM_TREE_WOOD.get());
+            event.accept(ModBlocks.STRIPPED_PALM_TREE_LOG.get());
+            event.accept(ModBlocks.STRIPPED_PALM_TREE_WOOD.get());
+            event.accept(ModBlocks.PALM_TREE_PLANKS.get());
+            event.accept(ModBlocks.PALM_TREE_DOOR.get());
+            event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+            event.accept(ModBlocks.PALM_TREE_FENCE.get());
+            event.accept(ModBlocks.PALM_TREE_FENCE_GATE.get());
+            event.accept(ModBlocks.PALM_TREE_STAIRS.get());
+            event.accept(ModBlocks.PALM_TREE_SLAB.get());
+            event.accept(ModBlocks.MONKEY_HEAD.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(ModItems.PALM_TREE_SIGN.get());
+            event.accept(ModItems.PALM_TREE_HANGING_SIGN.get());
+        }
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModBlocks.PALM_TREE_DOOR.get());
+            event.accept(ModBlocks.PALM_TREE_TRAPDOOR.get());
+            event.accept(ModBlocks.PALM_TREE_BUTTON.get());
+            event.accept(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
         }
         if(event.getTabKey() == CreativeModeTabs.COMBAT){
             event.accept(ModItems.MONKEY_SCEPTER_T0);
@@ -117,24 +137,19 @@ public class MonkeyCraft
             event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
             event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
         }
-
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
@@ -143,6 +158,18 @@ public class MonkeyCraft
             EntityRenderers.register(ModEntities.MONKEY_DART.get(), MonkeyDartRenderer::new);
             EntityRenderers.register(ModEntities.MONKEY_WIZARD.get(), MonkeyWizardRenderer::new);
             EntityRenderers.register(ModEntities.MONKEY_JESTER.get(), MonkeyJesterRenderer::new);
+          
+            event.enqueueWork(() -> {
+                Sheets.addWoodType(ModBlocks.PALM_WOOD_TYPE);
+            });
+        }
+
+        @SubscribeEvent
+        public static void registerRenderers(net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
+
+            // Bloques
+            event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
         }
     }
 
@@ -157,24 +184,21 @@ public class MonkeyCraft
     public void registerBindings(RegisterKeyMappingsEvent event){
         event.register(SCEPTER_KEY.get());
     }
+
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) { // Only call code once as the tick event is called twice every tick
+        if (event.phase == TickEvent.Phase.END) {
             while (SCEPTER_KEY.get().consumeClick()) {
-                // Execute logic to perform on click here
                 String heldItem = String.valueOf(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem()
                         .getName(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND)));
-                /*String scepterIdentifying = "translation{key='item.monkeycraft.monkey_scepter_t%s', args=[]}";
-                for(int i =0; i<4; i++){
-                    scepterIdentifying = scepterIdentifying, i;
-                }*/
+
                 if(heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t0', args=[]}")
-                || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t1', args=[]}")
-                || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t2', args=[]}")
-                || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t3', args=[]}"))
+                        || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t1', args=[]}")
+                        || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t2', args=[]}")
+                        || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t3', args=[]}"))
                 {
                     ScepterItem scepter = (ScepterItem)Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem();
-                    scepter.cicleSelectedPosition();
+                    scepter.cycleSelectedPosition();
                 }
             }
         }

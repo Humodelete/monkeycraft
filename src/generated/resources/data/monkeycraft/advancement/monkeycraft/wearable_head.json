@@ -1,0 +1,35 @@
+{
+  "parent": "monkeycraft:monkeycraft/root",
+  "criteria": {
+    "has_monkey_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.wearable_head.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_head"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.wearable_head.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_monkey_head"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

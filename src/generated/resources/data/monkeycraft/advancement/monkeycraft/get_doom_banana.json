@@ -1,0 +1,33 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_banana",
+  "criteria": {
+    "has_doom_banana": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana_of_doom_and_despair"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.get_doom_banana.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana_of_doom_and_despair"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.get_doom_banana.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_doom_banana"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

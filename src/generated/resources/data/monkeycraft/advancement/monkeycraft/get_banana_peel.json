@@ -1,0 +1,33 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_banana",
+  "criteria": {
+    "has_banana_peel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:banana_peel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.get_banana_peel.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana_peel"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.get_banana_peel.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_banana_peel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

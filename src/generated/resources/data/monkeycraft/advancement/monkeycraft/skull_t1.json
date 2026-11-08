@@ -1,0 +1,33 @@
+{
+  "parent": "monkeycraft:monkeycraft/skull_t0",
+  "criteria": {
+    "has_skull_1": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monkeycraft:monkey_skull_t1"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.skull_t1.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:monkey_skull_t1"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.skull_t1.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_skull_1"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

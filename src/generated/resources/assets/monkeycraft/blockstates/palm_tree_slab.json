@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "monkeycraft:block/palm_tree_slab"
+    },
+    "type=double": {
+      "model": "monkeycraft:block/palm_tree_planks"
+    },
+    "type=top": {
+      "model": "monkeycraft:block/palm_tree_slab_top"
+    }
+  }
+}

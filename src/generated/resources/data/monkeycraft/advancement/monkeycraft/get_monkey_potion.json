@@ -1,0 +1,38 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_banana_peel",
+  "criteria": {
+    "has_monkey_potion": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "minecraft:potion_contents": {
+                "potion": "monkeycraft:monkey_potion"
+              }
+            },
+            "items": "minecraft:potion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.get_monkey_potion.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:potion"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.get_monkey_potion.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_monkey_potion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

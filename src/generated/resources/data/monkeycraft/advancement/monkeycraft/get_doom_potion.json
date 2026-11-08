@@ -1,0 +1,39 @@
+{
+  "parent": "monkeycraft:monkeycraft/get_doom_banana",
+  "criteria": {
+    "has_doom_potion": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "minecraft:potion_contents": {
+                "potion": "monkeycraft:doom_potion"
+              }
+            },
+            "items": "minecraft:potion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.monkeycraft.get_doom_potion.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "monkeycraft:banana_of_doom_and_despair"
+    },
+    "title": {
+      "translate": "advancement.monkeycraft.get_doom_potion.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_doom_potion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
