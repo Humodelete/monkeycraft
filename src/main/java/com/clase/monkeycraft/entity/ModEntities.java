@@ -4,6 +4,7 @@ import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
+import com.clase.monkeycraft.entity.custom.MonkeyWizardEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -26,6 +27,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<MonkeyDartEntity>> MONKEY_DART =
             ENTITY_TYPES.register("monkey_dart", () -> EntityType.Builder.of(MonkeyDartEntity::new, MobCategory.CREATURE)
                     .sized(0.75f, 1.25f).build("monkey_dart"));
+
+    public static final RegistryObject<EntityType<MonkeyWizardEntity>> MONKEY_WIZARD =
+            ENTITY_TYPES.register("monkey_wizard", () -> EntityType.Builder.of(MonkeyWizardEntity::new, MobCategory.CREATURE)
+                    .sized(0.9f, 1.4f).build("monkey_wizard"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

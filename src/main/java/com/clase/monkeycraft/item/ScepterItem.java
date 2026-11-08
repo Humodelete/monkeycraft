@@ -4,6 +4,7 @@ package com.clase.monkeycraft.item;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
+import com.clase.monkeycraft.entity.custom.MonkeyWizardEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -73,10 +74,10 @@ public class ScepterItem extends TieredItem {
             Player player = context.getPlayer();
 
             MonkeyDartEntity monkeyDart = ModEntities.MONKEY_DART.get().create(dimension);
-            Slime slime = EntityType.SLIME.create(dimension);
+            MonkeyWizardEntity monkeyWizard = ModEntities.MONKEY_WIZARD.get().create(dimension);
             MonkeyTankEntity monkeyTank = ModEntities.MONKEY_TANK.get().create(dimension);
             Skeleton skeleton = EntityType.SKELETON.create(dimension);
-            Entity[] summons = {monkeyDart, slime, monkeyTank, skeleton};
+            Entity[] summons = {monkeyDart, monkeyWizard, monkeyTank, skeleton};
 
 
             if (summons[selectedPosition] != null &&
