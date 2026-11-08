@@ -3,10 +3,7 @@ package com.clase.monkeycraft;
 import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
-import com.clase.monkeycraft.entity.client.MonkeyDartRenderer;
-import com.clase.monkeycraft.entity.client.MonkeyRenderer;
-import com.clase.monkeycraft.entity.client.MonkeyTankRenderer;
-import com.clase.monkeycraft.entity.client.MonkeyWizardRenderer;
+import com.clase.monkeycraft.entity.client.*;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
@@ -145,6 +142,7 @@ public class MonkeyCraft
             EntityRenderers.register(ModEntities.MONKEY_TANK.get(), MonkeyTankRenderer::new);
             EntityRenderers.register(ModEntities.MONKEY_DART.get(), MonkeyDartRenderer::new);
             EntityRenderers.register(ModEntities.MONKEY_WIZARD.get(), MonkeyWizardRenderer::new);
+            EntityRenderers.register(ModEntities.MONKEY_JESTER.get(), MonkeyJesterRenderer::new);
         }
     }
 

@@ -2,14 +2,8 @@ package com.clase.monkeycraft.event;
 
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.entity.ModEntities;
-import com.clase.monkeycraft.entity.client.MonkeyDartModel;
-import com.clase.monkeycraft.entity.client.MonkeyModel;
-import com.clase.monkeycraft.entity.client.MonkeyTankModel;
-import com.clase.monkeycraft.entity.client.MonkeyWizardModel;
-import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
-import com.clase.monkeycraft.entity.custom.MonkeyEntity;
-import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
-import com.clase.monkeycraft.entity.custom.MonkeyWizardEntity;
+import com.clase.monkeycraft.entity.client.*;
+import com.clase.monkeycraft.entity.custom.*;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -27,6 +21,7 @@ public class ModEventBusEvents {
         event.registerLayerDefinition(MonkeyTankModel.LAYER_LOCATION, MonkeyTankModel::createBodyLayer);
         event.registerLayerDefinition(MonkeyDartModel.LAYER_LOCATION, MonkeyDartModel::createBodyLayer);
         event.registerLayerDefinition(MonkeyWizardModel.LAYER_LOCATION, MonkeyWizardModel::createBodyLayer);
+        event.registerLayerDefinition(MonkeyJesterModel.LAYER_LOCATION, MonkeyJesterModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -35,6 +30,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.MONKEY_TANK.get(), MonkeyTankEntity.createAttributes().build());
         event.put(ModEntities.MONKEY_DART.get(), MonkeyDartEntity.createAttributes().build());
         event.put(ModEntities.MONKEY_WIZARD.get(), MonkeyWizardEntity.createAttributes().build());
+        event.put(ModEntities.MONKEY_JESTER.get(), MonkeyJesterEntity.createAttributes().build());
     }
 
     @SubscribeEvent

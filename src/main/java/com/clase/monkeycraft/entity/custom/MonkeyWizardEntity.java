@@ -41,7 +41,7 @@ public class MonkeyWizardEntity extends TamableAnimal implements RangedAttackMob
 
         this.goalSelector.addGoal(1, new MonkeyWizardAttackGoal(this, 1.0D));
 
-        this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F));
+        this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 0.75D, 10.0F, 2.0F));
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this){
             @Override
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
