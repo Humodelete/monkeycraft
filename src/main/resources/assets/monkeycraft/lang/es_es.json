@@ -22,7 +22,9 @@
 
   "entity.monkeycraft.monkey": "Mono",
   "entity.monkeycraft.monkey_tank": "Mono Tanque",
-  "entity.monkeycraft.monkey_dart": "Mono Lanzadardos",
+  "entity.monkeycraft.monkey_dart": "Mono Dardo",
+  "entity.monkeycraft.monkey_wizard": "Mono Mago",
+  "entity.monkeycraft.monkey_jester": "Mono Bufón",
 
   "block.monkeycraft.monkey_head": "Cabeza de mono",
   "item.monkeycraft.monkey_spawn_egg": "Huevo generador de mono",

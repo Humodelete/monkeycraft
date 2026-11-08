@@ -4,9 +4,7 @@ import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.block.entity.ModBlockEntities;
 import com.clase.monkeycraft.effect.ModEffects;
 import com.clase.monkeycraft.entity.ModEntities;
-import com.clase.monkeycraft.entity.client.MonkeyDartRenderer;
-import com.clase.monkeycraft.entity.client.MonkeyRenderer;
-import com.clase.monkeycraft.entity.client.MonkeyTankRenderer;
+import com.clase.monkeycraft.entity.client.*;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
@@ -155,18 +153,19 @@ public class MonkeyCraft
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
+            EntityRenderers.register(ModEntities.MONKEY.get(), MonkeyRenderer::new);
+            EntityRenderers.register(ModEntities.MONKEY_TANK.get(), MonkeyTankRenderer::new);
+            EntityRenderers.register(ModEntities.MONKEY_DART.get(), MonkeyDartRenderer::new);
+            EntityRenderers.register(ModEntities.MONKEY_WIZARD.get(), MonkeyWizardRenderer::new);
+            EntityRenderers.register(ModEntities.MONKEY_JESTER.get(), MonkeyJesterRenderer::new);
+          
             event.enqueueWork(() -> {
                 Sheets.addWoodType(ModBlocks.PALM_WOOD_TYPE);
             });
         }
 
-        // Integración perfecta: Tus carteles + Los monos de tu amigo
         @SubscribeEvent
         public static void registerRenderers(net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
-            // Entidades
-            event.registerEntityRenderer(ModEntities.MONKEY.get(), MonkeyRenderer::new);
-            event.registerEntityRenderer(ModEntities.MONKEY_TANK.get(), MonkeyTankRenderer::new);
-            event.registerEntityRenderer(ModEntities.MONKEY_DART.get(), MonkeyDartRenderer::new);
 
             // Bloques
             event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);

@@ -15,6 +15,8 @@ import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
@@ -44,9 +46,9 @@ public class MonkeyDartEntity extends TamableAnimal implements RangedAttackMob {
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this){
             @Override
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
-                // if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
-                // || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJockerEntity) {
-                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity) {
+                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
+                        || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJesterEntity
+                        || potentialTarget instanceof Wolf || potentialTarget instanceof Cat) {
                     return false;
                 }
                 return super.canAttack(potentialTarget, targetingConditions);
@@ -55,9 +57,9 @@ public class MonkeyDartEntity extends TamableAnimal implements RangedAttackMob {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this) {
             @Override
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
-                // if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
-                // || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJockerEntity) {
-                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity) {
+                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
+                        || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJesterEntity
+                        || potentialTarget instanceof Wolf || potentialTarget instanceof Cat) {
                     return false;
                 }
                 return super.canAttack(potentialTarget, targetingConditions);
@@ -66,9 +68,9 @@ public class MonkeyDartEntity extends TamableAnimal implements RangedAttackMob {
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this) {
             @Override
             protected boolean canAttack(@Nullable LivingEntity potentialTarget, TargetingConditions targetingConditions) {
-                // if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
-                // || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJockerEntity) {
-                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity) {
+                if(potentialTarget instanceof MonkeyTankEntity || potentialTarget instanceof MonkeyDartEntity
+                        || potentialTarget instanceof MonkeyWizardEntity || potentialTarget instanceof MonkeyJesterEntity
+                        || potentialTarget instanceof Wolf || potentialTarget instanceof Cat) {
                     return false;
                 }
                 return super.canAttack(potentialTarget, targetingConditions);

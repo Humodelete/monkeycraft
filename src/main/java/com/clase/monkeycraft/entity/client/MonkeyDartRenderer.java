@@ -2,7 +2,6 @@ package com.clase.monkeycraft.entity.client;
 
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
-import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

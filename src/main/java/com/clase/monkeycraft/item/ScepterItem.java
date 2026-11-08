@@ -3,8 +3,9 @@ package com.clase.monkeycraft.item;
 
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.entity.custom.MonkeyDartEntity;
-import com.clase.monkeycraft.entity.custom.MonkeyEntity;
+import com.clase.monkeycraft.entity.custom.MonkeyJesterEntity;
 import com.clase.monkeycraft.entity.custom.MonkeyTankEntity;
+import com.clase.monkeycraft.entity.custom.MonkeyWizardEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -75,7 +76,11 @@ public class ScepterItem extends TieredItem {
             BlockPos pos = context.getClickedPos();
             Player player = context.getPlayer();
 
-            MonkeyDartEntity dartMonkey = ModEntities.MONKEY_DART.get().create(dimension);
+            MonkeyDartEntity monkeyDart = ModEntities.MONKEY_DART.get().create(dimension);
+            MonkeyWizardEntity monkeyWizard = ModEntities.MONKEY_WIZARD.get().create(dimension);
+            MonkeyTankEntity monkeyTank = ModEntities.MONKEY_TANK.get().create(dimension);
+            MonkeyJesterEntity monkeyJester = ModEntities.MONKEY_JESTER.get().create(dimension);
+            Entity[] summons = {monkeyDart, monkeyWizard, monkeyTank, monkeyJester};
 
             //Watch out for this one monkey when leaving the upper line as I used the word mage out of prediction for the future word, it may not be that one
             //MonkeyMageEntity mageMonkey = ModEntities.MONKEY_MAGE.get().create(dimension);
