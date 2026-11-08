@@ -155,6 +155,7 @@ public class MonkeyJesterModel<T extends MonkeyJesterEntity> extends Hierarchica
 
         this.animateWalk(MonkeyJesterAnimations.ANIM_MONKEY_JESTER_WALK, limbSwing, limbSwingAmount, 1.5F, 4.0F);
         this.animate(entity.castAnimationState, MonkeyJesterAnimations.ANIM_MONKEY_JESTER_CAST, ageInTicks, 1F);
+        this.animate(entity.idleAnimationStates, MonkeyJesterAnimations.ANIM_MONKEY_JESTER_RANDOM, ageInTicks, 1F);
     }
 
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch) {

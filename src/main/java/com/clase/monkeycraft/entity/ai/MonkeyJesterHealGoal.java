@@ -85,6 +85,7 @@ public class MonkeyJesterHealGoal extends Goal {
     }
 
     private void healTargets() {
+        monkeyJester.lastActionTick = monkeyJester.tickCount;
         for (LivingEntity e : findTargets()) { // se buscan ahora, no al inicio
             e.heal(HEAL_AMOUNT);
             if (monkeyJester.level() instanceof ServerLevel serverLevel) {
