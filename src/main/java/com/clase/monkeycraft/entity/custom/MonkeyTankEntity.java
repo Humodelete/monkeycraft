@@ -146,7 +146,7 @@ public class MonkeyTankEntity extends TamableAnimal {
 
     @Override
     public void playAmbientSound() {
-        if (this.hurtTime == 0 && !this.isAttacking()) {
+        if (this.hurtTime == 0) {
             super.playAmbientSound();
         }
     }

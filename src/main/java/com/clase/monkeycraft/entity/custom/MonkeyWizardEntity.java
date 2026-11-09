@@ -185,11 +185,16 @@ public class MonkeyWizardEntity extends TamableAnimal implements RangedAttackMob
     }
     @Override
     public void playAmbientSound() {
-        if (this.hurtTime == 0 && !this.isAttacking()) {
+        if (this.hurtTime == 0) {
             super.playAmbientSound();
         }
     }
 
+    @Override
+    @Nullable
+    protected net.minecraft.sounds.SoundEvent getAmbientSound() {
+        return com.clase.monkeycraft.sound.ModSounds.MONKEY_IDLE.get();
+    }
     @Override
     public int getAmbientSoundInterval() {
         return 200;
