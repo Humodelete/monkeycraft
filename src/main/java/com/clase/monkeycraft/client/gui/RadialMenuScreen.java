@@ -1,19 +1,26 @@
 package com.clase.monkeycraft.client.gui;
 
 import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.item.ModItems;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
 public class RadialMenuScreen extends Screen {
     private static final ResourceLocation RADIAL_BG = ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/gui/radial_bg.png");
     private int selectedSector = -1;
     private int maxTier = 0;
+
+    private LivingEntity dummyT0;
+    private LivingEntity dummyT1;
+    private LivingEntity dummyT2;
+    private LivingEntity dummyT3;
 
     public RadialMenuScreen() {
         super(Component.translatable("gui.monkeycraft.radial.title"));
@@ -27,6 +34,13 @@ public class RadialMenuScreen extends Screen {
         else if (heldItem.is(ModItems.MONKEY_SCEPTER_T2.get())) maxTier = 2;
         else if (heldItem.is(ModItems.MONKEY_SCEPTER_T1.get())) maxTier = 1;
         else maxTier = 0;
+
+        if (this.minecraft.level != null) {
+            dummyT0 = ModEntities.MONKEY_DART.get().create(this.minecraft.level);
+            dummyT1 = ModEntities.MONKEY_WIZARD.get().create(this.minecraft.level);
+            dummyT2 = ModEntities.MONKEY_TANK.get().create(this.minecraft.level);
+            dummyT3 = ModEntities.MONKEY_JESTER.get().create(this.minecraft.level);
+        }
     }
 
     private int getTierForSector(int sector) {
@@ -46,19 +60,15 @@ public class RadialMenuScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
+        int bgSize = 256;
+        int halfBg = bgSize / 2; // Radio de 128 píxeles
+
         guiGraphics.fill(0, 0, this.width, this.height, 0x60000000);
 
-        PoseStack pose = guiGraphics.pose();
-        pose.pushPose();
-        pose.translate(centerX, centerY, 0);
-        pose.scale(1.25F, 1.25F, 1.0F);
-        guiGraphics.blit(RADIAL_BG, -64, -64, 0, 0, 128, 128, 128, 128);
-        pose.popPose();
-
-        int bgScreenRadius = (int) (64 * 1.25F);
+        guiGraphics.blit(RADIAL_BG, centerX - halfBg, centerY - halfBg, 0, 0, bgSize, bgSize, bgSize, bgSize);
 
         double distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
-        if (distance < 25 || distance > bgScreenRadius + 5) {
+        if (distance < 55 || distance > halfBg + 10) {
             selectedSector = -1;
         } else {
             double angle = Math.toDegrees(Math.atan2(mouseY - centerY, mouseX - centerX));
@@ -67,26 +77,26 @@ public class RadialMenuScreen extends Screen {
             selectedSector = (int) (adjustedAngle / 90);
         }
 
-        drawSectorItem(guiGraphics, new ItemStack(ModItems.MONKEY_SCEPTER_T0.get()), centerX, centerY, 3);
-        drawSectorItem(guiGraphics, new ItemStack(ModItems.MONKEY_SCEPTER_T1.get()), centerX, centerY, 0);
-        drawSectorItem(guiGraphics, new ItemStack(ModItems.MONKEY_SCEPTER_T2.get()), centerX, centerY, 1);
-        drawSectorItem(guiGraphics, new ItemStack(ModItems.MONKEY_SCEPTER_T3.get()), centerX, centerY, 2);
+        drawSectorEntity(guiGraphics, dummyT0, centerX, centerY, 3, mouseX, mouseY);
+        drawSectorEntity(guiGraphics, dummyT1, centerX, centerY, 0, mouseX, mouseY);
+        drawSectorEntity(guiGraphics, dummyT2, centerX, centerY, 1, mouseX, mouseY);
+        drawSectorEntity(guiGraphics, dummyT3, centerX, centerY, 2, mouseX, mouseY);
 
         if (selectedSector != -1) {
             int selectedTier = getTierForSector(selectedSector);
             if (selectedTier <= maxTier) {
-                guiGraphics.drawCenteredString(this.font, Component.translatable("gui.monkeycraft.radial.summon_level", selectedTier), centerX, centerY - bgScreenRadius - 20, 0xFFFFFF);
+                guiGraphics.drawCenteredString(this.font, Component.translatable("gui.monkeycraft.radial.summon_level", selectedTier), centerX, centerY - halfBg - 20, 0xFFFFFF);
             } else {
-                guiGraphics.drawCenteredString(this.font, Component.translatable("gui.monkeycraft.radial.locked", selectedTier), centerX, centerY - bgScreenRadius - 20, 0xFF5555);
+                guiGraphics.drawCenteredString(this.font, Component.translatable("gui.monkeycraft.radial.locked", selectedTier), centerX, centerY - halfBg - 20, 0xFF5555);
             }
         }
     }
 
-    private void drawSectorItem(GuiGraphics guiGraphics, ItemStack stack, int centerX, int centerY, int sector) {
+    private void drawSectorEntity(GuiGraphics guiGraphics, LivingEntity entity, int centerX, int centerY, int sector, int mouseX, int mouseY) {
+        if (entity == null) return;
+
         float angle = (float) Math.toRadians(sector * 90);
-
-        int itemRadius = 52;
-
+        int itemRadius = 96;
         int itemX = centerX + (int) (Math.cos(angle) * itemRadius);
         int itemY = centerY + (int) (Math.sin(angle) * itemRadius);
 
@@ -95,18 +105,17 @@ public class RadialMenuScreen extends Screen {
 
         if (sector == selectedSector) {
             int highlightColor = isUnlocked ? 0x55FFFFFF : 0x55FF0000;
-            guiGraphics.fill(itemX - 14, itemY - 14, itemX + 14, itemY + 14, highlightColor);
+            guiGraphics.fill(itemX - 30, itemY - 30, itemX + 30, itemY + 30, highlightColor);
         }
 
-        PoseStack pose = guiGraphics.pose();
-        pose.pushPose();
-        pose.translate(itemX, itemY, 0);
-        pose.scale(1.5F, 1.5F, 1.0F);
-        guiGraphics.renderItem(stack, -8, -8);
-        pose.popPose();
+        if (!isUnlocked) {
+            guiGraphics.setColor(0.0F, 0.0F, 0.0F, 1.0F);
+        }
+
+        InventoryScreen.renderEntityInInventoryFollowsMouse(guiGraphics, itemX - 40, itemY - 50, itemX + 40, itemY + 30, 30, 0.0f, mouseX, mouseY, entity);
 
         if (!isUnlocked) {
-            guiGraphics.fill(itemX - 12, itemY - 12, itemX + 12, itemY + 12, 0xAA000000);
+            guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
 
