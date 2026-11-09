@@ -1,6 +1,8 @@
-// 1.21	2026-11-06T23:03:08.7557725	Item Models: monkeycraft
+// 1.21	2026-11-09T12:24:37.8074929	Item Models: monkeycraft
 9ebb94dd9bc96dc9e3810515559fe98515f707a3 assets/monkeycraft/models/item/monkey_head.json
+447f562daee451237967c5545e6d513899a778cf assets/monkeycraft/models/item/palm_tree_boat.json
 d7f88517bd32352440c2552f25eb1100cdd5491d assets/monkeycraft/models/item/palm_tree_button.json
+e93dbf955a61b14eabecd32281a2870e1a0e5ed5 assets/monkeycraft/models/item/palm_tree_chest_boat.json
 57971c4d528712239688d3a91245d0dfb0002a68 assets/monkeycraft/models/item/palm_tree_door.json
 f44776e4e1c498ae2e617dcb0c60d4eb7ffe1aa1 assets/monkeycraft/models/item/palm_tree_fence.json
 5bb6d3931fb47b0754f14a8b26e89fc1002413d6 assets/monkeycraft/models/item/palm_tree_fence_gate.json

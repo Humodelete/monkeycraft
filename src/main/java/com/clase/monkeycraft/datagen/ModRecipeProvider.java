@@ -113,5 +113,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModBlocks.PALM_TREE_PLANKS.get())
                 .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
                 .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, ModItems.PALM_TREE_BOAT.get())
+                .pattern("# #")
+                .pattern("###")
+                .define('#', ModBlocks.PALM_TREE_PLANKS.get())
+                .unlockedBy(getHasName(ModBlocks.PALM_TREE_PLANKS.get()), has(ModBlocks.PALM_TREE_PLANKS.get()))
+                .save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, ModItems.PALM_TREE_CHEST_BOAT.get())
+                .requires(ModItems.PALM_TREE_BOAT.get())
+                .requires(net.minecraft.world.item.Items.CHEST)
+                .unlockedBy(getHasName(ModItems.PALM_TREE_BOAT.get()), has(ModItems.PALM_TREE_BOAT.get()))
+                .save(pRecipeOutput);
     }
 }

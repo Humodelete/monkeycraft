@@ -3,6 +3,7 @@ package com.clase.monkeycraft.item;
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.block.ModBlocks;
 import com.clase.monkeycraft.entity.ModEntities;
+import com.clase.monkeycraft.item.custom.ModBoatItem;
 import com.clase.monkeycraft.util.ModScepterTiers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
@@ -59,6 +60,12 @@ public class ModItems {
             () -> new BananaItem(new Item.Properties().food(ModFoodProperties.DOOM_AND_DESPAIR)));
     public static final RegistryObject<Item> BANANA = ITEMS.register("banana",
             () -> new BananaItem(new Item.Properties().food(ModFoodProperties.BANANA)));
+
+    public static final RegistryObject<Item> PALM_TREE_BOAT = ITEMS.register("palm_tree_boat",
+            () -> new ModBoatItem(false, new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> PALM_TREE_CHEST_BOAT = ITEMS.register("palm_tree_chest_boat",
+            () -> new ModBoatItem(true, new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
