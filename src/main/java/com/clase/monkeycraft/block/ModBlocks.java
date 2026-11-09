@@ -84,7 +84,12 @@ public class ModBlocks {
             });
 
     public static final RegistryObject<Block> PALM_TREE_SAPLING = registerBlock("palm_tree_sapling",
-            () -> new SaplingBlock(ModTreeGrowers.PALM, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            () -> new SaplingBlock(ModTreeGrowers.PALM, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)) {
+                @Override
+                protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+                    return super.mayPlaceOn(pState, pLevel, pPos) || pState.is(net.minecraft.tags.BlockTags.SAND);
+                }
+            });
 
     public static final RegistryObject<Block> PALM_TREE_DOOR = registerBlock("palm_tree_door",
             () -> new DoorBlock(PALM_SET_TYPE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)));
