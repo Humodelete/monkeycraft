@@ -121,5 +121,11 @@
   "advancement.monkeycraft.scepter_t2.title": "Cetro Potenciado",
   "advancement.monkeycraft.scepter_t2.desc": "Mejora el cetro al Nivel 2.",
   "advancement.monkeycraft.scepter_t3.title": "Cetro del Rey Simio",
-  "advancement.monkeycraft.scepter_t3.desc": "Desata todo el poder del cetro de Nivel 3."
+  "advancement.monkeycraft.scepter_t3.desc": "Desata todo el poder del cetro de Nivel 3.",
+
+  "key.monkeycraft.open_radial": "Abrir menú de invocación",
+
+  "gui.monkeycraft.radial.title": "Menú de Invocación",
+  "gui.monkeycraft.radial.summon_level": "Invocación seleccionada: Nivel %s",
+  "gui.monkeycraft.radial.locked": "Bloqueado (Requiere Cetro Nivel %s)"
 }

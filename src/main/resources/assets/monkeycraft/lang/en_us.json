@@ -122,5 +122,10 @@
   "advancement.monkeycraft.scepter_t2.desc": "Upgrade the scepter to Tier 2.",
   "advancement.monkeycraft.scepter_t3.title": "Scepter of the Ape King",
   "advancement.monkeycraft.scepter_t3.desc": "Unleash the full power of the Tier 3 scepter.",
-  "key.monkeycraft.open_radial": "Summon"
+
+  "key.monkeycraft.open_radial": "Open Summon Menu",
+
+  "gui.monkeycraft.radial.title": "Summon Menu",
+  "gui.monkeycraft.radial.summon_level": "Selected Summon: Tier %s",
+  "gui.monkeycraft.radial.locked": "Locked (Requires Scepter Tier %s)"
 }
