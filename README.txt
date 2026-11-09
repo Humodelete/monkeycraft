@@ -44,3 +44,5 @@ Community Documentation: https://docs.minecraftforge.net/en/latest/gettingstarte
 LexManos' Install Video: https://youtu.be/8VEdtQLuLO0
 Forge Forums: https://forums.minecraftforge.net/
 Forge Discord: https://discord.minecraftforge.net/
+
+The textures for the palm tree wood are from the mod Biomes o' plenty, the leaves from the palm tree are from Tropicraft and the banana peel from Alex's mobs. The rest of the textures (PixelArt, 2D and 3D models) are original
