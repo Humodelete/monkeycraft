@@ -79,6 +79,7 @@ public class MonkeyCraft
             net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModItems.BANANA.get(), 0.65F);
             net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModItems.BANANA_PEEL.get(), 0.65F);
         });
+        com.clase.monkeycraft.network.ModMessages.register();
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)

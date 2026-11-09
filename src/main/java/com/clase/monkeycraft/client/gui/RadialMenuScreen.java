@@ -129,7 +129,8 @@ public class RadialMenuScreen extends Screen {
         if (selectedSector != -1 && button == 0) {
             int tier = getTierForSector(selectedSector);
             if (tier <= maxTier) {
-                System.out.println("Has elegido el Mono: " + tier);
+                com.clase.monkeycraft.network.ModMessages.sendToServer(new com.clase.monkeycraft.network.ScepterTierPacket(tier));
+
                 this.minecraft.setScreen(null);
                 return true;
             }

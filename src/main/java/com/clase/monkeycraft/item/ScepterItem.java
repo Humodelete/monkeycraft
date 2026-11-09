@@ -224,4 +224,17 @@ public class ScepterItem extends TieredItem {
         }
         return super.isValidRepairItem(toRepair, repair);
     }
+    public void setSelectedPosition(int newPosition, Player player) {
+        if (newPosition <= this.maxPositions) {
+            this.selectedPosition = newPosition;
+            if (player != null) {
+                switch (this.selectedPosition) {
+                    case 0 -> player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", Component.translatable("entity.monkeycraft.monkey_dart")));
+                    case 1 -> player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", Component.translatable("entity.monkeycraft.monkey_wizard")));
+                    case 2 -> player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", Component.translatable("entity.monkeycraft.monkey_tank")));
+                    case 3 -> player.sendSystemMessage(Component.translatable("message.monkeycraft.selected", Component.translatable("entity.monkeycraft.monkey_jester")));
+                }
+            }
+        }
+    }
 }
