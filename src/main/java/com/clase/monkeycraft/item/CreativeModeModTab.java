@@ -60,6 +60,8 @@ public class CreativeModeModTab {
 
                         output.accept(ModBlocks.PALM_TREE_SIGN.get());
                         output.accept(ModBlocks.PALM_TREE_HANGING_SIGN.get());
+                        output.accept(ModItems.PALM_TREE_BOAT.get());
+                        output.accept(ModItems.PALM_TREE_CHEST_BOAT.get());
 
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.DOOM_POTION.getHolder().get()));
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.LONG_DOOM_POTION.getHolder().get()));

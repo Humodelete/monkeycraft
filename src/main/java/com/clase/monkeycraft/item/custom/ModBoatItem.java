@@ -72,4 +72,8 @@ public class ModBoatItem extends Item {
             }
         }
     }
+    @Override
+    public int getBurnTime(ItemStack itemStack, @org.jetbrains.annotations.Nullable net.minecraft.world.item.crafting.RecipeType<?> recipeType) {
+        return 1200;
+    }
 }

@@ -8,6 +8,7 @@ import com.clase.monkeycraft.entity.client.*;
 import com.clase.monkeycraft.item.CreativeModeModTab;
 import com.clase.monkeycraft.item.ModItems;
 import com.clase.monkeycraft.item.ScepterItem;
+import com.clase.monkeycraft.item.custom.ModBoatItem;
 import com.clase.monkeycraft.potion.ModPotions;
 import com.clase.monkeycraft.sound.ModSounds;
 import com.clase.monkeycraft.worldgen.tree.custom.ModTreePlacers;
@@ -146,6 +147,10 @@ public class MonkeyCraft
             event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.LONG_MONKEY_POTION.getHolder().get()));
             event.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STRONG_MONKEY_POTION.getHolder().get()));
         }
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.PALM_TREE_BOAT.get());
+            event.accept(ModItems.PALM_TREE_CHEST_BOAT.get());
+        }
     }
 
     @SubscribeEvent
@@ -175,10 +180,21 @@ public class MonkeyCraft
 
         @SubscribeEvent
         public static void registerRenderers(net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
-
-            // Bloques
             event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
+            event.registerEntityRenderer(ModEntities.PALM_TREE_BOAT_ENTITY.get(), context -> new ModBoatRenderer(context, false));
+            event.registerEntityRenderer(ModEntities.PALM_TREE_CHEST_BOAT_ENTITY.get(), context -> new ModBoatRenderer(context, true));
+        }
+
+        @SubscribeEvent
+        public static void registerLayerDefinitions(net.minecraftforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(
+                            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "boat/palm_tree"), "main"),
+                    net.minecraft.client.model.BoatModel::createBodyModel);
+
+            event.registerLayerDefinition(new net.minecraft.client.model.geom.ModelLayerLocation(
+                            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "chest_boat/palm_tree"), "main"),
+                    net.minecraft.client.model.ChestBoatModel::createBodyModel);
         }
     }
 

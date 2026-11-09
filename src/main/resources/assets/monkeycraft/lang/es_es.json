@@ -85,6 +85,11 @@
   "block.monkeycraft.palm_tree_button": "Botón de palmera",
   "block.monkeycraft.palm_tree_pressure_plate": "Placa de presión de palmera",
 
+  "item.monkeycraft.palm_tree_boat": "Barco de palmera",
+  "item.monkeycraft.palm_tree_chest_boat": "Barco de palmera con cofre",
+  "entity.monkeycraft.palm_tree_boat": "Barco de palmera",
+  "entity.monkeycraft.palm_tree_chest_boat": "Barco de palmera con cofre",
+
   "advancement.monkeycraft.root.title": "MonkeyCraft",
   "advancement.monkeycraft.root.desc": "Bienvenido a la jungla.",
   "advancement.monkeycraft.get_banana.title": "¡Oh, Plátano!",
