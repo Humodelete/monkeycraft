@@ -123,6 +123,12 @@ public class MonkeyJesterEntity extends TamableAnimal {
     }
 
     @Override
+    @Nullable
+    protected net.minecraft.sounds.SoundEvent getAmbientSound() {
+        return com.clase.monkeycraft.sound.ModSounds.MONKEY_IDLE.get();
+    }
+
+    @Override
     public int getAmbientSoundInterval() {
         return 200;
     }

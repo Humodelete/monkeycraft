@@ -110,9 +110,15 @@ public class MonkeyEntity extends Animal {
     }
     @Override
     public void playAmbientSound() {
-        if (this.hurtTime == 0 && !this.isAttacking()) {
+        if (this.hurtTime == 0) {
             super.playAmbientSound();
         }
+    }
+
+    @Override
+    @Nullable
+    protected net.minecraft.sounds.SoundEvent getAmbientSound() {
+        return com.clase.monkeycraft.sound.ModSounds.MONKEY_IDLE.get();
     }
 
     @Override

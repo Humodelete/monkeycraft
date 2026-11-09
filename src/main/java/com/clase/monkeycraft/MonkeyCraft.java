@@ -22,6 +22,7 @@ import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -78,6 +79,7 @@ public class MonkeyCraft
             net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModItems.BANANA.get(), 0.65F);
             net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModItems.BANANA_PEEL.get(), 0.65F);
         });
+        com.clase.monkeycraft.network.ModMessages.register();
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
@@ -208,21 +210,31 @@ public class MonkeyCraft
     @SubscribeEvent
     public void registerBindings(RegisterKeyMappingsEvent event){
         event.register(SCEPTER_KEY.get());
+        event.register(MENU_KEY.get());
     }
+
+    public static final Lazy<KeyMapping> MENU_KEY = Lazy.of (() ->
+            new KeyMapping("key.monkeycraft.open_radial",
+                    KeyConflictContext.IN_GAME,
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_LEFT_ALT,
+                    "key.categories.monkeycraft.key_category"));
 
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            while (SCEPTER_KEY.get().consumeClick()) {
-                String heldItem = String.valueOf(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem()
-                        .getName(Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND)));
 
-                if(heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t0', args=[]}")
-                        || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t1', args=[]}")
-                        || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t2', args=[]}")
-                        || heldItem.equals("translation{key='item.monkeycraft.monkey_scepter_t3', args=[]}"))
-                {
-                    ScepterItem scepter = (ScepterItem)Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem();
+            Player player = Minecraft.getInstance().player;
+            if (player == null) return;
+
+            while (MENU_KEY.get().consumeClick()) {
+                if (player.getMainHandItem().getItem() instanceof ScepterItem) {
+                    Minecraft.getInstance().setScreen(new com.clase.monkeycraft.client.gui.RadialMenuScreen());
+                }
+            }
+
+            while (SCEPTER_KEY.get().consumeClick()) {
+                if (player.getMainHandItem().getItem() instanceof ScepterItem scepter) {
                     scepter.cycleSelectedPosition();
                 }
             }
