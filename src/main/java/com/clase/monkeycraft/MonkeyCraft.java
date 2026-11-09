@@ -71,6 +71,12 @@ public class MonkeyCraft
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(() -> {
+            net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModBlocks.PALM_TREE_SAPLING.get().asItem(), 0.3F);
+            net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModBlocks.PALM_TREE_LEAVES.get().asItem(), 0.3F);
+            net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModItems.BANANA.get(), 0.65F);
+            net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES.put(ModItems.BANANA_PEEL.get(), 0.65F);
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
@@ -161,7 +167,7 @@ public class MonkeyCraft
             EntityRenderers.register(ModEntities.MONKEY_DART.get(), MonkeyDartRenderer::new);
             EntityRenderers.register(ModEntities.MONKEY_WIZARD.get(), MonkeyWizardRenderer::new);
             EntityRenderers.register(ModEntities.MONKEY_JESTER.get(), MonkeyJesterRenderer::new);
-          
+
             event.enqueueWork(() -> {
                 Sheets.addWoodType(ModBlocks.PALM_WOOD_TYPE);
             });

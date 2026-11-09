@@ -1,3 +1,11 @@
-// 1.21	2026-11-06T16:20:44.3484683	Tags for minecraft:item mod id monkeycraft
+// 1.21	2026-11-09T09:19:22.0287375	Tags for minecraft:item mod id monkeycraft
+54f9a470c1de19b745bffde06c403e6acb033be9 data/minecraft/tags/item/fence_gates.json
 1c07a94c9b5208263a22e8319fea26ac55c0b354 data/minecraft/tags/item/logs_that_burn.json
 17130c89959e9edbaf17b3964eb0ad4dcea04f93 data/minecraft/tags/item/planks.json
+e3032cec5a4339f8399434b51edc8ec16aa0dd32 data/minecraft/tags/item/wooden_buttons.json
+bdbbfeb800361f64b9125d4a4e75f83ca5f0f193 data/minecraft/tags/item/wooden_doors.json
+9d273b4ef6468aff077e70babbd00fee3aec9505 data/minecraft/tags/item/wooden_fences.json
+881c6afc38216988f379f9242e8d91b1f396db43 data/minecraft/tags/item/wooden_pressure_plates.json
+bb3f98f65c6f8ea86f23eb7ec3e3782e2b612bdd data/minecraft/tags/item/wooden_slabs.json
+fbfbfd2ec9def272d54a69f223ae232067f53b4b data/minecraft/tags/item/wooden_stairs.json
+f921a8d4f1a4bbfcac3bf7991a7ad59fa5b16148 data/minecraft/tags/item/wooden_trapdoors.json

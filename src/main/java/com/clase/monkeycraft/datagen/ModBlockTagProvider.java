@@ -35,18 +35,22 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.WOODEN_STAIRS)
                 .addTag(BlockTags.WOODEN_SLABS)
                 .addTag(BlockTags.WOODEN_BUTTONS)
-                .addTag(BlockTags.WOODEN_PRESSURE_PLATES);
+                .addTag(BlockTags.WOODEN_PRESSURE_PLATES)
+                .addTag(BlockTags.WOODEN_DOORS)
+                .addTag(BlockTags.WOODEN_TRAPDOORS);
 
+        this.tag(BlockTags.PLANKS)
+                .add(ModBlocks.PALM_TREE_PLANKS.get());
         this.tag(BlockTags.WOODEN_FENCES).add(ModBlocks.PALM_TREE_FENCE.get());
         this.tag(BlockTags.FENCE_GATES).add(ModBlocks.PALM_TREE_FENCE_GATE.get());
         this.tag(BlockTags.WOODEN_STAIRS).add(ModBlocks.PALM_TREE_STAIRS.get());
         this.tag(BlockTags.WOODEN_SLABS).add(ModBlocks.PALM_TREE_SLAB.get());
         this.tag(BlockTags.WOODEN_BUTTONS).add(ModBlocks.PALM_TREE_BUTTON.get());
         this.tag(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.PALM_TREE_PRESSURE_PLATE.get());
+        this.tag(BlockTags.WOODEN_DOORS).add(ModBlocks.PALM_TREE_DOOR.get());
+        this.tag(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.PALM_TREE_TRAPDOOR.get());
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(ModBlocks.PALM_TREE_LEAVES.get());
-
-
     }
 }

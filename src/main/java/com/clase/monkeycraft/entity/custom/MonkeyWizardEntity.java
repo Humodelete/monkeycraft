@@ -139,7 +139,7 @@ public class MonkeyWizardEntity extends TamableAnimal implements RangedAttackMob
     public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
         if(pTarget == null) return;
 
-        if(this.getRandom().nextFloat() < 0.2F) { //20% lightning, 80% fireball
+        if(this.getRandom().nextFloat() < 0.3F) { //20% lightning, 80% fireball
             castLightning(pTarget);
         } else {
             shootFireball(pTarget);

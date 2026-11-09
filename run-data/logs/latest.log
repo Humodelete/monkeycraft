@@ -1,31 +1,31 @@
-[09nov2026 01:37:22.759] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\Caima\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, monkeycraft, --all, --output, C:\Users\Caima\Documents\MonkeyCraft\src\generated\resources, --existing, C:\Users\Caima\Documents\MonkeyCraft\src\main\resources]
-[09nov2026 01:37:22.767] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Alibaba OpenJDK 64-Bit Server VM 21.0.11.0.11
-[09nov2026 01:37:22.769] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.11.0.11 by Alibaba; OS Windows 11 arch amd64 version 10.0
-[09nov2026 01:37:22.879] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[09nov2026 01:37:22.970] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/Caima/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[09nov2026 01:37:23.878] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[09nov2026 01:37:24.624] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\Caima\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, monkeycraft, --all, --output, C:\Users\Caima\Documents\MonkeyCraft\src\generated\resources, --existing, C:\Users\Caima\Documents\MonkeyCraft\src\main\resources]
-[09nov2026 01:37:30.565] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
-[09nov2026 01:37:30.565] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
-[09nov2026 01:37:30.623] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[09nov2026 01:37:31.250] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [monkeycraft]
-[09nov2026 01:37:31.336] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Caima/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_official_1.21/forge-1.21-51.0.33_mapped_official_1.21-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[09nov2026 01:37:31.337] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Caima/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_official_1.21/forge-1.21-51.0.33_mapped_official_1.21-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[09nov2026 01:37:31.469] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[09nov2026 01:37:31.649] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 179 ms
-[09nov2026 01:37:31.649] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id monkeycraft
-[09nov2026 01:37:31.671] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id monkeycraft finished after 20 ms
-[09nov2026 01:37:31.671] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id monkeycraft
-[09nov2026 01:37:31.673] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id monkeycraft finished after 1 ms
-[09nov2026 01:37:31.673] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: monkeycraft
-[09nov2026 01:37:31.894] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: monkeycraft finished after 220 ms
-[09nov2026 01:37:31.894] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: monkeycraft
-[09nov2026 01:37:31.898] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: monkeycraft finished after 3 ms
-[09nov2026 01:37:31.898] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[09nov2026 01:37:31.911] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 13 ms
-[09nov2026 01:37:31.911] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[09nov2026 01:37:31.958] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 47 ms
-[09nov2026 01:37:31.959] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
-[09nov2026 01:37:31.984] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 25 ms
-[09nov2026 01:37:31.984] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 516 ms
-[09nov2026 01:37:31.992] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 154, old count: 154, new count: 155, removed stale: 0, written: 0
+[09nov2026 09:35:26.013] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\Caiman32\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, monkeycraft, --all, --output, C:\Users\Caiman32\Documents\MonkeyCraft\src\generated\resources, --existing, C:\Users\Caiman32\Documents\MonkeyCraft\src\main\resources]
+[09nov2026 09:35:26.016] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[09nov2026 09:35:26.017] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[09nov2026 09:35:26.108] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[09nov2026 09:35:26.203] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/Caiman32/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[09nov2026 09:35:26.882] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[09nov2026 09:35:27.593] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\Caiman32\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, monkeycraft, --all, --output, C:\Users\Caiman32\Documents\MonkeyCraft\src\generated\resources, --existing, C:\Users\Caiman32\Documents\MonkeyCraft\src\main\resources]
+[09nov2026 09:35:32.191] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
+[09nov2026 09:35:32.191] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
+[09nov2026 09:35:32.211] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[09nov2026 09:35:32.798] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [monkeycraft]
+[09nov2026 09:35:32.867] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Caiman32/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_official_1.21/forge-1.21-51.0.33_mapped_official_1.21-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[09nov2026 09:35:32.868] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Caiman32/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_official_1.21/forge-1.21-51.0.33_mapped_official_1.21-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[09nov2026 09:35:33.002] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[09nov2026 09:35:33.187] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 184 ms
+[09nov2026 09:35:33.187] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id monkeycraft
+[09nov2026 09:35:33.211] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id monkeycraft finished after 22 ms
+[09nov2026 09:35:33.211] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id monkeycraft
+[09nov2026 09:35:33.214] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id monkeycraft finished after 2 ms
+[09nov2026 09:35:33.214] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: monkeycraft
+[09nov2026 09:35:33.439] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: monkeycraft finished after 224 ms
+[09nov2026 09:35:33.439] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: monkeycraft
+[09nov2026 09:35:33.444] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: monkeycraft finished after 3 ms
+[09nov2026 09:35:33.444] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[09nov2026 09:35:33.458] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 13 ms
+[09nov2026 09:35:33.458] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[09nov2026 09:35:33.497] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 38 ms
+[09nov2026 09:35:33.497] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
+[09nov2026 09:35:33.520] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 23 ms
+[09nov2026 09:35:33.521] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 519 ms
+[09nov2026 09:35:33.526] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 165, old count: 165, new count: 166, removed stale: 0, written: 0
