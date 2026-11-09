@@ -33,6 +33,14 @@ public class ModEntities {
             ENTITY_TYPES.register("monkey_jester", () -> EntityType.Builder.of(MonkeyJesterEntity::new, MobCategory.CREATURE)
                     .sized(1.0f, 1.5f).build("monkey_jester"));
 
+    public static final RegistryObject<EntityType<ModBoatEntity>> PALM_TREE_BOAT_ENTITY =
+            ENTITY_TYPES.register("palm_tree_boat", () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)
+                    .sized(1.375F, 0.5625F).clientTrackingRange(10).build("palm_tree_boat"));
+
+    public static final RegistryObject<EntityType<ModChestBoatEntity>> PALM_TREE_CHEST_BOAT_ENTITY =
+            ENTITY_TYPES.register("palm_tree_chest_boat", () -> EntityType.Builder.<ModChestBoatEntity>of(ModChestBoatEntity::new, MobCategory.MISC)
+                    .sized(1.375F, 0.5625F).clientTrackingRange(10).build("palm_tree_chest_boat"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

@@ -85,6 +85,11 @@
   "block.monkeycraft.palm_tree_button": "Palm Tree Button",
   "block.monkeycraft.palm_tree_pressure_plate": "Palm Tree Pressure Plate",
 
+  "item.monkeycraft.palm_tree_boat": "Palm Tree Boat",
+  "item.monkeycraft.palm_tree_chest_boat": "Palm Tree Boat with Chest",
+  "entity.monkeycraft.palm_tree_boat": "Palm Tree Boat",
+  "entity.monkeycraft.palm_tree_chest_boat": "Palm Tree Boat with Chest",
+
   "advancement.monkeycraft.root.title": "MonkeyCraft",
   "advancement.monkeycraft.root.desc": "Welcome to the jungle.",
   "advancement.monkeycraft.get_banana.title": "Oh, Banana!",

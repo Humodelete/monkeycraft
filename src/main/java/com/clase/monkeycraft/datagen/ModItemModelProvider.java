@@ -42,6 +42,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         buttonItem(ModBlocks.PALM_TREE_BUTTON, ModBlocks.PALM_TREE_PLANKS);
         basicItem(ModItems.PALM_TREE_SIGN.get());
         basicItem(ModItems.PALM_TREE_HANGING_SIGN.get());
+        basicItem(ModItems.PALM_TREE_BOAT.get());
+        basicItem(ModItems.PALM_TREE_CHEST_BOAT.get());
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {

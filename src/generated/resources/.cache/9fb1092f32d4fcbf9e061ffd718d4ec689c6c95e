@@ -1,4 +1,4 @@
-// 1.21	2026-11-06T22:07:38.8562961	Recipes
+// 1.21	2026-11-09T12:24:37.8054923	Recipes
 90a6b5c8c896dc945aa690ff7c6ce5dbcc3deb11 data/monkeycraft/advancement/recipes/building_blocks/palm_tree_planks.json
 672785f602d02e2a4f0535e96f06ae62c81409ab data/monkeycraft/advancement/recipes/building_blocks/palm_tree_planks_from_wood.json
 a3f350663fdb04468df4318da5a92f53ee57c28f data/monkeycraft/advancement/recipes/building_blocks/palm_tree_slab.json
@@ -12,7 +12,11 @@ bffbf8bf2d758b0a26a86d4da100574701416297 data/monkeycraft/advancement/recipes/re
 21ba28e359d6bb3b6cc1241884ae6b24f480248e data/monkeycraft/advancement/recipes/redstone/palm_tree_fence_gate.json
 83d04297897d29c1ad5169fe7c0dd76973632322 data/monkeycraft/advancement/recipes/redstone/palm_tree_pressure_plate.json
 0b6cfa05881c76c56be2f59f4efb8080c0df4945 data/monkeycraft/advancement/recipes/redstone/palm_tree_trapdoor.json
+17c71af22bc8f4fc65e897709dcf8fc9e1ab705e data/monkeycraft/advancement/recipes/transportation/palm_tree_boat.json
+439fb14f1db692856515f864a8fbffc965aa33e4 data/monkeycraft/advancement/recipes/transportation/palm_tree_chest_boat.json
+09824dc4901bc415ecde2c4b46d20b7814d902d2 data/monkeycraft/recipe/palm_tree_boat.json
 1c87aa0d03e8d9c7445e38cda82a53ff056b02c9 data/monkeycraft/recipe/palm_tree_button.json
+e1f1247398266fe4a07008f8ab82e6b617de06ca data/monkeycraft/recipe/palm_tree_chest_boat.json
 b46f76f1060b9e6f7b732e6b3ff70e65f923f5a5 data/monkeycraft/recipe/palm_tree_door.json
 766bd0c44a0aaa1f446a918541509d6c90d1ce91 data/monkeycraft/recipe/palm_tree_fence.json
 cab48850e0fd4f966a8dc45421c8036033d66d80 data/monkeycraft/recipe/palm_tree_fence_gate.json
