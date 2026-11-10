@@ -3,6 +3,8 @@ package com.clase.monkeycraft.client.gui;
 import com.clase.monkeycraft.MonkeyCraft;
 import com.clase.monkeycraft.entity.ModEntities;
 import com.clase.monkeycraft.item.ModItems;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
@@ -14,6 +16,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class RadialMenuScreen extends Screen {
     private static final ResourceLocation RADIAL_BG = ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/gui/radial_bg.png");
+    private static final ResourceLocation RADIAL_HOVER = ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/gui/radial_hover.png");
+
     private int selectedSector = -1;
     private int maxTier = 0;
 
@@ -59,22 +63,46 @@ public class RadialMenuScreen extends Screen {
 
         int centerX = this.width / 2;
         int centerY = this.height / 2;
-
         int bgSize = 256;
-        int halfBg = bgSize / 2; // Radio de 128 píxeles
+        int halfBg = bgSize / 2;
 
         guiGraphics.fill(0, 0, this.width, this.height, 0x60000000);
 
         guiGraphics.blit(RADIAL_BG, centerX - halfBg, centerY - halfBg, 0, 0, bgSize, bgSize, bgSize, bgSize);
 
         double distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
-        if (distance < 55 || distance > halfBg + 10) {
+
+        if (distance < 15 || distance > halfBg + 5) {
             selectedSector = -1;
         } else {
             double angle = Math.toDegrees(Math.atan2(mouseY - centerY, mouseX - centerX));
             if (angle < 0) angle += 360;
             double adjustedAngle = (angle + 45) % 360;
             selectedSector = (int) (adjustedAngle / 90);
+        }
+
+        if (selectedSector != -1) {
+            int selectedTier = getTierForSector(selectedSector);
+
+            guiGraphics.pose().pushPose();
+            guiGraphics.pose().translate(centerX, centerY, 0);
+
+            guiGraphics.pose().mulPose(Axis.ZP.rotationDegrees(selectedSector * 90));
+
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
+
+            if (selectedTier <= maxTier) {
+                guiGraphics.setColor(1.0F, 1.0F, 1.0F, 0.2F);
+            } else {
+                guiGraphics.setColor(1.0F, 0.2F, 0.2F, 0.3F);
+            }
+
+            guiGraphics.blit(RADIAL_HOVER, -128, -128, 0, 0, 256, 256, 256, 256);
+
+            RenderSystem.disableBlend();
+            guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
+            guiGraphics.pose().popPose();
         }
 
         drawSectorEntity(guiGraphics, dummyT0, centerX, centerY, 3, mouseX, mouseY);
@@ -96,23 +124,46 @@ public class RadialMenuScreen extends Screen {
         if (entity == null) return;
 
         float angle = (float) Math.toRadians(sector * 90);
-        int itemRadius = 96;
+
+        int itemRadius = 55;
+        int offsetY = 0;
+        int scale = 30;
+
+        // Configurador individual por sector para ajustes de posición y TAMAÑO
+        switch (sector) {
+            case 3: // Mono Dardo (Arriba)
+                itemRadius = 55;
+                offsetY = 5;
+                scale = 36;
+                break;
+            case 0: // Mono Mago (Derecha)
+                itemRadius = 65;
+                offsetY = 8;
+                scale = 41;
+                break;
+            case 1: // Mono Tanque (Abajo)
+                itemRadius = 55;
+                offsetY = 12;
+                scale = 24;
+                break;
+            case 2: // Mono Bufón (Izquierda)
+                itemRadius = 65;
+                offsetY = 8;
+                scale = 36;
+                break;
+        }
+
         int itemX = centerX + (int) (Math.cos(angle) * itemRadius);
-        int itemY = centerY + (int) (Math.sin(angle) * itemRadius);
+        int itemY = centerY + (int) (Math.sin(angle) * itemRadius) + offsetY;
 
         int tier = getTierForSector(sector);
         boolean isUnlocked = tier <= maxTier;
-
-        if (sector == selectedSector) {
-            int highlightColor = isUnlocked ? 0x55FFFFFF : 0x55FF0000;
-            guiGraphics.fill(itemX - 30, itemY - 30, itemX + 30, itemY + 30, highlightColor);
-        }
 
         if (!isUnlocked) {
             guiGraphics.setColor(0.0F, 0.0F, 0.0F, 1.0F);
         }
 
-        InventoryScreen.renderEntityInInventoryFollowsMouse(guiGraphics, itemX - 40, itemY - 50, itemX + 40, itemY + 30, 30, 0.0f, mouseX, mouseY, entity);
+        InventoryScreen.renderEntityInInventoryFollowsMouse(guiGraphics, itemX - 40, itemY - 50, itemX + 40, itemY + 30, scale, 0.0f, mouseX, mouseY, entity);
 
         if (!isUnlocked) {
             guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -130,7 +181,6 @@ public class RadialMenuScreen extends Screen {
             int tier = getTierForSector(selectedSector);
             if (tier <= maxTier) {
                 com.clase.monkeycraft.network.ModMessages.sendToServer(new com.clase.monkeycraft.network.ScepterTierPacket(tier));
-
                 this.minecraft.setScreen(null);
                 return true;
             }
