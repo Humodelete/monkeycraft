@@ -42,20 +42,27 @@ public class SummonCircleRenderer extends EntityRenderer<SummonCircleEntity> {
         float size = 1.5F;
         int tier = Math.max(0, Math.min(3, entity.getMonkeyTier()));
 
-        VertexConsumer coreConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(INSIDE_RUNES[tier]));
-        drawQuad(poseStack.last().pose(), coreConsumer, size, packedLight);
+        float time = entity.tickCount + partialTick;
 
         poseStack.pushPose();
-        float time = entity.tickCount + partialTick;
-        float angle = time * 5.0F;
+        float insideAngle = -time * 2.0F; // Giro inverso (negativo) y velocidad lenta (2.0)
+        poseStack.mulPose(Axis.ZP.rotationDegrees(insideAngle));
 
-        poseStack.mulPose(Axis.ZP.rotationDegrees(angle));
+        VertexConsumer coreConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(INSIDE_RUNES[tier]));
+        drawQuad(poseStack.last().pose(), coreConsumer, size, packedLight);
+        poseStack.popPose();
+
+
+        poseStack.pushPose();
+        float outsideAngle = time * 5.0F; // Giro normal (positivo) y velocidad rápida (5.0)
+        poseStack.mulPose(Axis.ZP.rotationDegrees(outsideAngle));
+
         poseStack.translate(0.0D, 0.0D, -0.01D);
 
         VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(OUTSIDE_RUNES[tier]));
         drawQuad(poseStack.last().pose(), baseConsumer, size, packedLight);
-
         poseStack.popPose();
+
         poseStack.popPose();
 
         super.render(entity, entityYaw, partialTick, poseStack, buffer, packedLight);
