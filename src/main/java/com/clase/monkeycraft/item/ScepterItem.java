@@ -79,17 +79,10 @@ public class ScepterItem extends TieredItem {
         if (this.scepterId == null) {
             this.scepterId = UUID.randomUUID().toString();
         }
-        if (!context.getLevel().isClientSide()) {
-            Level dimension = context.getLevel();
+        Level dimension = context.getLevel();
+        if (!dimension.isClientSide()) {
             BlockPos pos = context.getClickedPos();
             Player player = context.getPlayer();
-
-            MonkeyDartEntity dartMonkey = ModEntities.MONKEY_DART.get().create(dimension);
-            MonkeyWizardEntity wizardMonkey = ModEntities.MONKEY_WIZARD.get().create(dimension);
-            MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
-            MonkeyJesterEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
-
-            TamableAnimal[] summons = {dartMonkey, wizardMonkey, tankMonkey, jesterMonkey};
 
             int currentCost = 0;
             switch (selectedPosition){
@@ -99,8 +92,7 @@ public class ScepterItem extends TieredItem {
                 case 3 -> currentCost = JESTER_MONKEY_COST;
             }
 
-            if (summons[selectedPosition] != null &&
-                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - currentCost) {
+            if (context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - currentCost) {
 
                 if (selectedPosition == 2 && dimension instanceof ServerLevel serverLevel) {
                     int tankCount = 0;
@@ -120,21 +112,15 @@ public class ScepterItem extends TieredItem {
                     }
                 }
 
-                summons[selectedPosition].moveTo(
-                        pos.getX() + 0.5,
-                        pos.getY() + 1,
-                        pos.getZ() + 0.5
-                );
+                com.clase.monkeycraft.entity.custom.SummonCircleEntity circle = ModEntities.SUMMON_CIRCLE.get().create(dimension);
+                if (circle != null) {
+                    circle.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
 
-                summons[selectedPosition].tame(player);
-                dimension.addFreshEntity(summons[selectedPosition]);
-                this.summonedEntities.add(summons[selectedPosition].getStringUUID());
+                    circle.setMonkeyTier(this.selectedPosition);
 
-                switch(selectedPosition){
-                    case 0 -> context.getItemInHand().hurtAndBreak(DART_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
-                    case 1 -> context.getItemInHand().hurtAndBreak(MAGE_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
-                    case 2 -> context.getItemInHand().hurtAndBreak(TANK_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
-                    case 3 -> context.getItemInHand().hurtAndBreak(JESTER_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    dimension.addFreshEntity(circle);
+
+                    context.getItemInHand().hurtAndBreak(currentCost, player, LivingEntity.getSlotForHand(context.getHand()));
                 }
 
             } else {
