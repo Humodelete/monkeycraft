@@ -26,7 +26,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,7 +33,6 @@ public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
     int maxPositions = 0;
     String scepterId;
-    List<String> summonedEntities;
 
     int DART_MONKEY_COST = 1;
     int MAGE_MONKEY_COST = 2;
@@ -43,7 +41,6 @@ public class ScepterItem extends TieredItem {
 
     public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
-        this.summonedEntities = new ArrayList<>();
         if (tier == ModScepterTiers.TIER_0) {
             this.maxPositions = 0;
         } else if (tier == ModScepterTiers.TIER_1) {
@@ -96,13 +93,17 @@ public class ScepterItem extends TieredItem {
 
                 if (selectedPosition == 2 && dimension instanceof ServerLevel serverLevel) {
                     int tankCount = 0;
-                    for (String uuidStr : this.summonedEntities) {
-                        try {
-                            Entity e = serverLevel.getEntity(UUID.fromString(uuidStr));
-                            if (e instanceof MonkeyTankEntity) {
+                    for (Entity e : serverLevel.getAllEntities()) {
+                        if (e instanceof MonkeyTankEntity tank) {
+                            if (player != null && player.getUUID().equals(tank.getOwnerUUID())) {
                                 tankCount++;
                             }
-                        } catch (Exception ignored) {}
+                        }
+                        else if (e instanceof com.clase.monkeycraft.entity.custom.SummonCircleEntity circle) {
+                            if (circle.getMonkeyTier() == 2 && player != null && player.getUUID().equals(circle.getOwnerId())) {
+                                tankCount++;
+                            }
+                        }
                     }
                     if (tankCount >= 1) {
                         if (player != null) {
@@ -117,10 +118,15 @@ public class ScepterItem extends TieredItem {
                     circle.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
 
                     circle.setMonkeyTier(this.selectedPosition);
+                    if (player != null) {
+                        circle.setOwnerId(player.getUUID());
+                    }
 
                     dimension.addFreshEntity(circle);
 
-                    context.getItemInHand().hurtAndBreak(currentCost, player, LivingEntity.getSlotForHand(context.getHand()));
+                    if (player != null) {
+                        context.getItemInHand().hurtAndBreak(currentCost, player, LivingEntity.getSlotForHand(context.getHand()));
+                    }
                 }
 
             } else {
@@ -134,20 +140,12 @@ public class ScepterItem extends TieredItem {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand interaction) {
-        if (!player.level().isClientSide()) {
-            boolean thisScepter = false;
-            String removeEntity = null;
-            for (String summonEntity : summonedEntities) {
-                if (summonEntity.equals(entity.getStringUUID())) {
-                    thisScepter = true;
-                    removeEntity = entity.getStringUUID();
-                    break;
-                }
-            }
-            if (thisScepter) {
-                int recoverEnergy = 0;
+        if (!player.level().isClientSide() && entity instanceof net.minecraft.world.entity.TamableAnimal tamable) {
 
+            if (player.getUUID().equals(tamable.getOwnerUUID())) {
+                int recoverEnergy = 0;
                 EntityType<?> type = entity.getType();
+
                 if (type == ModEntities.MONKEY_DART.get()) {
                     recoverEnergy = -DART_MONKEY_COST;
                 } else if (type == ModEntities.MONKEY_WIZARD.get()) {
@@ -158,14 +156,15 @@ public class ScepterItem extends TieredItem {
                     recoverEnergy = -JESTER_MONKEY_COST;
                 }
 
-                if (stack.getDamageValue() < -recoverEnergy) {
-                    player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
-                } else {
-                    entity.discard();
-                    stack.hurtAndBreak(recoverEnergy, player, Player.getSlotForHand(interaction));
-                    this.summonedEntities.remove(removeEntity);
+                if (recoverEnergy != 0) {
+                    if (stack.getDamageValue() < -recoverEnergy) {
+                        player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
+                    } else {
+                        entity.discard();
+                        stack.setDamageValue(Math.max(0, stack.getDamageValue() + recoverEnergy));
+                    }
+                    return InteractionResult.SUCCESS;
                 }
-                return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.PASS;

@@ -16,6 +16,14 @@ import net.minecraft.core.particles.ParticleTypes;
 
 public class SummonCircleEntity extends Entity {
     private int maxLifespan = 40;
+    private java.util.UUID ownerId;
+
+    public void setOwnerId(java.util.UUID uuid) {
+        this.ownerId = uuid;
+    }
+    public java.util.UUID getOwnerId() {
+        return this.ownerId;
+    }
 
     private static final EntityDataAccessor<Integer> MONKEY_TIER = SynchedEntityData.defineId(SummonCircleEntity.class, EntityDataSerializers.INT);
 
@@ -84,6 +92,10 @@ public class SummonCircleEntity extends Entity {
 
             if (monkeyToSummon != null) {
                 monkeyToSummon.setPos(this.getX(), this.getY(), this.getZ());
+                if (monkeyToSummon instanceof net.minecraft.world.entity.TamableAnimal tamable && this.ownerId != null) {
+                    tamable.setTame(true, true);
+                    tamable.setOwnerUUID(this.ownerId);
+                }
                 this.level().addFreshEntity(monkeyToSummon);
 
                 this.level().playSound(null, this.blockPosition(), SoundEvents.EVOKER_CAST_SPELL, SoundSource.PLAYERS, 1.0F, 1.0F);
