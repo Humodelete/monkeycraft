@@ -15,8 +15,19 @@ import org.joml.Matrix4f;
 
 public class SummonCircleRenderer extends EntityRenderer<SummonCircleEntity> {
 
-    private static final ResourceLocation CIRCLE_BASE = ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/dart_outside_rune.png");
-    private static final ResourceLocation CIRCLE_CORE = ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/dart_inside_rune.png");
+    private static final ResourceLocation[] OUTSIDE_RUNES = {
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/dart_outside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/wizard_outside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/tank_outside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/jester_outside_rune.png")
+    };
+
+    private static final ResourceLocation[] INSIDE_RUNES = {
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/dart_inside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/wizard_inside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/tank_inside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/jester_inside_rune.png")
+    };
 
     public SummonCircleRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -25,26 +36,23 @@ public class SummonCircleRenderer extends EntityRenderer<SummonCircleEntity> {
     @Override
     public void render(SummonCircleEntity entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
-
         poseStack.translate(0.0D, 0.05D, 0.0D);
-
         poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 
         float size = 1.5F;
+        int tier = Math.max(0, Math.min(3, entity.getMonkeyTier()));
 
-        VertexConsumer coreConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(CIRCLE_CORE));
+        VertexConsumer coreConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(INSIDE_RUNES[tier]));
         drawQuad(poseStack.last().pose(), coreConsumer, size, packedLight);
 
         poseStack.pushPose();
-
         float time = entity.tickCount + partialTick;
         float angle = time * 5.0F;
 
         poseStack.mulPose(Axis.ZP.rotationDegrees(angle));
-
         poseStack.translate(0.0D, 0.0D, -0.01D);
 
-        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(CIRCLE_BASE));
+        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(OUTSIDE_RUNES[tier]));
         drawQuad(poseStack.last().pose(), baseConsumer, size, packedLight);
 
         poseStack.popPose();
@@ -62,6 +70,7 @@ public class SummonCircleRenderer extends EntityRenderer<SummonCircleEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(SummonCircleEntity entity) {
-        return CIRCLE_BASE;
+        int tier = Math.max(0, Math.min(3, entity.getMonkeyTier()));
+        return OUTSIDE_RUNES[tier];
     }
 }
