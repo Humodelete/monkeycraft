@@ -1,0 +1,83 @@
+package com.clase.monkeycraft.entity.client;
+
+import com.clase.monkeycraft.MonkeyCraft;
+import com.clase.monkeycraft.entity.custom.SummonCircleEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
+import org.joml.Matrix4f;
+
+public class SummonCircleRenderer extends EntityRenderer<SummonCircleEntity> {
+
+    private static final ResourceLocation[] OUTSIDE_RUNES = {
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/dart_outside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/wizard_outside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/tank_outside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/jester_outside_rune.png")
+    };
+
+    private static final ResourceLocation[] INSIDE_RUNES = {
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/dart_inside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/wizard_inside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/tank_inside_rune.png"),
+            ResourceLocation.fromNamespaceAndPath(MonkeyCraft.MOD_ID, "textures/entity/summon_circle/jester_inside_rune.png")
+    };
+
+    public SummonCircleRenderer(EntityRendererProvider.Context context) {
+        super(context);
+    }
+
+    @Override
+    public void render(SummonCircleEntity entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+        poseStack.pushPose();
+        poseStack.translate(0.0D, 0.05D, 0.0D);
+        poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+
+        float size = 1.5F;
+        int tier = Math.max(0, Math.min(3, entity.getMonkeyTier()));
+
+        float time = entity.tickCount + partialTick;
+
+        poseStack.pushPose();
+        float insideAngle = -time * 2.0F; // Giro inverso (negativo) y velocidad lenta (2.0)
+        poseStack.mulPose(Axis.ZP.rotationDegrees(insideAngle));
+
+        VertexConsumer coreConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(INSIDE_RUNES[tier]));
+        drawQuad(poseStack.last().pose(), coreConsumer, size, packedLight);
+        poseStack.popPose();
+
+
+        poseStack.pushPose();
+        float outsideAngle = time * 5.0F; // Giro normal (positivo) y velocidad rápida (5.0)
+        poseStack.mulPose(Axis.ZP.rotationDegrees(outsideAngle));
+
+        poseStack.translate(0.0D, 0.0D, -0.01D);
+
+        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityTranslucentCull(OUTSIDE_RUNES[tier]));
+        drawQuad(poseStack.last().pose(), baseConsumer, size, packedLight);
+        poseStack.popPose();
+
+        poseStack.popPose();
+
+        super.render(entity, entityYaw, partialTick, poseStack, buffer, packedLight);
+    }
+
+    private void drawQuad(Matrix4f pose, VertexConsumer consumer, float size, int light) {
+        consumer.addVertex(pose, -size, -size, 0.0F).setColor(255, 255, 255, 255).setUv(0.0F, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light).setNormal(0.0F, 0.0F, 1.0F);
+        consumer.addVertex(pose, -size, size, 0.0F).setColor(255, 255, 255, 255).setUv(0.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light).setNormal(0.0F, 0.0F, 1.0F);
+        consumer.addVertex(pose, size, size, 0.0F).setColor(255, 255, 255, 255).setUv(1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light).setNormal(0.0F, 0.0F, 1.0F);
+        consumer.addVertex(pose, size, -size, 0.0F).setColor(255, 255, 255, 255).setUv(1.0F, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light).setNormal(0.0F, 0.0F, 1.0F);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(SummonCircleEntity entity) {
+        int tier = Math.max(0, Math.min(3, entity.getMonkeyTier()));
+        return OUTSIDE_RUNES[tier];
+    }
+}

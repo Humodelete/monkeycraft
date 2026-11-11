@@ -9,8 +9,11 @@ import com.clase.monkeycraft.util.ModScepterTiers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -26,7 +29,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,7 +36,6 @@ public class ScepterItem extends TieredItem {
     int selectedPosition = 0;
     int maxPositions = 0;
     String scepterId;
-    List<String> summonedEntities;
 
     int DART_MONKEY_COST = 1;
     int MAGE_MONKEY_COST = 2;
@@ -43,7 +44,6 @@ public class ScepterItem extends TieredItem {
 
     public ScepterItem(Tier tier, Item.Properties properties) {
         super(tier, properties.component(DataComponents.TOOL, createToolProperties()));
-        this.summonedEntities = new ArrayList<>();
         if (tier == ModScepterTiers.TIER_0) {
             this.maxPositions = 0;
         } else if (tier == ModScepterTiers.TIER_1) {
@@ -79,17 +79,10 @@ public class ScepterItem extends TieredItem {
         if (this.scepterId == null) {
             this.scepterId = UUID.randomUUID().toString();
         }
-        if (!context.getLevel().isClientSide()) {
-            Level dimension = context.getLevel();
+        Level dimension = context.getLevel();
+        if (!dimension.isClientSide()) {
             BlockPos pos = context.getClickedPos();
             Player player = context.getPlayer();
-
-            MonkeyDartEntity dartMonkey = ModEntities.MONKEY_DART.get().create(dimension);
-            MonkeyWizardEntity wizardMonkey = ModEntities.MONKEY_WIZARD.get().create(dimension);
-            MonkeyTankEntity tankMonkey = ModEntities.MONKEY_TANK.get().create(dimension);
-            MonkeyJesterEntity jesterMonkey = ModEntities.MONKEY_JESTER.get().create(dimension);
-
-            TamableAnimal[] summons = {dartMonkey, wizardMonkey, tankMonkey, jesterMonkey};
 
             int currentCost = 0;
             switch (selectedPosition){
@@ -99,18 +92,21 @@ public class ScepterItem extends TieredItem {
                 case 3 -> currentCost = JESTER_MONKEY_COST;
             }
 
-            if (summons[selectedPosition] != null &&
-                    context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - currentCost) {
+            if (context.getItemInHand().getDamageValue() < context.getItemInHand().getMaxDamage() - currentCost) {
 
                 if (selectedPosition == 2 && dimension instanceof ServerLevel serverLevel) {
                     int tankCount = 0;
-                    for (String uuidStr : this.summonedEntities) {
-                        try {
-                            Entity e = serverLevel.getEntity(UUID.fromString(uuidStr));
-                            if (e instanceof MonkeyTankEntity) {
+                    for (Entity e : serverLevel.getAllEntities()) {
+                        if (e instanceof MonkeyTankEntity tank) {
+                            if (player != null && player.getUUID().equals(tank.getOwnerUUID())) {
                                 tankCount++;
                             }
-                        } catch (Exception ignored) {}
+                        }
+                        else if (e instanceof com.clase.monkeycraft.entity.custom.SummonCircleEntity circle) {
+                            if (circle.getMonkeyTier() == 2 && player != null && player.getUUID().equals(circle.getOwnerId())) {
+                                tankCount++;
+                            }
+                        }
                     }
                     if (tankCount >= 1) {
                         if (player != null) {
@@ -120,21 +116,20 @@ public class ScepterItem extends TieredItem {
                     }
                 }
 
-                summons[selectedPosition].moveTo(
-                        pos.getX() + 0.5,
-                        pos.getY() + 1,
-                        pos.getZ() + 0.5
-                );
+                com.clase.monkeycraft.entity.custom.SummonCircleEntity circle = ModEntities.SUMMON_CIRCLE.get().create(dimension);
+                if (circle != null) {
+                    circle.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
 
-                summons[selectedPosition].tame(player);
-                dimension.addFreshEntity(summons[selectedPosition]);
-                this.summonedEntities.add(summons[selectedPosition].getStringUUID());
+                    circle.setMonkeyTier(this.selectedPosition);
+                    if (player != null) {
+                        circle.setOwnerId(player.getUUID());
+                    }
 
-                switch(selectedPosition){
-                    case 0 -> context.getItemInHand().hurtAndBreak(DART_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
-                    case 1 -> context.getItemInHand().hurtAndBreak(MAGE_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
-                    case 2 -> context.getItemInHand().hurtAndBreak(TANK_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
-                    case 3 -> context.getItemInHand().hurtAndBreak(JESTER_MONKEY_COST, player, LivingEntity.getSlotForHand(context.getHand()));
+                    dimension.addFreshEntity(circle);
+
+                    if (player != null) {
+                        context.getItemInHand().hurtAndBreak(currentCost, player, LivingEntity.getSlotForHand(context.getHand()));
+                    }
                 }
 
             } else {
@@ -145,23 +140,54 @@ public class ScepterItem extends TieredItem {
         }
         return InteractionResult.SUCCESS;
     }
+    @Override
+    public net.minecraft.world.InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+
+        if (player.isCrouching() && !level.isClientSide() && level instanceof ServerLevel serverLevel) {
+            int totalEnergyRecovered = 0;
+            int monkeysRecalled = 0;
+
+            for (Entity e : serverLevel.getAllEntities()) {
+                if (e instanceof net.minecraft.world.entity.TamableAnimal tamable && player.getUUID().equals(tamable.getOwnerUUID())) {
+
+                    int energy = 0;
+                    EntityType<?> type = e.getType();
+
+                    if (type == ModEntities.MONKEY_DART.get()) energy = DART_MONKEY_COST;
+                    else if (type == ModEntities.MONKEY_WIZARD.get()) energy = MAGE_MONKEY_COST;
+                    else if (type == ModEntities.MONKEY_TANK.get()) energy = TANK_MONKEY_COST;
+                    else if (type == ModEntities.MONKEY_JESTER.get()) energy = JESTER_MONKEY_COST;
+
+                    if (energy > 0) {
+                        // Pequeño humo para indicar que se han desinvocado a distancia
+                        serverLevel.sendParticles(ParticleTypes.POOF, e.getX(), e.getY() + 0.5, e.getZ(), 15, 0.5, 0.5, 0.5, 0.05);
+                        e.discard();
+                        totalEnergyRecovered += energy;
+                        monkeysRecalled++;
+                    }
+                }
+            }
+
+            if (monkeysRecalled > 0) {
+                stack.setDamageValue(Math.max(0, stack.getDamageValue() - totalEnergyRecovered));
+                level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                player.sendSystemMessage(Component.literal("§a¡Has retirado " + monkeysRecalled + " invocaciones de golpe!"));
+                return net.minecraft.world.InteractionResultHolder.success(stack);
+            }
+        }
+
+        return super.use(level, player, hand);
+    }
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand interaction) {
-        if (!player.level().isClientSide()) {
-            boolean thisScepter = false;
-            String removeEntity = null;
-            for (String summonEntity : summonedEntities) {
-                if (summonEntity.equals(entity.getStringUUID())) {
-                    thisScepter = true;
-                    removeEntity = entity.getStringUUID();
-                    break;
-                }
-            }
-            if (thisScepter) {
-                int recoverEnergy = 0;
+        if (!player.level().isClientSide() && entity instanceof net.minecraft.world.entity.TamableAnimal tamable) {
 
+            if (player.getUUID().equals(tamable.getOwnerUUID())) {
+                int recoverEnergy = 0;
                 EntityType<?> type = entity.getType();
+
                 if (type == ModEntities.MONKEY_DART.get()) {
                     recoverEnergy = -DART_MONKEY_COST;
                 } else if (type == ModEntities.MONKEY_WIZARD.get()) {
@@ -172,14 +198,28 @@ public class ScepterItem extends TieredItem {
                     recoverEnergy = -JESTER_MONKEY_COST;
                 }
 
-                if (stack.getDamageValue() < -recoverEnergy) {
-                    player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
-                } else {
-                    entity.discard();
-                    stack.hurtAndBreak(recoverEnergy, player, Player.getSlotForHand(interaction));
-                    this.summonedEntities.remove(removeEntity);
+                if (recoverEnergy != 0) {
+                    if (stack.getDamageValue() < -recoverEnergy) {
+                        player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
+                    } else {
+                        if (player.level() instanceof ServerLevel serverLevel) {
+                            if (type == ModEntities.MONKEY_DART.get()) {
+                                serverLevel.sendParticles(ParticleTypes.CLOUD, entity.getX(), entity.getY() + 0.5, entity.getZ(), 30, 0.5, 0.5, 0.5, 0.1);
+                            } else if (type == ModEntities.MONKEY_WIZARD.get()) {
+                                serverLevel.sendParticles(ParticleTypes.WITCH, entity.getX(), entity.getY() + 1.0, entity.getZ(), 50, 0.5, 1.0, 0.5, 0.1);
+                                serverLevel.playSound(null, entity.blockPosition(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                            } else if (type == ModEntities.MONKEY_TANK.get()) {
+                                serverLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY() + 0.5, entity.getZ(), 30, 0.5, 0.5, 0.5, 0.05);
+                            } else if (type == ModEntities.MONKEY_JESTER.get()) {
+                                serverLevel.sendParticles(ParticleTypes.FIREWORK, entity.getX(), entity.getY() + 1.0, entity.getZ(), 30, 0.5, 1.0, 0.5, 0.1);
+                            }
+                        }
+
+                        entity.discard();
+                        stack.setDamageValue(Math.max(0, stack.getDamageValue() + recoverEnergy));
+                    }
+                    return InteractionResult.SUCCESS;
                 }
-                return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.PASS;

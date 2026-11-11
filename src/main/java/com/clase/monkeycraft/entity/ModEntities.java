@@ -41,6 +41,13 @@ public class ModEntities {
             ENTITY_TYPES.register("palm_tree_chest_boat", () -> EntityType.Builder.<ModChestBoatEntity>of(ModChestBoatEntity::new, MobCategory.MISC)
                     .sized(1.375F, 0.5625F).clientTrackingRange(10).build("palm_tree_chest_boat"));
 
+    public static final RegistryObject<EntityType<SummonCircleEntity>> SUMMON_CIRCLE =
+            ENTITY_TYPES.register("summon_circle",
+                    () -> EntityType.Builder.<SummonCircleEntity>of(SummonCircleEntity::new, net.minecraft.world.entity.MobCategory.MISC)
+                            .sized(3.0F, 0.1F)
+                            .clientTrackingRange(10)
+                            .build("summon_circle"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

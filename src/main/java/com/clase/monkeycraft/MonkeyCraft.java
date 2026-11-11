@@ -186,6 +186,7 @@ public class MonkeyCraft
             event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
             event.registerEntityRenderer(ModEntities.PALM_TREE_BOAT_ENTITY.get(), context -> new ModBoatRenderer(context, false));
             event.registerEntityRenderer(ModEntities.PALM_TREE_CHEST_BOAT_ENTITY.get(), context -> new ModBoatRenderer(context, true));
+            event.registerEntityRenderer(ModEntities.SUMMON_CIRCLE.get(), SummonCircleRenderer::new);
         }
 
         @SubscribeEvent
