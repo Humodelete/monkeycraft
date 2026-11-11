@@ -9,8 +9,11 @@ import com.clase.monkeycraft.util.ModScepterTiers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -160,6 +163,19 @@ public class ScepterItem extends TieredItem {
                     if (stack.getDamageValue() < -recoverEnergy) {
                         player.sendSystemMessage(Component.translatable("message.monkeycraft.overcharge"));
                     } else {
+                        if (player.level() instanceof ServerLevel serverLevel) {
+                            if (type == ModEntities.MONKEY_DART.get()) {
+                                serverLevel.sendParticles(ParticleTypes.CLOUD, entity.getX(), entity.getY() + 0.5, entity.getZ(), 30, 0.5, 0.5, 0.5, 0.1);
+                            } else if (type == ModEntities.MONKEY_WIZARD.get()) {
+                                serverLevel.sendParticles(ParticleTypes.WITCH, entity.getX(), entity.getY() + 1.0, entity.getZ(), 50, 0.5, 1.0, 0.5, 0.1);
+                                serverLevel.playSound(null, entity.blockPosition(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                            } else if (type == ModEntities.MONKEY_TANK.get()) {
+                                serverLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY() + 0.5, entity.getZ(), 30, 0.5, 0.5, 0.5, 0.05);
+                            } else if (type == ModEntities.MONKEY_JESTER.get()) {
+                                serverLevel.sendParticles(ParticleTypes.FIREWORK, entity.getX(), entity.getY() + 1.0, entity.getZ(), 30, 0.5, 1.0, 0.5, 0.1);
+                            }
+                        }
+
                         entity.discard();
                         stack.setDamageValue(Math.max(0, stack.getDamageValue() + recoverEnergy));
                     }
