@@ -140,6 +140,45 @@ public class ScepterItem extends TieredItem {
         }
         return InteractionResult.SUCCESS;
     }
+    @Override
+    public net.minecraft.world.InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+
+        if (player.isCrouching() && !level.isClientSide() && level instanceof ServerLevel serverLevel) {
+            int totalEnergyRecovered = 0;
+            int monkeysRecalled = 0;
+
+            for (Entity e : serverLevel.getAllEntities()) {
+                if (e instanceof net.minecraft.world.entity.TamableAnimal tamable && player.getUUID().equals(tamable.getOwnerUUID())) {
+
+                    int energy = 0;
+                    EntityType<?> type = e.getType();
+
+                    if (type == ModEntities.MONKEY_DART.get()) energy = DART_MONKEY_COST;
+                    else if (type == ModEntities.MONKEY_WIZARD.get()) energy = MAGE_MONKEY_COST;
+                    else if (type == ModEntities.MONKEY_TANK.get()) energy = TANK_MONKEY_COST;
+                    else if (type == ModEntities.MONKEY_JESTER.get()) energy = JESTER_MONKEY_COST;
+
+                    if (energy > 0) {
+                        // Pequeño humo para indicar que se han desinvocado a distancia
+                        serverLevel.sendParticles(ParticleTypes.POOF, e.getX(), e.getY() + 0.5, e.getZ(), 15, 0.5, 0.5, 0.5, 0.05);
+                        e.discard();
+                        totalEnergyRecovered += energy;
+                        monkeysRecalled++;
+                    }
+                }
+            }
+
+            if (monkeysRecalled > 0) {
+                stack.setDamageValue(Math.max(0, stack.getDamageValue() - totalEnergyRecovered));
+                level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                player.sendSystemMessage(Component.literal("§a¡Has retirado " + monkeysRecalled + " invocaciones de golpe!"));
+                return net.minecraft.world.InteractionResultHolder.success(stack);
+            }
+        }
+
+        return super.use(level, player, hand);
+    }
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand interaction) {
